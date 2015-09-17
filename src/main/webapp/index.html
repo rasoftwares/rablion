@@ -1,0 +1,40 @@
+<html ng-app="gemsApp">
+<head>
+    <title>Gems App</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+  <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css" />
+
+  <script src="external/jquery/jquery.js"></script>  
+  <script src="external/angular/angular.min.js"></script>
+  <script src="external/angular/angular-route.min.js"></script>
+  <script src="external/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="controllers/expenseCtrl.js"></script>
+    <script src="routes/gems-routes.js"></script>
+    <style>
+    .ng-enter {
+-webkit-transition: all 5s linear;
+-moz-transition: all 5s linear;
+-ms-transition: all 5s linear;
+-o-transition: all 5s linear;
+transition: all 5s linear;
+opacity: 0;
+}
+.ng-enter-active {
+opacity: 1;
+}
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="col-md-12 text-center">
+              <a href="#/" class="brand"> Gems Bank </a>
+            </div>
+            <hr>
+            <div ng-view> </div>
+            <hr>
+        </div>
+    </body>
+</html>
