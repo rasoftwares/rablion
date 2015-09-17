@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.ra.config.AppConfig;
 import com.ra.domain.AppUser;
-import com.ra.domain.Expenses;
+import com.ra.domain.Expense;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {AppConfig.class})
@@ -32,8 +32,8 @@ public class HomeControllerIntegrationTests {
     
     @Test
     public void shouldAdd_Expense_ToDb(){
-        ResponseEntity<Expenses> responseEntity = restTemplate.postForEntity("http://localhost:9000/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expenses.class);
-        final Expenses expenses = responseEntity.getBody();
+        ResponseEntity<Expense> responseEntity = restTemplate.postForEntity("http://localhost:9000/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
+        final Expense expenses = responseEntity.getBody();
         Assertions.assertThat(expenses).isNotNull();
         Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
     }

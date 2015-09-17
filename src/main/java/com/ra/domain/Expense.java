@@ -2,7 +2,7 @@ package com.ra.domain;
 
 import javax.persistence.*;
 
-public class Expenses {
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,15 +12,15 @@ public class Expenses {
     @Column(name = "username", nullable = false)
     private String user;
     
-   public Expenses() {
+   public Expense() {
     	
     }
 
-    public Expenses(String user) {
+    public Expense(String user) {
         this.user = user;
     }
 
-    public Expenses(long id, String user) {
+    public Expense(long id, String user) {
         this.id = id;
         this.user = user;
     }

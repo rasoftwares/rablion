@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ra.domain.AppUser;
-import com.ra.domain.Expenses;
 import com.ra.repository.ExpenseRepository;
 import com.ra.repository.UserRepository;
 
@@ -57,37 +56,4 @@ public class HomeController {
         
         return resultList;
     }
-    
-    
-    @RequestMapping(value = "/expense/{username}/{userid}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Expenses createExpense(@PathVariable String username, @PathVariable String userid) {
-    	System.out.println("UserID :-" + userid);
-    	Expenses exp = new Expenses(username);
-    	
-        return expenseRepository.save(exp);
-    }
-    
-    @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteExpense(@PathVariable Long id) {
-        expenseRepository.delete(id);
-        
-        System.out.println("Expense item " + id  + "deleted successfully");
-    }
-    
-    
-    @RequestMapping(value = "/expense", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Expenses> findExpenses() {
-        final List<Expenses> resultList = new ArrayList<>();
-        final Iterable<Expenses> all = expenseRepository.findAll();
-        //System.out.println("Total Users: " + all.iterator())
-        Iterator<Expenses> all_I = all.iterator();
-        
-        while (all_I.hasNext()) {
-        	Expenses user = (Expenses) all_I.next();
-			resultList.add(user);
-		}
-        
-        return resultList;
-    }
-
 }
