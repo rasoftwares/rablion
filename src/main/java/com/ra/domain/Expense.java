@@ -2,6 +2,7 @@ package com.ra.domain;
 
 import javax.persistence.*;
 
+@Entity
 public class Expense {
 
     @Id

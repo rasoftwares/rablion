@@ -22,7 +22,12 @@ public class ExpenseController {
 
     @Inject
     ExpenseRepository expenseRepository;
-
+    
+    @RequestMapping(value = "/error")
+    public String error() {
+        return "Error handling";
+    }
+    
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String sayHello(){
           return "Hello there !";

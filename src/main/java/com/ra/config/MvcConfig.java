@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"com.ps.controller"})
+@ComponentScan(basePackages = {"com.ra.controller"})
 public class MvcConfig {
 }

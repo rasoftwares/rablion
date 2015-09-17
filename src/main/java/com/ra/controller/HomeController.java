@@ -18,7 +18,7 @@ import com.ra.repository.ExpenseRepository;
 import com.ra.repository.UserRepository;
 
 @RestController
-@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/homecontroller", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HomeController {
 
     @Inject
@@ -27,7 +27,7 @@ public class HomeController {
     @Inject
     ExpenseRepository expenseRepository;
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/hellothere", method = RequestMethod.GET)
     public String sayHello(){
           return "Hello there !";
     }

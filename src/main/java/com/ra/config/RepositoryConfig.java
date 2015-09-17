@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.ps.repository")
+@EnableJpaRepositories(basePackages = "com.ra.repository")
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"com.ps.domain"})
+@EntityScan(basePackages = {"com.ra.domain"})
 public class RepositoryConfig {
 
 }
