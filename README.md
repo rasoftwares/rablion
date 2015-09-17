@@ -1,2 +1,6 @@
-# rablion
-Root Application for all 
+# Rablion 
+Root Application for all modules 
+
+## Modules 
+	- Gems
+	- Loans
