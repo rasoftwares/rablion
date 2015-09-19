@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.ra.domain.Expense;
 
 @Repository
-public interface ExpenseRepository extends CrudRepository<Expense,Long> {
-	
+public interface ExpenseRepository extends CrudRepository<Expense, Long> {
 }
