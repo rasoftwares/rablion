@@ -3,7 +3,7 @@
 ## Pre requisities
 Java 8
 Maven 3.1.x
-Postgresql 9.2
+Postgresql 9.1
 
 ## Postgres Instance Configuration
 In order to use your instance please update the [ Database Configuration Section ] section in ```src/main/resources/dev/application.properties```
