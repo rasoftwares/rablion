@@ -36,9 +36,8 @@ public class ExpenseController {
     
     @RequestMapping(value = "/expense/{username}/{userid}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Expense createExpense(@PathVariable String username, @PathVariable String userid) {
-    	System.out.println("UserID :-" + userid);
+    	System.out.println("UserID :" + userid + ":");
     	Expense exp = new Expense(username);
-    	
         return expenseRepository.save(exp);
     }
     

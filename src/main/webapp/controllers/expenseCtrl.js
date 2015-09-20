@@ -11,7 +11,7 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, r
     $scope.countries= ["India", "China", "Shanghai"];
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
-	$http.get('data/expenses.json').success(function(data) {
+	$http.get('http://localhost:9095/rest/expense').success(function(data) {
             console.log($scope.expenses);
                 if($scope.expenses == undefined){
                     $scope.expenses = data;
