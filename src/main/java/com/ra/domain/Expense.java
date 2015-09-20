@@ -6,14 +6,26 @@ import javax.persistence.*;
 public class Expense {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "username", nullable = false)
     private String user;
     
-   public Expense() {
+    @Column(name = "type", nullable = false)
+    private String type;
+    
+    
+   public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+public Expense() {
     	
     }
 
