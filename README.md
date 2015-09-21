@@ -53,13 +53,18 @@ Running the above GET request will result to an 200 Ok HTTP response and JSON Co
 
 ### Technical References
 *	Web Basics 			-	```http://www.w3schools.com```
+
 *	AngularJS			-	```https://docs.angularjs.org/tutorial```
+
 *	Rest api			- 	```http://javabrains.koushik.org/courses/javaee_jaxrs```
+
 *	Spring Framework 	- ```http://spring.io/```
 
 
 
 ### IDE's and Tools used
 *	BracketsIO			-	```http://brackets.io/```				-	HTML Editor
+
 *	STS					-	```https://spring.io/tools/sts/all```	-	Spring Tools Editor
+
 *	GITHUB				-	```www.github.com```					-	Version Control
