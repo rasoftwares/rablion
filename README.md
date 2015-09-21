@@ -49,5 +49,18 @@ the url must be URL_ENCODED before making the request (notice the %20 which enco
 
 ### List All Users
 ```curl "http://localhost:9095/user"```
-running the above GET request will result to an 200 Ok HTTP response and JSON Content-Type of Application/json and a list (maybe empty) of all users in DB
+Running the above GET request will result to an 200 Ok HTTP response and JSON Content-Type of Application/json and a list (maybe empty) of all users in DB
 
+### Technical References
+Web Basics 			-	```http://www.w3schools.com```
+AngularJS			-	```https://docs.angularjs.org/tutorial```
+
+Rest api			- 	```http://javabrains.koushik.org/courses/javaee_jaxrs```
+Spring Framework 	- ```http://spring.io/```
+
+
+
+### IDE's and Tools used
+BracketsIO			-	```http://brackets.io/```				-	HTML Editor
+STS					-	```https://spring.io/tools/sts/all```	-	Spring Tools Editor
+GITHUB				-	```www.github.com```					-	Version Control

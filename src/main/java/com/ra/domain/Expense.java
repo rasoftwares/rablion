@@ -50,7 +50,7 @@ public class Expense {
 		this.type = type;
 	}
 
-public Expense() {
+	public Expense() {
     	
     }
 
