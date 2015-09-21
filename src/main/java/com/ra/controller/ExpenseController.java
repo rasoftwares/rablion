@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,12 @@ public class ExpenseController {
     	System.out.println("UserID :" + userid + ":");
     	Expense exp = new Expense(username);
         return expenseRepository.save(exp);
+    }
+    
+    @RequestMapping(value = "/expense", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Expense createExpense(@RequestBody Expense expense) {
+    	System.out.println("Expense from UI :" + expense + ":");
+        return expenseRepository.save(expense);
     }
     
     @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)

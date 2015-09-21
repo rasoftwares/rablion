@@ -2,10 +2,14 @@ package com.ra.domain;
 
 import java.sql.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Expense {
+public class Expense extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,8 +61,18 @@ public class Expense {
     public Expense(String user) {
         this.user = user;
     }
+    
 
-    public Expense(long id, String user) {
+    public Expense(Long id, String user, Date date, Double amount, String type) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.date = date;
+		this.amount = amount;
+		this.type = type;
+	}
+
+	public Expense(long id, String user) {
         this.id = id;
         this.user = user;
     }
@@ -78,6 +92,8 @@ public class Expense {
 	public void setUser(String user) {
 		this.user = user;
 	}
-    
-   
+	
+	public static void main(String a[]){
+		System.out.println(new Expense(1L,"demouser",new Date(System.currentTimeMillis()),1234.56,"Food"));
+	}
 }
