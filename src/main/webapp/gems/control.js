@@ -4,7 +4,7 @@ var gemsApp = angular.module('gemsApp',['ngRoute']);
 //TODO: Move this to a common place
 var expense_URL = 'rest/expense';
 
-gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, rtmFactory) {
+gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     
     $scope.users= ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
     $scope.expenseTypes= ["Travel", "Food", "Hotel", "Show-case", "Mobile", "Others"];
