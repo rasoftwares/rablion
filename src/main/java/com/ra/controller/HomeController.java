@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ra.domain.AppUser;
+import com.ra.domain.Appuser;
 import com.ra.repository.ExpenseRepository;
 import com.ra.repository.UserRepository;
 
@@ -33,20 +33,21 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/user/{username}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public AppUser create(@PathVariable String username) {
-        return userRepository.save(new AppUser(username));
+    public Appuser create(@PathVariable String username) {
+        return userRepository.save(new Appuser(username));
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AppUser> findAll() {
-        final List<AppUser> resultList = new ArrayList<>();
-        final Iterable<AppUser> all = userRepository.findAll();
-        //System.out.println("Total Users: " + all.iterator())
-        Iterator<AppUser> all_I = all.iterator();
+    public List<Appuser> findAll() {
+        final List<Appuser> resultList = new ArrayList<>();
+        final Iterable<Appuser> all = userRepository.findAll();
+        
+        Iterator<Appuser> all_I = all.iterator();
         while (all_I.hasNext()) {
-			AppUser user = (AppUser) all_I.next();
+        	Appuser user = (Appuser) all_I.next();
 			resultList.add(user);
 		}
+        
         /*all.forEach(new Consumer<AppUser>() {
             @Override
             public void accept(AppUser appUser) {

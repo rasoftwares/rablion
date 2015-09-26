@@ -1,9 +1,10 @@
 // JavaScript Document
 var gemsApp = angular.module('gemsApp',['ngRoute']);
 
+//TODO: Move this to a common place
+var expense_URL = 'rest/expense';
+
 gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, rtmFactory) {
-    
-    //$scope.countries = rtmFactory.getCountries();
     
     $scope.users= ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
     $scope.expenseTypes= ["Travel", "Food", "Hotel", "Show-case", "Mobile", "Others"];
@@ -11,7 +12,8 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, r
     $scope.countries= ["India", "China", "Shanghai"];
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
-	$http.get('http://localhost:9095/rest/expense').success(function(data) {
+    /* Read */
+	$http.get(expense_URL).success(function(data) {
             console.log($scope.expenses);
                 if($scope.expenses == undefined){
                     $scope.expenses = data;
@@ -19,10 +21,10 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, r
                 else{
                     //no need to do anything right now...as the data is temporarily stored in the javascript array
                 }
-		});	
-	
+		});
 	$scope.expenseForm_add_error = "";
 	
+	/* Create */
 	$scope.addExpense = function(newExpense) {
 		
         //TODO: Add validations here
@@ -35,6 +37,8 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http, r
 		$scope.newExpense={};
 	}
 	
+	
+	/* Delete */
 	$scope.deleteExpense = function(index) {
 		
         for(i=0; i < $scope.expenses.length; i++) {

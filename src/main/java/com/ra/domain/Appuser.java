@@ -3,24 +3,24 @@ package com.ra.domain;
 import javax.persistence.*;
 
 @Entity
-public class AppUser {
+public class Appuser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "username", nullable = false)
     private String username;
 
-    public AppUser() {
+    public Appuser() {
     }
 
-    public AppUser(String username) {
+    public Appuser(String username) {
         this.username = username;
     }
 
-    public AppUser(long id, String username) {
+    public Appuser(long id, String username) {
         this.id = id;
         this.username = username;
     }

@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.ra.config.AppConfig;
-import com.ra.domain.AppUser;
+import com.ra.domain.Appuser;
 import com.ra.domain.Expense;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,15 +24,15 @@ public class HomeControllerIntegrationTests {
 
     @Test
     public void shouldAdd_AppUser_ToDb(){
-        ResponseEntity<AppUser> responseEntity = restTemplate.postForEntity("http://localhost:9000/user/Abderrazak BOUADMA", MockHttpServletRequest.DEFAULT_PROTOCOL, AppUser.class);
-        final AppUser appUser = responseEntity.getBody();
+        ResponseEntity<Appuser> responseEntity = restTemplate.postForEntity("http://localhost:9000/homecontroller/user/Abderrazak BOUADMA", MockHttpServletRequest.DEFAULT_PROTOCOL, Appuser.class);
+        final Appuser appUser = responseEntity.getBody();
         Assertions.assertThat(appUser).isNotNull();
         Assertions.assertThat(appUser.getUsername()).isNotNull().isEqualTo("Abderrazak BOUADMA");
     }
     
     @Test
     public void shouldAdd_Expense_ToDb(){
-        ResponseEntity<Expense> responseEntity = restTemplate.postForEntity("http://localhost:9000/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
+        ResponseEntity<Expense> responseEntity = restTemplate.postForEntity("http://localhost:9000/rest/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
         final Expense expenses = responseEntity.getBody();
         Assertions.assertThat(expenses).isNotNull();
         Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");

@@ -93,7 +93,7 @@ public class Expense extends BaseEntity {
 		this.user = user;
 	}
 	
-	public static void main(String a[]){
+	/*public static void main(String a[]){
 		System.out.println(new Expense(1L,"demouser",new Date(System.currentTimeMillis()),1234.56,"Food"));
-	}
+	}*/
 }

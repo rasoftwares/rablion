@@ -1,18 +1,24 @@
 package com.ra;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 import com.ra.config.AppConfig;
 import com.ra.server.ServletContainerCustomizer;
 
-@SpringApplicationConfiguration
-@Configuration
-@EnableAutoConfiguration
-public class Application {
+
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
+	
+	 @Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		// TODO Auto-generated method stub
+		return application.sources(Application.class);
+	}
+	
     public static void main(String[] args) {
-        SpringApplication.run(new Object[]{ AppConfig.class, ServletContainerCustomizer.class}, args);
+    	SpringApplication.run(new Object[]{ AppConfig.class, ServletContainerCustomizer.class}, args);
     }
 }

@@ -18,40 +18,26 @@ import com.ra.domain.Expense;
 import com.ra.repository.ExpenseRepository;
 
 @RestController
-@RequestMapping(value = "/rest", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ExpenseController {
+public class ExpenseController extends BaseController {
+	String name = "ExpenseController";
 
+	public ExpenseController() {
+		this.setName(name);
+	}
+	
     @Inject
     ExpenseRepository expenseRepository;
     
-    @RequestMapping(value = "/error")
-    public String error() {
-        return "Error handling";
-    }
-    
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String sayHello(){
-          return "Hello there !";
-    }
-
-    
-    @RequestMapping(value = "/expense/{username}/{userid}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Expense createExpense(@PathVariable String username, @PathVariable String userid) {
-    	System.out.println("UserID :" + userid + ":");
-    	Expense exp = new Expense(username);
-        return expenseRepository.save(exp);
-    }
-    
     @RequestMapping(value = "/expense", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Expense createExpense(@RequestBody Expense expense) {
+    public Expense creaet(@RequestBody Expense expense) {
     	System.out.println("Expense from UI :" + expense + ":");
-        return expenseRepository.save(expense);
+    	return expenseRepository.save(expense);
     }
+    
     
     @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteExpense(@PathVariable Long id) {
         expenseRepository.delete(id);
-        
         System.out.println("Expense item " + id  + "deleted successfully");
     }
     
@@ -62,13 +48,10 @@ public class ExpenseController {
         final Iterable<Expense> all = expenseRepository.findAll();
         
         Iterator<Expense> all_I = all.iterator();
-        
         while (all_I.hasNext()) {
         	Expense user = (Expense) all_I.next();
 			resultList.add(user);
-		}
-        
+		}      
         return resultList;
     }
-
 }
