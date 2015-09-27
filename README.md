@@ -1,4 +1,4 @@
-# Welcome to Rablion Softwares Product Modules
+# Rablion Softwares
 
 ## Pre requisities
 Java 8
