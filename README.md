@@ -4,7 +4,7 @@
 Java 8
 Maven 3.1.x
 Postgresql 9.4
-
+AngularJs 2.0
 ## Postgres Instance Configuration
 In order to use your instance please update the [ Database Configuration Section ] section in ```src/main/resources/dev/application.properties```
 ```
