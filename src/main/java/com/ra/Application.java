@@ -11,8 +11,8 @@ import com.ra.server.ServletContainerCustomizer;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-	
-	 @Override
+	 
+	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		// TODO Auto-generated method stub
 		return application.sources(Application.class);

@@ -13,15 +13,24 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
     /* Read */
-	$http.get(expense_URL).success(function(data) {
-            console.log($scope.expenses);
-                if($scope.expenses == undefined){
-                    $scope.expenses = data;
-                }
-                else{
-                    //no need to do anything right now...as the data is temporarily stored in the javascript array
-                }
-		});
+    $http({
+    	  method: 'GET',
+    	  url: expense_URL
+    	}).then(function successCallback(response) {
+    		//console.log(response.data);
+    		if($scope.expenses == undefined){
+                $scope.expenses = response.data;
+            }
+            else{
+                //no need to do anything right now...as the data is temporarily stored in the javascript array
+            }
+    	    // this callback will be called asynchronously
+    	    // when the response is available
+    	  }, function errorCallback(response) {
+    	    // called asynchronously if an error occurs
+    	    // or server returns response with an error status.
+    	  });
+    
 	$scope.expenseForm_add_error = "";
 	
 	/* Create */
@@ -31,8 +40,29 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 		//if(!newExpense.user){ $scope.expenseForm_add_error="Missing Date"; }
 		//console.log(newExpense);
 		
-        newExpense.id = $scope.expenses.length+1 ;		
-        $scope.expenses.push(newExpense);
+		$http({
+	    	  method: 'POST',
+	    	  url: expense_URL,
+	    	  data: newExpense
+	    	}).then(function successCallback(response) {
+	    		//console.log("Response after insert" + response.data);
+	    		if($scope.expenses == undefined){
+	                $scope.expenses = response.data;
+	            }
+	            else {
+	            	//console.log("have to push the data into the array" + response.data) ;
+	            	$scope.expenses.push(response.data);
+	            }
+	    	    // this callback will be called asynchronously
+	    	    // when the response is available
+	    	  }, function errorCallback(response) {
+	    	    // called asynchronously if an error occurs
+	    	    // or server returns response with an error status.
+	    	  });
+		
+		
+        //newExpense.id = $scope.expenses.length+1 ;		
+        //$scope.expenses.push(newExpense);
         
 		$scope.newExpense={};
 	}
