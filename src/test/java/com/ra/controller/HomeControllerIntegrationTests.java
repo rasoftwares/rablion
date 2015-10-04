@@ -22,27 +22,27 @@ public class HomeControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
 
-    @Test
+    /*@Test
     public void shouldAdd_AppUser_ToDb(){
         ResponseEntity<Appuser> responseEntity = restTemplate.postForEntity("http://localhost:9000/homecontroller/user/Abderrazak BOUADMA", MockHttpServletRequest.DEFAULT_PROTOCOL, Appuser.class);
         final Appuser appUser = responseEntity.getBody();
         Assertions.assertThat(appUser).isNotNull();
         Assertions.assertThat(appUser.getUsername()).isNotNull().isEqualTo("Abderrazak BOUADMA");
-    }
+    }*/
     
-    @Test
+    /*@Test
     public void shouldAdd_Expense_ToDb(){
         ResponseEntity<Expense> responseEntity = restTemplate.postForEntity("http://localhost:9000/rest/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
         final Expense expenses = responseEntity.getBody();
         Assertions.assertThat(expenses).isNotNull();
         Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
-    }
+    }*/
     
-    @Test
+    /*@Test
     public void shouldDelete_Expense_ToDb(){
 //        ResponseEntity<Expenses> responseEntity = restTemplate.delete("http://localhost:9000/expense/luba/18",null);
 //        final Expenses expenses = responseEntity.getBody();
 //        Assertions.assertThat(expenses).isNotNull();
 //        Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
-    }
+    }*/
 }
