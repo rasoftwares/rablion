@@ -1,5 +1,7 @@
 package com.ra.controller;
 
+import java.sql.Date;
+
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.ra.config.AppConfig;
-import com.ra.domain.Appuser;
 import com.ra.domain.Expense;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +22,10 @@ import com.ra.domain.Expense;
 public class HomeControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
+    
+    String url = "http://localhost:9000";
+    
+    Expense e = new Expense(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
 
     /*@Test
     public void shouldAdd_AppUser_ToDb(){
@@ -30,19 +35,25 @@ public class HomeControllerIntegrationTests {
         Assertions.assertThat(appUser.getUsername()).isNotNull().isEqualTo("Abderrazak BOUADMA");
     }*/
     
-    /*@Test
-    public void shouldAdd_Expense_ToDb(){
-        ResponseEntity<Expense> responseEntity = restTemplate.postForEntity("http://localhost:9000/rest/expense/luba/10", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
-        final Expense expenses = responseEntity.getBody();
-        Assertions.assertThat(expenses).isNotNull();
-        Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
-    }*/
+    @Test
+    public void add_Expense_ToDB(){
+		 	
+	        //ResponseEntity<Expense> responseEntity = restTemplate.postForEntity(url + "/rest/expense", MockHttpServletRequest.DEFAULT_PROTOCOL, Expense.class);
+		 	Expense expense = restTemplate.postForObject(url + "/rest/expense", e, Expense.class);
+		 	expense = restTemplate.postForObject(url + "/rest/expense", e, Expense.class);
+	        //final Expense expense = responseEntity.getBody();
+	        Assertions.assertThat(expense).isNotNull();
+	        Assertions.assertThat(expense.getUser()).isNotNull().isEqualTo("User1");
+	    }
     
-    /*@Test
-    public void shouldDelete_Expense_ToDb(){
-//        ResponseEntity<Expenses> responseEntity = restTemplate.delete("http://localhost:9000/expense/luba/18",null);
-//        final Expenses expenses = responseEntity.getBody();
-//        Assertions.assertThat(expenses).isNotNull();
-//        Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
-    }*/
+    @Test
+    public void read_Expense_ToDb() {
+	 	ResponseEntity<Expense[]> response = restTemplate.getForEntity(url + "/rest/expense", Expense[].class);
+	 	final Expense[] expense = response.getBody();
+        for(int i=0;i<expense.length;i++){
+        	Assertions.assertThat(expense[i]).isNotNull();
+        	Assertions.assertThat(expense[i].toString()).isNotNull().isEqualTo(e.toString());    }
+        }
+        
+        
 }
