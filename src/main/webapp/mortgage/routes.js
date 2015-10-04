@@ -13,6 +13,5 @@ mortgageApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: (gemsTemplateDir + '/loan.html'), controller: 'loanCtrl'
     });
   
-    $routeProvider.
-        otherwise({redirectTo: '/'});
+    //$routeProvider.otherwise({redirectTo: '/'});
 }]);

@@ -13,6 +13,5 @@ gemsApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: (gemsTemplateDir + '/expense.html'), controller: 'expenseCtrl'
     });
   
-    $routeProvider.
-        otherwise({redirectTo: '/'});
+   // $routeProvider.otherwise({redirectTo: '/'});
 }]);
