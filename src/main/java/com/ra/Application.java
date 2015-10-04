@@ -15,6 +15,7 @@ public class Application extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		// TODO Auto-generated method stub
+		
 		return application.sources(Application.class);
 	}
 	

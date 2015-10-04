@@ -92,6 +92,10 @@
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
         </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- Main Build -->
@@ -131,8 +135,8 @@
     <!-- Profiles -->
     <profiles>
         <!-- Useful to run integration tests into an embedded HSQLDB instance -->
-        <!-- profile>
-            <id>devTest8</id>
+        <profile>
+            <id>Test</id>
             <activation>
                 <property>
                     <name>hsqldbIntegrationTest</name>
@@ -150,7 +154,7 @@
                     </resource>
                 </resources>
             </build>
-        </profile-->
+        </profile>
 
         <!-- Useful to run application locally -->
         <profile>

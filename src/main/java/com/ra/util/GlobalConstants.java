@@ -11,4 +11,8 @@ public class GlobalConstants {
 	
 	public static final String REST_HELLO_URL = "/hello";
 	
+	public static final String REST_LOGOUT_URL = "/logout";
+	
+	public static final String LOGIN_PAGE = "/login";
+	
 }

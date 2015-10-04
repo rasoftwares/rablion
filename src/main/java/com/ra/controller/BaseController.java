@@ -23,6 +23,13 @@ public class BaseController {
           return "Hello there I am Controller " + getName();
     }
     
+    /*@RequestMapping(value = GlobalConstants.REST_LOGOUT_URL, method = RequestMethod.GET)
+    public void logout() {
+    	System.out.println("Loggingout the user" );
+    	
+    	//return "Hello there I am Controller " + getName();
+    }*/
+    
     public String getName() {
     	return name;
     }

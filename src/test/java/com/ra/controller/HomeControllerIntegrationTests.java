@@ -21,7 +21,7 @@ import com.ra.domain.Expense;
 public class HomeControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
-
+/*
     @Test
     public void shouldAdd_AppUser_ToDb(){
         ResponseEntity<Appuser> responseEntity = restTemplate.postForEntity("http://localhost:9000/homecontroller/user/Abderrazak BOUADMA", MockHttpServletRequest.DEFAULT_PROTOCOL, Appuser.class);
@@ -45,4 +45,5 @@ public class HomeControllerIntegrationTests {
 //        Assertions.assertThat(expenses).isNotNull();
 //        Assertions.assertThat(expenses.getUser()).isNotNull().isEqualTo("luba");
     }
+    */
 }
