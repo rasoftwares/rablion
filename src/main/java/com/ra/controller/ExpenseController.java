@@ -40,9 +40,6 @@ public class ExpenseController extends BaseController {
     	return expenseRepository.save(expense);
     }
     
-    /*
-     * This method is not mostly used.....Can be removed if there is no usage 
-     * */
     @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteExpense(@PathVariable Long id) {
         expenseRepository.delete(id);
