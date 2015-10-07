@@ -28,9 +28,18 @@ public class Expense extends BaseEntity {
     @Column(name = "type", nullable = false)
     private String type;
     
+    /*@Column(name = "period", insertable = false)
+    private String period;
     
-    
-   public Date getDate() {
+   public String getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(String period) {
+		this.period = period;
+	}*/
+
+public Date getDate() {
 		return date;
 	}
 

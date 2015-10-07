@@ -8,14 +8,11 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import com.ra.config.AppConfig;
 import com.ra.server.ServletContainerCustomizer;
 
-
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 	 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		// TODO Auto-generated method stub
-		
 		return application.sources(Application.class);
 	}
 	

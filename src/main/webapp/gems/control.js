@@ -13,23 +13,26 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
     /* Read */
-    $http({
-    	  method: 'GET',
-    	  url: expense_URL
-    	}).then(function successCallback(response) {
-    		//console.log(response.data);
-    		if($scope.expenses == undefined){
-                $scope.expenses = response.data;
-            }
-            else{
-                //no need to do anything right now...as the data is temporarily stored in the javascript array
-            }
-    	    // this callback will be called asynchronously
-    	    // when the response is available
-    	  }, function errorCallback(response) {
-    	    // called asynchronously if an error occurs
-    	    // or server returns response with an error status.
-    	  });
+    //$scope.exp  = function getExpense() {
+	    $http({
+	    	  method: 'GET',
+	    	  url: expense_URL
+	    	}).then(function successCallback(response) {
+	    		//console.log(response.data);
+	    		if($scope.expenses == undefined){
+	                $scope.expenses = response.data;
+	            }
+	            else{
+	                //no need to do anything right now...as the data is temporarily stored in the javascript array
+	            }
+	    	    // this callback will be called asynchronously
+	    	    // when the response is available
+	    	  }, function errorCallback(response) {
+	    	    // called asynchronously if an error occurs
+	    	    // or server returns response with an error status.
+	    	  });
+	    
+	    
     
 	$scope.expenseForm_add_error = "";
 	
@@ -83,5 +86,84 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
                 console.log("Expenses Length :" + $scope.expenses.length);
 			}
 		}		
-	}	
+	}
 }]);
+
+gemsApp.controller('reportCtrl', ['$scope', '$http', function ($scope, $http) {
+	/* Get Report Data */
+    $scope.getReport = function (reportForm) {
+    	console.log("-->" + reportForm.username);
+    	$http({
+    	  method: 'GET',
+    	  url: 'rest/amountSpent?username=' + reportForm.username,
+    	  data:	
+    		  { username: reportForm.username }
+    	}).then(function successCallback(response) {
+    		//console.log(response.data);
+    		if($scope.reportData == undefined){
+                $scope.reportData = response.data;
+                console.log($scope.reportData);
+            }
+            else{
+                //no need to do anything right now...as the data is temporarily stored in the javascript array
+            }
+    	    // this callback will be called asynchronously
+    	    // when the response is available
+    	  }, function errorCallback(response) {
+    	    // called asynchronously if an error occurs
+    	    // or server returns response with an error status.
+    	  });
+    	
+    	//Render Table
+    	var creatingFlag = false;
+    	//function createTable(period){
+    		
+    		if(creatingFlag) {
+    			return;
+    		}
+    		
+    		var monthHeader = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    		var weekHeader = ["Week 1","Week 2","Week 3","Week 4"];
+    		
+    		
+    		var mytable = $('<table border="1" class="table table-striped"></table>').attr({ id: "basicTable" });
+    		var rows = 13; //new Number($("#rowcount").val());
+    		var cols = 5; //new Number($("#columncount").val());
+    		var tr = [];
+    		var weekInd = 1;
+    		for (var i = 0; i < rows; i++) {
+    			//var row = $('<tr></tr>').attr({ class: ["class1", "class2", "class3"].join(' ') }).appendTo(mytable);
+    			var row;
+    			row = $('<tr id="' + i +'"></tr>').appendTo(mytable);
+    			for (var j = 0; j < cols; j++) {
+    				if(j==0){
+    						if(i==0){
+    							$('<td id="' + i + '_' + j  +'"></td>').html("<B> <center>" + "NA" +"</center></B>").appendTo(row);
+    						}
+    						else{
+    							$('<td id="' + i + '_' + j  +'"></td>').html("<B><center>"+ monthHeader[i-1] + "</center></B>").appendTo(row);
+    						}
+    				}
+    				else{
+    					if(i==0){
+    						$('<td id="' + i + '_' + j  +'"></td>').html("<B>"+ weekHeader[j-1] + "</B>").appendTo(row);
+    					}
+    					else{
+    						$('<td id="' + i + '_' + j  +'"></td>').html("<center>"+ weekInd +"</center>").appendTo(row);
+    						weekInd +=1; 
+    					}
+    				}
+    			}		 
+    		}
+    		//console.log("TTTTT:"+mytable.html());
+    		creatingFlag = true;
+    		
+    		mytable.appendTo("#box");
+    	//}
+    	
+    	
+    	
+    }
+    
+}]);
+

@@ -11,7 +11,10 @@ gemsApp.config(['$routeProvider', function($routeProvider) {
     }).
   when('/expense',{
       templateUrl: (gemsTemplateDir + '/expense.html'), controller: 'expenseCtrl'
-    });
+    }).
+    when('/report',{
+        templateUrl: (gemsTemplateDir + '/report.html'), controller: 'reportCtrl'
+      });
   
-   // $routeProvider.otherwise({redirectTo: '/'});
+   
 }]);
