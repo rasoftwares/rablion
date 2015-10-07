@@ -92,7 +92,6 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 gemsApp.controller('reportCtrl', ['$scope', '$http', function ($scope, $http) {
 	/* Get Report Data */
     $scope.getReport = function (reportForm) {
-    	console.log("-->" + reportForm.username);
     	$http({
     	  method: 'GET',
     	  url: 'rest/amountSpent?username=' + reportForm.username,
@@ -102,7 +101,7 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', function ($scope, $http) {
     		//console.log(response.data);
     		if($scope.reportData == undefined){
                 $scope.reportData = response.data;
-                console.log($scope.reportData);
+                //console.log($scope.reportData);
                 renderDataToTable($scope.reportData)
             	
                 
@@ -147,7 +146,7 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', function ($scope, $http) {
 		var colCount = 0;
 		var maxColCount = 6;
 		$.each(data , function(){
-			console.log(this.month + "=:=" +this.week + "=:=" + this.amount );
+			//console.log(this.month + "=:=" +this.week + "=:=" + this.amount );
 			if(month != this.month){
 				
 				//alert(colCount + ":" + maxColCount);
