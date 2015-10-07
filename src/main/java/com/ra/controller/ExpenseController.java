@@ -40,7 +40,9 @@ public class ExpenseController extends BaseController {
     	return expenseRepository.save(expense);
     }
     
-    
+    /*
+     * This method is not mostly used.....Can be removed if there is no usage 
+     * */
     @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteExpense(@PathVariable Long id) {
         expenseRepository.delete(id);
@@ -77,6 +79,11 @@ public class ExpenseController extends BaseController {
         	Expense user = (Expense) all_I.next();
 			resultList.add(user);
 		}
+        
+        if(resultList == null || resultList.size()==0){
+        	return new HashMap<String,AmountSpent>();
+        }
+        
         HashMap<String, AmountSpent> fmap = filterExpenses(resultList,username,period);
         
         return fmap;
@@ -119,6 +126,7 @@ public class ExpenseController extends BaseController {
     	//System.out.println(list);
     	//TODO: null validation for list, username, period
     	
+    	HashMap<String, AmountSpent> fmap = new HashMap<String,AmountSpent>();
     	
     	HashMap<String, List<Expense>> m = new HashMap<String,List<Expense>>();
     	
@@ -151,7 +159,7 @@ public class ExpenseController extends BaseController {
     	System.out.println("Period :" + getPeriod(period));
     	List<Expense> fList = m.get(username);
     	
-    	HashMap<String, AmountSpent> fmap = new HashMap<String,AmountSpent>();
+    	
     	String week = "";
     	for(Expense e : fList) {
     		week = week_df.format(e.getDate());
