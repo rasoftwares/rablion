@@ -189,11 +189,11 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope
 				
 				row = $('<tr></tr>').appendTo(mytable);
 				$('<td></td>').html("<B> <center>" + monthHeader[this.month-1] +"</center></B>").appendTo(row);
-				$('<td></td>').html("<B> <center>" + ( $filter('currency')(this.amount, 'INR ', 2) ) +"</center></B>").appendTo(row);
+				$('<td></td>').html("<center>" + ( $filter('currency')(this.amount, 'INR ', 2) ) +"</center>").appendTo(row);
 				colCount = 2;
 			}else{
 				
-				$('<td></td>').html("<B> <center> " + ( $filter('currency')(this.amount, 'INR ', 2) ) + "</center></B>").appendTo(row);
+				$('<td></td>').html("<center> " + ( $filter('currency')(this.amount, 'INR ', 2) ) + "</center>").appendTo(row);
 				colCount += 1;
 			}
 			month = this.month;
