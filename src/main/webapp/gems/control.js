@@ -65,10 +65,6 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 	    	    // or server returns response with an error status.
 	    	  });
 		
-		
-        //newExpense.id = $scope.expenses.length+1 ;		
-        //$scope.expenses.push(newExpense);
-        
 		$scope.newExpense={};
 	}
 	
@@ -76,44 +72,23 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 	/* Delete */
 	$scope.deleteExpense = function(index) {
 		
-		alert("Deleting Expense : " +index);
+		alert("Deleting Expense : " + index);
+		
 		$http({
 	    	  method: 'DELETE',
-	    	  url: expense_URL + '/' +index
+	    	  url: expense_URL + '/' + index
 	    	  //data: {newExpense:''}
 	    	}).then(function successCallback(response) {
-	    		//console.log("Response after delete" + response.data);
-	    		//console.log("Response" + response);
-	    		if($scope.expenses == undefined){
-	                //$scope.expenses = response.data;
-	            }
-	            else {
-	            	//console.log("have to push the data into the array" + response.data) ;
-	            	//$scope.expenses.push(response.data);
-	            }
-	    		
+	    		alert("Deleted successfully ");
 	    		//Remove from the UI Layer
 	    		$("#_expense_" + index).remove();
-	    		
 	    	    // this callback will be called asynchronously
 	    	    // when the response is available
 	    	  }, function errorCallback(response) {
+	    		  alert("Problem deleting record " + index);
 	    	    // called asynchronously if an error occurs
 	    	    // or server returns response with an error status.
 	    	  });
-		
-        /*for(i=0; i < $scope.expenses.length; i++) {
-            
-			if($scope.expenses[i].id == index) {
-                //console.log("for index :" + i + ": index from click :" + index);
-				//console.log("Will be deleting expense" + $scope.expenses[i].id + ":" + $scope.expenses[i].type);                
-				$("#_expense_" + index).remove();
-                $scope.expenses = $.grep($scope.expenses, function(value) {
-                    return value.id != index;
-                });
-                console.log("Expenses Length :" + $scope.expenses.length);
-			}
-		}*/		
 	}
 }]);
 
@@ -129,7 +104,7 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope
     		  { username: reportForm.username }
     	}).then(function successCallback(response) {
     		//console.log(response.data);
-    		console.log($scope.reportData + ":" + jQuery.isEmptyObject($scope.reportData));
+    		//console.log($scope.reportData + ":" + jQuery.isEmptyObject($scope.reportData));
     		if($scope.reportData == undefined || jQuery.isEmptyObject($scope.reportData)){
                 $scope.reportData = response.data;
                 renderDataToTable($scope.reportData)
@@ -138,6 +113,17 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope
             else{
                 //no need to do anything right now...as the data is temporarily stored in the javascript array
             }
+    		
+    		//TODO: Handle no data found error messages
+    		var arr = _(response.data).toArray();
+    		if(arr.length == 0){
+    			$scope.reportForm_error = true;
+    			$scope.reportForm_error_message = "No Expenses found for user " + reportForm.username;
+    		}
+    		else{
+    			$scope.reportForm_error = false;
+    			$scope.reportForm_error_message = "";
+    		}
     	    // this callback will be called asynchronously
     	    // when the response is available
     	  }, function errorCallback(response) {
@@ -153,8 +139,7 @@ gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope
     
     var creatingFlag = false;
   //Render data to Table
-	function renderDataToTable(data){
-		
+	function renderDataToTable(data) {
 		
 		//if the table was there, remove the same before adding a new one.
 		if(creatingFlag) {

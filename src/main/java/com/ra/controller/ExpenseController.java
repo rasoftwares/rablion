@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-//import java.util.function.Consumer;
+
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -67,7 +67,7 @@ public class ExpenseController extends BaseController {
     	String period = "Week";
     	
     	System.out.println( "--->" +username + ":" + period);
-    	final List<Expense> resultList = new ArrayList<>();
+    	List<Expense> resultList = new ArrayList<>();
         
         final Iterable<Expense> all = expenseRepository.findAll();
         
@@ -77,7 +77,10 @@ public class ExpenseController extends BaseController {
 			resultList.add(user);
 		}
         
-        if(resultList == null || resultList.size()==0){
+        System.out.println("resultList Size :" + resultList.size());
+        
+        if(resultList.size() == 0) {
+        	System.out.println("FATAL : there are no expenses found for userid " + username);
         	return new HashMap<String,AmountSpent>();
         }
         
@@ -104,7 +107,6 @@ public class ExpenseController extends BaseController {
     	list.add(new Expense(1L,"User2", new Date(115,02,13),100.00,"Mobile"));
     	list.add(new Expense(1L,"User2", new Date(115,02,14),100.00,"Mobile"));
     	list.add(new Expense(1L,"User2", new Date(115,02,15),100.00,"Mobile"));
-    	
     	
     	list.add(new Expense(1L,"User3", new Date(115,02,12),100.00,"Mobile"));
     	list.add(new Expense(1L,"User3", new Date(115,02,13),100.00,"Mobile"));
@@ -154,6 +156,12 @@ public class ExpenseController extends BaseController {
     	SimpleDateFormat month_df = new SimpleDateFormat(getPeriod("Month"));
     	
     	System.out.println("Period :" + getPeriod(period));
+    	
+    	if(m.get(username) == null || m.get(username).size() ==0) {
+        	System.out.println("FATAL : there are no expenses found for userid " + username);
+        	return new HashMap<String,AmountSpent>();
+        }
+    	
     	List<Expense> fList = m.get(username);
     	
     	

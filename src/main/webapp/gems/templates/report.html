@@ -4,6 +4,8 @@
 <div class="panel-heading">Expenses</div>-->
     <div>
           <form name="reportForm" novalidate action="#/report">
+          <div class="alert alert-danger" ng-show="reportForm_error"> {{ reportForm_error_message }} </div>
+          
           <center>
           	  User 
           	  <select ng-model="reportForm.username" ng-options="user for user in users" ng-change="getReport(reportForm)">Pick a user</select>
