@@ -32,13 +32,17 @@
                     <a href="#/expense" class="btn" ng-click="addExpense(newExpense)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
                 </th>
             </tr>
-            <tr ng-repeat="expense in expenses" id='_expense_{{expense.id}}'>
-                <td>{{expense.id}}</td>
-                <td>{{expense.user}}</td>
-                <td>{{expense.date | date :'mediumDate'}}</td>        
-                <td>{{expense.amount | currency:"INR ":2}}</td>
-                <td>{{expense.type}}</td>
-                <td><a href="#/expense" class="btn" ng-click="deleteExpense(expense.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a><a href="#/expense" class="btn" ng-click="editExpense(expense.id)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+            <tr ng-repeat="data in data" id='_expense_{{data.id}}'>
+                <td>{{data.id}}</td>
+                <td>{{data.user}}</td>
+                <td>{{data.date | date :'mediumDate'}}</td>        
+                <td>{{data.amount | currency:"INR ":2}}</td>
+                <td>{{data.type}}</td>
+                <td>
+                	<a href="#/expense" class="btn btn-primary" ng-click="deleteExpense(data.id)">
+                		<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                	</a>
+                </td>
             </tr>
           </table>
           </form>

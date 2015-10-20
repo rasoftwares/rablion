@@ -1,9 +1,15 @@
 <html ng-app="gemsApp">
 <head>
     <title>Gems App</title>
+    <head>
+        <script type="text/javascript">
+            var timerStart = Date.now();
+        </script>
+        <!-- do all the stuff you need to do -->
+    </head>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css" />
 
   <script src="external/jquery/jquery.js"></script>
@@ -12,10 +18,20 @@
   <script src="external/angular/angular.min.js"></script>
   <script src="external/angular/angular-route.min.js"></script>
   <script src="external/bootstrap/js/bootstrap.min.js"></script>
+
+<!--  
+	<link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.3.4/jasmine_favicon.png">
+	<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.3.4/jasmine.css">
+	<script type="text/javascript" src="jasmine/lib/jasmine-2.3.4/jasmine.js"></script>
+	<script type="text/javascript" src="jasmine/lib/jasmine-2.3.4/jasmine-html.js"></script>
+	<script type="text/javascript" src="jasmine/lib/jasmine-2.3.4/boot.js"></script>
+  -->
+  <script src="js/common.js"></script>
     
-    <script src="gems/control.js"></script>
-    <script src="gems/routes.js"></script>
-    <style>
+  <script src="gems/control.js"></script>
+  <script src="gems/routes.js"></script>
+  
+  <style>
     .ng-enter {
 -webkit-transition: all 5s linear;
 -moz-transition: all 5s linear;
@@ -39,4 +55,14 @@ opacity: 1;
             <hr>
         </div>
     </body>
+    <!-- 
+    <script type="text/javascript">
+             $(document).ready(function() {
+                 console.log("Time until DOMready: ", Date.now()-timerStart);
+             });
+             $(window).load(function() {
+                 console.log("Time until everything loaded: ", Date.now()-timerStart);
+             });
+        </script>
+         -->
 </html>

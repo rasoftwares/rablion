@@ -4,7 +4,7 @@ var gemsApp = angular.module('gemsApp',['ngRoute']);
 //TODO: Move this to a common place
 var expense_URL = 'rest/expense';
 
-var users= ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
+var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
 
 gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     
@@ -15,81 +15,27 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
     /* Read */
-    //$scope.exp  = function getExpense() {
-	    $http({
-	    	  method: 'GET',
-	    	  url: expense_URL
-	    	}).then(function successCallback(response) {
-	    		//console.log(response.data);
-	    		if($scope.expenses == undefined){
-	                $scope.expenses = response.data;
-	            }
-	            else{
-	                //no need to do anything right now...as the data is temporarily stored in the javascript array
-	            }
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-	    
-	    
-    
+    //$scope, $http, method, url, entityname, formEntity
+	$scope.data = get($scope, $http, 'GET', expense_URL, 'expenses', $scope.data);
+	
+	
 	$scope.expenseForm_add_error = "";
 	
 	/* Create */
-	$scope.addExpense = function(newExpense) {
-		
-        //TODO: Add validations here
-		//if(!newExpense.user){ $scope.expenseForm_add_error="Missing Date"; }
-		//console.log(newExpense);
-		
-		$http({
-	    	  method: 'POST',
-	    	  url: expense_URL,
-	    	  data: newExpense
-	    	}).then(function successCallback(response) {
-	    		//console.log("Response after insert" + response.data);
-	    		if($scope.expenses == undefined){
-	                $scope.expenses = response.data;
-	            }
-	            else {
-	            	//console.log("have to push the data into the array" + response.data) ;
-	            	$scope.expenses.push(response.data);
-	            }
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-		
-		$scope.newExpense={};
-	}
+	//$scope, $http, method, entityName, EntityObject, url,  
+	$scope.addExpense = function(newExpense){
+		add($scope, $http, 'POST', expense_URL, 'expenses', newExpense); 
+	};
 	
+	/* Update  -- Work in Progress*/
+	/*$scope.editExpense = function(newExpense){
+		edit($scope, $http, 'POST', expense_URL, 'expenses', newExpense); 
+	};*/
 	
 	/* Delete */
 	$scope.deleteExpense = function(index) {
-		
-		alert("Deleting Expense : " + index);
-		
-		$http({
-	    	  method: 'DELETE',
-	    	  url: expense_URL + '/' + index
-	    	  //data: {newExpense:''}
-	    	}).then(function successCallback(response) {
-	    		alert("Deleted successfully ");
-	    		//Remove from the UI Layer
-	    		$("#_expense_" + index).remove();
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    		  alert("Problem deleting record " + index);
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-	}
+		remove($scope, $http, 'DELETE', expense_URL, 'expense', index); 
+	};
 }]);
 
 gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
