@@ -23,7 +23,7 @@ var a = [
          },
          {
         	 "name" :"Todo",
-        	 "page" : "totoApp.html",
+        	 "page" : "todoApp.html",
         	 "icon" : "images/checked20.png",
         	 "description" : " TODO Application "
         		 
