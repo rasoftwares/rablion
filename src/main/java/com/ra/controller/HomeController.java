@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 //import java.util.function.Consumer;
 
+
 import javax.inject.Inject;
 
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ra.domain.Appuser;
+import com.ra.domain.User;
 import com.ra.repository.ExpenseRepository;
 import com.ra.repository.UserRepository;
 
@@ -31,16 +33,16 @@ public class HomeController {
     public String sayHello(){
           return "Hello there !";
     }
-
-    @RequestMapping(value = "/user/{username}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Appuser create(@PathVariable String username) {
-        return userRepository.save(new Appuser(username));
+		
+  /*  @RequestMapping(value = "/user/{username}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public User create(@PathVariable String username) {
+        return UserRepository.save(new User(username));
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Appuser> findAll() {
         final List<Appuser> resultList = new ArrayList<>();
-        final Iterable<Appuser> all = userRepository.findAll();
+        final Iterable<Appuser> all = UserRepository.findAll();
         
         Iterator<Appuser> all_I = all.iterator();
         while (all_I.hasNext()) {
@@ -55,6 +57,6 @@ public class HomeController {
             }
         });*/
         
-        return resultList;
-    }
+    //    return resultList;
+  // }*/
 }
