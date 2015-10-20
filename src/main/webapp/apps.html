@@ -1,0 +1,58 @@
+<html ng-app="apps">
+<head>
+    <title>Apps</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+  <link rel="stylesheet" href="external/bootstrap/css/bootstrap.min.css" />
+
+  <script src="external/jquery/jquery.js"></script>
+  <script src="external/underscore-min.js"></script>
+    
+  <script src="external/angular/angular.min.js"></script>
+  <script src="external/angular/angular-route.min.js"></script>
+  <script src="external/bootstrap/js/bootstrap.min.js"></script>
+  
+  <script src="js/appsCtrl.js"></script>
+    
+    <style>
+    .ng-enter {
+-webkit-transition: all 5s linear;
+-moz-transition: all 5s linear;
+-ms-transition: all 5s linear;
+-o-transition: all 5s linear;
+transition: all 5s linear;
+opacity: 0;
+}
+.ng-enter-active {
+opacity: 1;
+}
+
+</style>
+</head>
+    <body ng-controller='appsCtrl'>
+        <div class="container">
+            <div class="col-md-12 text-center">
+              
+            </div>
+            <hr>
+                <div class="row" >
+                    <div class="col-xs-6 col-md-3" ng-repeat='app in appList'>
+                        <center><a href="{{app.page}}"><img src="{{app.icon}}" alt=""> </a>
+                            <div class="caption">
+                            <h3><a href="{{app.page}}">{{app.name}} </a></h3>
+                            <!--p>{{app.description}}</p-->
+                            <p>
+                                <!--a href="#" class="btn btn-primary" role="button">Button</a> 
+                                <a href="#" class="btn btn-default" role="button">Button</a-->
+                            </p>
+                          </div>
+                        </center>
+	            </div>
+	            </div>
+            <hr>
+        </div>
+    </body>
+</html>
+</html>
+</html>
