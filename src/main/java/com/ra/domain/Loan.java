@@ -29,12 +29,11 @@ public class Loan {
 	 @Column(name = "item", nullable = false)
 	    private String item;
 		
-	 @Column(name = "action", nullable = false)
-	    private String action;
+	
 	 
 	 
 	 public Loan(Long id,String loanno, String customername, double amount,
-				Long totalweight, String item, String action) {
+				Long totalweight, String item) {
 			super();
 			this.id = id;
 			this.loanno = loanno;
@@ -42,7 +41,7 @@ public class Loan {
 			this.amount = amount;
 			this.totalweight = totalweight;
 			this.item = item;
-			this.action = action;
+			
 		}
 
 		public Loan() {
@@ -97,14 +96,7 @@ public class Loan {
 			this.item = item;
 		}
 
-		public String getAction() {
-			return action;
-		}
-
-		public void setAction(String action) {
-			this.action = action;
-		}
-
+		
 }
 	
 	
