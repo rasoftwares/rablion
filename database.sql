@@ -28,10 +28,21 @@ email varchar(60)
 );
 
 insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com');
-
 select * from appuser
 );
 
+--drop table currency
+CREATE TABLE currency(
+  id  SERIAL PRIMARY KEY,
+   currency varchar(60),
+ sourcevalue numeric(10,2),
+ inrvalue numeric(10,2)
+ );
+ insert into currency (currency,sourcevalue,inrvalue) values ('US$', 5000.00 , 500000.00);
+ select * from currency
+ 
+ 
+ 
 --TODO's
 --drop table todo
 create table todo( 
@@ -46,9 +57,7 @@ create table todo(
 	modifiedby varchar(60),
 	
 );
-
 insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtime,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
-
 select * from todo
 
 --drop table loan;
@@ -61,7 +70,6 @@ CREATE TABLE loan(
     amount numeric(10,2),
      totalweight varchar(60),
     item varchar(60)
-    
     );
 insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
 

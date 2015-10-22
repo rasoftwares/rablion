@@ -11,5 +11,9 @@ adminApp.config(['$routeProvider', function($routeProvider) {
     }).
        when('/user',{
           templateUrl: (adminTemplateDir + '/user.html'), controller: 'userCtrl'
-        });
+        }).
+  
+     when('/currency',{
+      templateUrl: (adminTemplateDir + '/currency.html'), controller: 'currencyCtrl'
+    });
         }]);
