@@ -44,7 +44,7 @@ create table todo(
 	createdby varchar(60),
 	createdtimestamp date,
 	modifiedby varchar(60),
-	modifiedtimestamp date
+	
 );
 
 insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtime,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
