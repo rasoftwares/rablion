@@ -59,9 +59,7 @@ $http({
 		
 	}}]);
 
-
 /*currency*/
-var adminApp = angular.module('adminApp',['ngRoute']);
 
 var currency_URL = 'rest/currency';
 
