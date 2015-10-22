@@ -55,132 +55,83 @@ $http({
 	    	  });
 		
 		$scope.newUser={};
+
+		
 	}}]);
-	
-	/* Delete */
-	/*$scope.deleteUser = function(index){
-		
-		alert("Deleting User : " + index);
-		
-		$http({
-	    	  method: 'DELETE',
-	    	  url: user_URL + '/' + index
-	    	  //data: {newExpense:''}
+
+
+/*currency*/
+var adminApp = angular.module('adminApp',['ngRoute']);
+
+var currency_URL = 'rest/currency';
+
+adminApp.controller('currencyCtrl', ['$scope', '$http', function ($scope, $http) {
+   $http({
+	      method: 'GET',
+	    	  url: currency_URL,
 	    	}).then(function successCallback(response) {
-	    		alert("Deleted successfully ");
-	    		//Remove from the UI Layer
-	    		$("#_expense_" + index).remove();
+	    		//console.log(response.data);
+	    		if($scope.currency == undefined){
+	                $scope.currency = response.data;
+	            }
+	            else{
+	                //no need to do anything right now...as the data is temporarily stored in the javascript array
+	            }
 	    	    // this callback will be called asynchronously
 	    	    // when the response is available
 	    	  }, function errorCallback(response) {
-	    		  alert("Problem deleting record " + index);
 	    	    // called asynchronously if an error occurs
 	    	    // or server returns response with an error status.
 	    	  });
-	}
-
-
-adminApp.controller('userCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
-	$scope.users = users;
-	}])
-	/* Get Report Data */
-  /*  $scope.getReport = function (reportForm) {
-    	$http({
-    	  method: 'GET',
-    	  url: 'rest/amountSpent?username=' + reportForm.username,
-    	  data:	
-    		  { username: reportForm.username }
-    	}).then(function successCallback(response) {
-    		//console.log(response.data);
-    		//console.log($scope.reportData + ":" + jQuery.isEmptyObject($scope.reportData));
-    		if($scope.reportData == undefined || jQuery.isEmptyObject($scope.reportData)){
-                $scope.reportData = response.data;
-                renderDataToTable($scope.reportData)
-                $scope.reportData = {};
-            }
-            else{
-                //no need to do anything right now...as the data is temporarily stored in the javascript array
-            }
-    		
-    		//TODO: Handle no data found error messages
-    		var arr = _(response.data).toArray();
-    		if(arr.length == 0){
-    			$scope.reportForm_error = true;
-    			$scope.reportForm_error_message = "No Expenses found for user " + reportForm.username;
-    		}
-    		else{
-    			$scope.reportForm_error = false;
-    			$scope.reportForm_error_message = "";
-    		}
-    	    // this callback will be called asynchronously
-    	    // when the response is available
-    	  }, function errorCallback(response) {
-    	    // called asynchronously if an error occurs
-    	    // or server returns response with an error status.
-    	  });		
-    }
-    
-    $scope.clearTable = function clearTable() {
-    	$('#basicTable').remove();
-    	creatingFlag = false;
-    }
-    
-    var creatingFlag = false;
-  //Render data to Table
-	function renderDataToTable(data) {
+	    
+	  
+  /*create*/
+    $scope.addCurrency = function(newCurrency){
+	
+        	
+$http({
+	    	  method: 'POST',
+	    	  url: currency_URL,
+	    	  data: newCurrency
+	    	}).then(function successCallback(response) {
+	    		//console.log("Response after insert" + response.data);
+	    		if($scope.currency == undefined){
+	                $scope.currency = response.data;
+	            }
+	            else {
+	            	//console.log("have to push the data into the array" + response.data) ;
+	            	$scope.currency.push(response.data);
+	            }
+	    	    // this callback will be called asynchronously
+	    	    // when the response is available
+	    	  }, function errorCallback(response) {
+	    	    // called asynchronously if an error occurs
+	    	    // or server returns response with an error status.
+	    	    });
 		
-		//if the table was there, remove the same before adding a new one.
-		if(creatingFlag) {
-			$scope.clearTable();
-		}
+		$scope.newCurrency={};
 		
-		var monthHeader = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-		var weekHeader = ["Week 1","Week 2","Week 3","Week 4","Week 5"];
+	/*currency delete*/	
 		
-		var row;
-		var mytable = $('<table border="1" class="table table-striped" id="reportTable"></table>').attr({ id: "basicTable" });
-		row = $('<tr></tr>').appendTo(mytable);
-		$('<td></td>').html("").appendTo(row);
-		$.each(weekHeader , function(){
-			$('<td></td>').html("<B> <center>" + this +"</center></B>").appendTo(row);
-		});
+		$scope.deleteCurrency= function(index) {
+			remove($scope, $http, 'DELETE', currency_URL, 'currency', index); 
+		};
 		
-		row ="";
-		
-		var month = 0;
-		var week = 0;
-		
-		var colCount = 0;
-		var maxColCount = 6;
-		$.each(data , function() {
-			if(month != this.month){
-				
-				while(colCount != 0 && colCount < maxColCount){
-					$('<td></td>').html("").appendTo(row);
-					colCount +=1;
+		/*$scope.deleteCurrency = function(index) {
+			
+	        for(i=0; i < $scope.currency.length; i++) {
+	            
+				if($scope.currency[i].id == index) {
+	                //console.log("for index :" + i + ": index from click :" + index);
+					//console.log("Will be deleting expense" + $scope.expenses[i].id + ":" + $scope.expenses[i].type);                
+					$("#_currency_" + index).remove();
+	                $scope.currency = $.grep($scope.currency, function(value) {
+	                    return value.id != index;
+	                });
+	                console.log("Currency Length :" + $scope.currency.length);
 				}
-				
-				row = $('<tr></tr>').appendTo(mytable);
-				$('<td></td>').html("<B> <center>" + monthHeader[this.month-1] +"</center></B>").appendTo(row);
-				$('<td></td>').html("<center>" + ( $filter('currency')(this.amount, 'INR ', 2) ) +"</center>").appendTo(row);
-				colCount = 2;
-			}else{
-				
-				$('<td></td>').html("<center> " + ( $filter('currency')(this.amount, 'INR ', 2) ) + "</center>").appendTo(row);
-				colCount += 1;
-			}
-			month = this.month;
-		});
-		
-		while(colCount != 0 && colCount < maxColCount){
-			$('<td></td>').html("").appendTo(row);
-			colCount +=1;
-		}
-		
-		creatingFlag = true;
-		
-		mytable.appendTo("#box");
-	}
-    
-}]);*/
+			}		
+		}*/
 
+    	
+    	}}]);

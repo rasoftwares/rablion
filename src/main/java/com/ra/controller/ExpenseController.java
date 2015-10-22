@@ -92,27 +92,27 @@ public class ExpenseController extends BaseController {
     
     public List<Expense> dummyData(){
     	List<Expense> list = new ArrayList<Expense>();
-    	list.add(new Expense(1L,"User1", new Date(115,00,1),300.30,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,2),100.30,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(116,00,24),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(116,00,14),100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,00,1),"INR",300.30,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,00,2),"INR",100.30,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(116,00,24),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(116,00,14),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User1", new Date(115,01,5),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,06,11),100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,01,5),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User1", new Date(115,06,11),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User2", new Date(115,02,12),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,13),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,14),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,15),100.00,"Mobile"));
+    	list.add(new Expense(1L,"User2", new Date(115,02,12),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User2", new Date(115,02,13),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User2", new Date(115,02,14),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User2", new Date(115,02,15),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User3", new Date(115,02,12),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,13),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,14),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,15),100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,11,15),100.00,"Mobile"));
+    	list.add(new Expense(1L,"User3", new Date(115,02,12),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User3", new Date(115,02,13),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User3", new Date(115,02,14),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User3", new Date(115,02,15),"INR",100.00,"Mobile"));
+    	list.add(new Expense(1L,"User3", new Date(115,11,15),"INR",100.00,"Mobile"));
     	
     	return list;
     }

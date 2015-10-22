@@ -2,7 +2,7 @@ package com.ra.domain;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Appuser {
 
     @Id

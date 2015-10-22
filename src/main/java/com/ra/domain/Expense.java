@@ -22,6 +22,9 @@ public class Expense extends BaseEntity {
     @Column(name = "date", nullable = false)
     private Date date;
     
+    @Column(name = "currency", nullable = false)
+    private String currency;
+    
     @Column(name = "amount", nullable = false)
     private Double amount;
     
@@ -54,6 +57,14 @@ public Date getDate() {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
+	
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 
 	public String getType() {
 		return type;
@@ -69,14 +80,15 @@ public Date getDate() {
 
     public Expense(String user) {
         this.user = user;
+        
     }
-    
-
-    public Expense(Long id, String user, Date date, Double amount, String type) {
+   
+    public Expense(Long id, String user, Date date,String currency, Double amount, String type) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.date = date;
+		this.currency=currency;
 		this.amount = amount;
 		this.type = type;
 	}
@@ -84,6 +96,7 @@ public Date getDate() {
 	public Expense(long id, String user) {
         this.id = id;
         this.user = user;
+        
     }
 
 	public Long getId() {
@@ -93,7 +106,8 @@ public Date getDate() {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	
 	public String getUser() {
 		return user;
 	}
@@ -101,6 +115,7 @@ public Date getDate() {
 	public void setUser(String user) {
 		this.user = user;
 	}
+	
 	
 	/*public static void main(String a[]){
 		System.out.println(new Expense(1L,"demouser",new Date(System.currentTimeMillis()),1234.56,"Food"));

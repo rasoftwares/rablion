@@ -20,3 +20,4 @@ public class Application extends SpringBootServletInitializer {
     	SpringApplication.run(new Object[]{ AppConfig.class, ServletContainerCustomizer.class}, args);
     }
 }
+
