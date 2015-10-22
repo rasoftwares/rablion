@@ -18,9 +18,18 @@ select * from expense
 
 --Appuser
 --drop table appuser
-CREATE TABLE appuser (
-    id     integer,
-    username varchar(60)
+CREATE TABLE appuser( 
+id SERIAL PRIMARY KEY,
+username varchar(255),
+usertype varchar (25),
+loginid varchar(60),
+password varchar(60),
+email varchar(60)
+);
+
+insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com');
+
+select * from appuser
 );
 
 --TODO's
@@ -37,3 +46,22 @@ create table todo(
 	modifiedby varchar(60),
 	modifiedtimestamp date
 );
+
+insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtime,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
+
+select * from todo
+
+--drop table loan;
+select * from loan;
+
+CREATE TABLE loan(
+    id     SERIAL PRIMARY KEY,
+    loanno varchar(60),
+    customername varchar(60),
+    amount numeric(10,2),
+     totalweight varchar(60),
+    item varchar(60)
+    
+    );
+insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
+
