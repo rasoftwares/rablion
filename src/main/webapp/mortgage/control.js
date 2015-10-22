@@ -7,7 +7,7 @@ var loan_URL = 'rest/loan';
 mortgageApp.controller('loanCtrl', ['$scope', '$http', function ($scope, $http) {
     /* Read */
 	$http.get(loan_URL).success(function(data) {
-            console.log($scope.loan);
+           
                 if($scope.loan == undefined){
                     $scope.loan = data;
                 }

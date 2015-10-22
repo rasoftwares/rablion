@@ -58,11 +58,8 @@ public class Todo {
 			this.createdby = createdby;
 			this.createdtime= createdtime;
 			this.modifiedby = modifiedby;
-			
-		}
-
-
-	public String getId() {
+			}
+public String getId() {
 		return id;
 	}
 
@@ -150,10 +147,6 @@ public class Todo {
 	public void setModifiedby(String modifiedby) {
 		this.modifiedby = modifiedby;
 	}
-
-
-	
-			
 }
 	
 	

@@ -6,12 +6,13 @@
           <div class="alert alert-danger" ng-show> {{ userForm_add_error }} </div>
           <table border='1' class='table table-striped'>
             <tr>
-                <th> id </th>
-                <th>username </th>
-                <th>usertype </th>        
-                <th>loginid</th>
-                <th>password</th>
-                <th>email</th>
+                <th> Id </th>
+                <th>Name </th>
+                <th>Usertype </th>        
+                <th>Loginid</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Actions</th>
             </tr>
                 <tr ng-repeat="user in users" id='_user_{{user.id}}'>
                 <td>{{user.id}}</td>

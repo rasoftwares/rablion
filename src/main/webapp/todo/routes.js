@@ -14,8 +14,6 @@ todoApp.config(['$routeProvider', function($routeProvider) {
     }).
     when('/report',{
         templateUrl: (todoTemplateDir + '/report.html'), controller: 'todoCtrl'
-      }).
-  when('/entity',{
-      templateUrl: (todoTemplateDir + '/entity.html'), controller: 'todoCtrl'
-    });
+      })
+  
     }]);
