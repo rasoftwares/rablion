@@ -1,0 +1,39 @@
+<div class="page-header"> <h3>Currency</h3></div>
+<!--<div class="panel panel-primary">
+    <div class="panel-heading">Currency</div>-->
+    <div>
+          <form name="currencyForm" action="#/currency" novalidate>
+           
+          </div>
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> id </th>
+                <th> Currency</th>
+                
+                <th>Action</th>        
+
+            </tr>
+            <tr> 
+                    <th></th>    
+              
+             <th><input name="currency" class="form-control" type="text" placeholder="currency type..." maxlength="6" ng-model="newCurrency.currency" ng-required="true" ng-maxlength="6"/></th>
+                               
+                 
+                
+                
+                <th>
+                    <!--input type="submit" value="Add" ng-click="addCurrency(newCurrency)"/>
+                    <!--a href="#" class="btn" ng-click="addCurrency(newCurrency)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a-->
+                    <a href="#/currency" class="btn" ng-click="addCurrency(newCurrency)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                </th>
+            </tr>
+            <tr ng-repeat="currency in currency" id='_currency_{{currency.id}}'>
+                <td>{{currency.id}}</td>
+                <td>{{currency.currency}}</td>
+                
+                <td><a href="#/currency" class="btn" ng-click="deleteCurrency(currency.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a><a href="#/currency" class="btn" ng-click="editCurrency(currency.id)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+            </tr>
+          </table>
+          </form>
+        </div>
+</div>
