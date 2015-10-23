@@ -14,6 +14,7 @@ gemsApp.config(['$routeProvider', function($routeProvider) {
     }).
     when('/report',{
         templateUrl: (gemsTemplateDir + '/report.html'), controller: 'reportCtrl'
+   
       });
   
    

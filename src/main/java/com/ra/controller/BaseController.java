@@ -13,7 +13,7 @@ public class BaseController {
 	private String name = "BaseController" ;
 	
     
-    @RequestMapping(value = GlobalConstants.REST_ERR_URL)
+    /*@RequestMapping(value = GlobalConstants.REST_ERR_URL)
     public String error() {
         return "Error handling";
     }
