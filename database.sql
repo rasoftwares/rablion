@@ -73,3 +73,19 @@ CREATE TABLE loan(
     );
 insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
 
+--drop table inventory;
+select * from inventory
+
+CREATE TABLE inventory( 
+id SERIAL PRIMARY KEY,
+itemname varchar(255),
+itemtype varchar(255),
+quantity numeric(10),
+alertlimit numeric(100)
+);
+insert into inventory(itemname,itemtype,quantity,alertlimit) values ('Graphicscard','Insertcard',20,25);
+insert into inventory(itemname,itemtype,quantity,alertlimit) values ('pendrives','Insertcard',100,110);
+
+
+
+
