@@ -32,7 +32,7 @@ var a = [
          {
         	 "name" :"Inventory",
         	 "page" : "inventoryApp.html",
-        	 "icon" : "images/Inventory-maintenance-256.png",
+        	 "icon" : "images/inventory.png",
         	 "description" : " INVENTORY Application "
         		 
          },
