@@ -58,9 +58,9 @@ public class ExpenseController extends BaseController {
 			resultList.add(user);
 		}      
         return resultList;
-    }
+    }}
     
-    @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+  /*  @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, AmountSpent> amountSpent(@RequestParam String username) {
     	
     	//TODO: Validate null for username, period
@@ -255,4 +255,4 @@ class AmountSpent extends BaseEntity {
 		this.username = username;
 	}
 	
-}
+}*/

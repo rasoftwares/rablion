@@ -3,8 +3,27 @@ var todoApp = angular.module('todoApp',['ngRoute']);
 
 //TODO: Move this to a common place
 var todo_URL = 'rest/todo';
+var users= ["raj", "foemi", "karan"];
 
 todoApp.controller('todoCtrl', ['$scope', '$http', function ($scope, $http) {
+	$scope.users= ["raj", "foemi", "karan"];
+	$scope.users= ["raj", "foemi", "karan"];
+	$scope.users= ["raj", "foemi", "karan"];
+
+	
+	 /* Read */
+   //$scope, $http, method, url, entityname, formEntity
+	$scope.data = get($scope, $http, 'GET',todo_URL, 'todo', $scope.data);
+	
+	
+	$scope.userForm_add_error = "";
+	
+	/* Create */
+	//$scope, $http, method, entityName, EntityObject, url,  
+	$scope.adduser = function(newTodo){
+		add($scope, $http, 'POST', todo_URL, 'todo', newTodo); 
+	};
+
     /* Read */
 
 

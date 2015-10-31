@@ -3,8 +3,23 @@ var inventoryApp = angular.module('inventoryApp',['ngRoute']);
 
 //TODO: Move this to a common place
 var inventory_URL = 'rest/inventory';
+var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
 
 inventoryApp.controller('inventoryCtrl', ['$scope', '$http', function ($scope, $http) {
+	$scope.alertlimit= ["3", "5", "10", "20", "50", "70"];
+	 /* Read */
+    //$scope, $http, method, url, entityname, formEntity
+	$scope.data = get($scope, $http, 'GET', inventory_URL, 'inventory', $scope.data);
+	
+	
+	$scope.inventoryForm_add_error = "";
+	
+	/* Create */
+	//$scope, $http, method, entityName, EntityObject, url,  
+	$scope.addInventory = function(newInventory){
+		add($scope, $http, 'POST', inventory_URL, 'inventory', newInventory); 
+	};
+
    $http({
 	      method: 'GET',
 	    	  url: inventory_URL

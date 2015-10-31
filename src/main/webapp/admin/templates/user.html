@@ -17,7 +17,7 @@
             <tr>
             <th></th>
               <th><select ng-model="newTodo.user" ng-options="user for user in users" class="form-control">Pick a user</select></th>
-              <th><select ng-model="newTodo.user1" ng-options="user for user in users" class="form-control">Pick a user</select></th>
+              <th><select ng-model="newTodo.user1" ng-options="type for type in type" class="form-control">Pick a user</select></th>
                <th><input name="type" class="form-control" list="userTypesList.user" ng-model="newUser1.type" ng-required="true"></th>
               <th><input name="type" class="form-control" list="userTypesList" ng-model="newUser2.type" ng-required="true"></th>
                 <th><input name="type" class="form-control" list="userTypesList" ng-model="newUser3.type" ng-required="true"></th>

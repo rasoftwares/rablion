@@ -22,10 +22,7 @@ public class Expense extends BaseEntity {
     @Column(name = "date", nullable = false)
     private Date date;
     
-    @Column(name = "currency", nullable = false)
-    private String currency;
-    
-    @Column(name = "amount", nullable = false)
+ @Column(name = "amount", nullable = false)
     private Double amount;
     
     @Column(name = "type", nullable = false)
@@ -58,13 +55,7 @@ public Date getDate() {
 		this.amount = amount;
 	}
 	
-	public String getCurrency() {
-		return currency;
-	}
-
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+	
 
 	public String getType() {
 		return type;
@@ -74,7 +65,7 @@ public Date getDate() {
 		this.type = type;
 	}
 
-	public Expense() {
+	public Expense(long l, String string, Date date2, double d, String string2) {
     	
     }
 
@@ -83,12 +74,12 @@ public Date getDate() {
         
     }
    
-    public Expense(Long id, String user, Date date,String currency, Double amount, String type) {
+    public Expense(Long id, String user, Date date, Double amount, String type) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.date = date;
-		this.currency=currency;
+		
 		this.amount = amount;
 		this.type = type;
 	}

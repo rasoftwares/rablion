@@ -1,4 +1,4 @@
---Expense 
+﻿--Expense 
 --drop table expense;
 
 CREATE TABLE expense (
@@ -51,13 +51,13 @@ create table todo(
 	status varchar (25),
 	startdate date,
 	enddate date,
-	assignedto varchar(60)
+	assignedto varchar(60),
 	createdby varchar(60),
 	createdtimestamp date,
-	modifiedby varchar(60),
+	modifiedby varchar(60)
 	
 );
-insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtime,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
+insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtimestamp,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
 select * from todo
 
 --drop table loan;

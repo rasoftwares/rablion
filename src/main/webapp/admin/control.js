@@ -3,15 +3,31 @@ var adminApp = angular.module('adminApp',['ngRoute']);
 
 //TODO: Move this to a common place
 var user_URL = 'rest/user';
+var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
 
 adminApp.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
-   $http({
+	$scope.users = users;
+	$scope.type= ["3", "5", "10", "20", "50", "70"];
+	 /* Read */
+   //$scope, $http, method, url, entityname, formEntity
+	$scope.data = get($scope, $http, 'GET', user_URL, 'user', $scope.data);
+	
+	
+	$scope.userForm_add_error = "";
+	
+	/* Create */
+	//$scope, $http, method, entityName, EntityObject, url,  
+	$scope.adduser = function(newUser){
+		add($scope, $http, 'POST', user_URL, 'user', newUser); 
+	};
+
+	$http({
 	      method: 'GET',
 	    	  url: user_URL
 	    	}).then(function successCallback(response) {
 	    		//console.log(response.data);
-	    		if($scope.users == undefined){
-	                $scope.users = response.data;
+	    		if($scope.user == undefined){
+	                $scope.user = response.data;
 	            }
 	            else{
 	                //no need to do anything right now...as the data is temporarily stored in the javascript array
