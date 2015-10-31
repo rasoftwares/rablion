@@ -1,0 +1,54 @@
+<div class="page-header"> <h3>Catalog </h3></div>
+<!--<div class="panel panel-primary">
+    <div class="panel-heading">Catalog</div>-->
+    <div>
+          <form name="catalogForm" action="#/catalog" novalidate>
+          <div class="alert alert-danger" ng-show> {{ catalogForm_add_error }} </div>
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> id </th>
+                <th>Model</th>
+                <th>Price</th> 
+                   
+                <th>Discount</th>
+                <th>Image Location</th>
+                <th>Action</th>
+            </tr>
+            <tr> 
+                <th></th>
+               
+   
+
+                  <th><input name="model" class="form-control" type="text" placeholder="model name"  ng-model="newCatalog.model" ng-required="true" /></th></th>
+               
+                
+                <th><input name="price" class="form-control" type="number" placeholder="price"  ng-model="newCatalog.price" ng-required="true" /></th></th>
+                                 
+                <th><input name="discount" class="form-control" type="number" placeholder="discount"  ng-model="newCatalog.discount" ng-required="true" /></th>
+                <th>
+                <input name="image" class="form-control" type="text" placeholder="path"  ng-model="newCatalog.image" ng-required="true" /></th>
+                                                  
+               
+                
+                
+                <th>
+                    
+                    <a href="#/catalog" class="btn" ng-click="addCatalog(newCatalog)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                </th>
+            </tr>
+            <tr ng-repeat="catalog in catalog" id='_catalog_{{catalog.id}}'>
+                <td>{{catalog.id}}</td>
+                <td>{{catalog.model}}</td>
+                <td>{{catalog.price|currency:"":2 }}</td>        
+                <td>{{catalog.discount|currency:"":2}}</td>
+                <td>{{catalog.image}}</td>
+                <td>
+                	<a href="#/catalog" class="btn btn-primary" ng-click="deleteCatalog(catalog.id)">
+                		<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                	</a>
+                </td>
+            </tr>
+          </table>
+          </form>
+        </div>
+</div>
