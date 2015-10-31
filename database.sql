@@ -87,5 +87,14 @@ insert into inventory(itemname,itemtype,quantity,alertlimit) values ('Graphicsca
 insert into inventory(itemname,itemtype,quantity,alertlimit) values ('pendrives','Insertcard',100,110);
 
 
+---drop table catalog;
+CREATE TABLE catalog (
+    id     SERIAL PRIMARY KEY,
+    model varchar(60),
+    price numeric(10,2),
+    discount numeric(10,2),
+    image varchar(60)
+    
+);
 
-
+insert into catalog(model,price,discount,image) values ('halfsaree',1000.00,250.00,'image\1.jpg')
