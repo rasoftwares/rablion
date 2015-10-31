@@ -20,104 +20,105 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ra.domain.BaseEntity;
-import com.ra.domain.Expense;
-import com.ra.repository.ExpenseRepository;
+import com.ra.domain.Inventory;
+import com.ra.repository.InventoryRepository;
 
 @RestController
-public class ExpenseController extends BaseController {
-	String name = "ExpenseController";
+public class InventoryController extends BaseController {
+	String name = "InventoryController";
 
-	public ExpenseController() {
+	public InventoryController() {
 		this.setName(name);
 	}
 	
     @Inject
-    ExpenseRepository expenseRepository;
+    InventoryRepository inventoryRepository;
     
-    @RequestMapping(value = "/expense", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Expense creaet(@RequestBody Expense expense) {
-    	System.out.println("Expense from UI :" + expense + ":");
-    	return expenseRepository.save(expense);
+    @RequestMapping(value = "/inventory", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Inventory creaet(@RequestBody Inventory inventory) {
+    	System.out.println("Inventory from UI :" + inventory + ":");
+    	return inventoryRepository.save(inventory);
     }
     
-    @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteExpense(@PathVariable Long id) {
-        expenseRepository.delete(id);
-        System.out.println("Expense item " + id  + "deleted successfully");
+  /*  @RequestMapping(value = "/Inventory/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteInventory(@PathVariable Long id) {
+        InventoryRepository.delete(id);
+        System.out.println("Inventory item " + id  + "deleted successfully");
     }
+    */
     
-    
-    @RequestMapping(value = "/expense", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Expense> findExpenses() {
-        final List<Expense> resultList = new ArrayList<>();
-        final Iterable<Expense> all = expenseRepository.findAll();
+    @RequestMapping(value = "/inventory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Inventory> findInventory() {
+        final List<Inventory> resultList = new ArrayList<>();
+        final Iterable<Inventory> all = inventoryRepository.findAll();
         
-        Iterator<Expense> all_I = all.iterator();
+        Iterator<Inventory> all_I = all.iterator();
         while (all_I.hasNext()) {
-        	Expense user = (Expense) all_I.next();
+        	Inventory user = (Inventory) all_I.next();
 			resultList.add(user);
 		}      
         return resultList;
-    }}
+    }
+}
     
-  /*  @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+ /*   @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, AmountSpent> amountSpent(@RequestParam String username) {
     	
     	//TODO: Validate null for username, period
     	String period = "Week";
     	
     	System.out.println( "--->" +username + ":" + period);
-    	List<Expense> resultList = new ArrayList<>();
+    	List<Inventory> resultList = new ArrayList<>();
         
-        final Iterable<Expense> all = expenseRepository.findAll();
+        final Iterable<Inventory> all = InventoryRepository.findAll();
         
-        Iterator<Expense> all_I = all.iterator();
+        Iterator<Inventory> all_I = all.iterator();
         while (all_I.hasNext()) {
-        	Expense user = (Expense) all_I.next();
+        	Inventory user = (Inventory) all_I.next();
 			resultList.add(user);
 		}
         
         System.out.println("resultList Size :" + resultList.size());
         
         if(resultList.size() == 0) {
-        	System.out.println("FATAL : there are no expenses found for userid " + username);
+        	System.out.println("FATAL : there are no Inventorys found for userid " + username);
         	return new HashMap<String,AmountSpent>();
         }
         
-        HashMap<String, AmountSpent> fmap = filterExpenses(resultList,username,period);
+        HashMap<String, AmountSpent> fmap = filterInventorys(resultList,username,period);
         
         return fmap;
     }
     
     
-    public List<Expense> dummyData(){
-    	List<Expense> list = new ArrayList<Expense>();
-    	list.add(new Expense(1L,"User1", new Date(115,00,1),"INR",300.30,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,2),"INR",100.30,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(116,00,24),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(116,00,14),"INR",100.00,"Mobile"));
+    public List<Inventory> dummyData(){
+    	List<Inventory> list = new ArrayList<Inventory>();
+    	list.add(new Inventory(1L,"User1", new Date(115,00,1),"INR",300.30,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,00,2),"INR",100.30,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,00,14),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(116,00,24),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(116,00,14),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User1", new Date(115,01,5),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User1", new Date(115,06,11),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,01,5),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User1", new Date(115,06,11),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User2", new Date(115,02,12),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,13),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,14),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User2", new Date(115,02,15),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User2", new Date(115,02,12),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User2", new Date(115,02,13),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User2", new Date(115,02,14),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User2", new Date(115,02,15),"INR",100.00,"Mobile"));
     	
-    	list.add(new Expense(1L,"User3", new Date(115,02,12),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,13),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,14),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,02,15),"INR",100.00,"Mobile"));
-    	list.add(new Expense(1L,"User3", new Date(115,11,15),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User3", new Date(115,02,12),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User3", new Date(115,02,13),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User3", new Date(115,02,14),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User3", new Date(115,02,15),"INR",100.00,"Mobile"));
+    	list.add(new Inventory(1L,"User3", new Date(115,11,15),"INR",100.00,"Mobile"));
     	
     	return list;
     }
     
-    public HashMap<String, AmountSpent> filterExpenses(List<Expense> list, String username, String period) {
+    public HashMap<String, AmountSpent> filterInventorys(List<Inventory> list, String username, String period) {
     	
     	//String username = "User3";
     	//String period = "Week";
@@ -127,17 +128,17 @@ public class ExpenseController extends BaseController {
     	
     	HashMap<String, AmountSpent> fmap = new HashMap<String,AmountSpent>();
     	
-    	HashMap<String, List<Expense>> m = new HashMap<String,List<Expense>>();
+    	HashMap<String, List<Inventory>> m = new HashMap<String,List<Inventory>>();
     	
     	//Seperate the master list by userwise
-    	for(Expense e : list) {
+    	for(Inventory e : list) {
     		if(!m.containsKey(e.getUser())) {
-    			ArrayList<Expense> l = new ArrayList<Expense>();
+    			ArrayList<Inventory> l = new ArrayList<Inventory>();
     			l.add(e);
     			m.put(e.getUser(), l);
     		}
     		else if(m.containsKey(e.getUser())){
-    			List<Expense> l = m.get(e.getUser());
+    			List<Inventory> l = m.get(e.getUser());
     			l.add(e);
     		}
     	}
@@ -158,15 +159,15 @@ public class ExpenseController extends BaseController {
     	System.out.println("Period :" + getPeriod(period));
     	
     	if(m.get(username) == null || m.get(username).size() ==0) {
-        	System.out.println("FATAL : there are no expenses found for userid " + username);
+        	System.out.println("FATAL : there are no Inventorys found for userid " + username);
         	return new HashMap<String,AmountSpent>();
         }
     	
-    	List<Expense> fList = m.get(username);
+    	List<Inventory> fList = m.get(username);
     	
     	
     	String week = "";
-    	for(Expense e : fList) {
+    	for(Inventory e : fList) {
     		week = week_df.format(e.getDate());
     		
     		if(!fmap.containsKey(week)) {

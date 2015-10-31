@@ -27,7 +27,15 @@ var a = [
         	 "icon" : "images/checked20.png",
         	 "description" : " TODO Application "
         		 
-         }
+         },
+         
+         {
+        	 "name" :"Inventory",
+        	 "page" : "inventoryApp.html",
+        	 "icon" : "images/inventory.png",
+        	 "description" : " INVENTORY Application "
+        		 
+         },
          ];
 
 apps.controller('appsCtrl', ['$scope', '$http', function ($scope, $http) {

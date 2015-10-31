@@ -1,4 +1,4 @@
---Expense 
+﻿--Expense 
 --drop table expense;
 
 CREATE TABLE expense (
@@ -51,13 +51,13 @@ create table todo(
 	status varchar (25),
 	startdate date,
 	enddate date,
-	assignedto varchar(60)
+	assignedto varchar(60),
 	createdby varchar(60),
 	createdtimestamp date,
-	modifiedby varchar(60),
+	modifiedby varchar(60)
 	
 );
-insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtime,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
+insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtimestamp,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
 select * from todo
 
 --drop table loan;
@@ -72,4 +72,20 @@ CREATE TABLE loan(
     item varchar(60)
     );
 insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
+
+--drop table inventory;
+select * from inventory
+
+CREATE TABLE inventory( 
+id SERIAL PRIMARY KEY,
+itemname varchar(255),
+itemtype varchar(255),
+quantity numeric(10),
+alertlimit numeric(100)
+);
+insert into inventory(itemname,itemtype,quantity,alertlimit) values ('Graphicscard','Insertcard',20,25);
+insert into inventory(itemname,itemtype,quantity,alertlimit) values ('pendrives','Insertcard',100,110);
+
+
+
 

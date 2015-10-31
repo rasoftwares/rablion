@@ -1,16 +1,16 @@
 //'use strict';
 // Declare app level module which depends on filters, and services
 
-var gemsBaseDir = 'mortgage';
-var gemsTemplateDir = gemsBaseDir +'/templates';
+var mortgageBaseDir = 'mortgage';
+var mortgageTemplateDir = mortgageBaseDir +'/templates';
 
-mortgageApp.config(['$routeProvider', function($routeProvider) {
+mortgageApp.config(['$routeProvider', function($routeProvider){
   $routeProvider.
     when('/', {
-      templateUrl: (gemsTemplateDir + '/home.html'), controller: 'loanCtrl'
+      templateUrl: (mortgageTemplateDir + '/home.html'), controller: 'mortgageCtrl'
     }).
   when('/loan',{
-      templateUrl: (gemsTemplateDir + '/loan.html'), controller: 'loanCtrl'
+      templateUrl: (mortgageTemplateDir + '/loan.html'), controller: 'mortgageCtrl'
     });
   
     //$routeProvider.otherwise({redirectTo: '/'});
