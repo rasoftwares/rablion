@@ -36,6 +36,13 @@ var a = [
         	 "description" : " INVENTORY Application "
         		 
          },
+         {
+        	 "name" :"Catalog",
+        	 "page" : "catalogApp.html",
+        	 "icon" : "images/circular22.png",
+        	 "description" : " Catalog Application "
+        		 
+         },
          ];
 
 apps.controller('appsCtrl', ['$scope', '$http', function ($scope, $http) {
