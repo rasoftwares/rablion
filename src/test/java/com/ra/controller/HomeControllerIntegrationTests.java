@@ -26,7 +26,7 @@ public class HomeControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
     String url = "http://localhost:9095";
-    Expense e = new Expense(1L,"User1",new Date(System.currentTimeMillis()),"INR",1234.56,"Food");
+    Expense e = new Expense(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
 
     
     @Test
