@@ -5,14 +5,14 @@ CREATE TABLE expense (
     id     SERIAL PRIMARY KEY,
     username varchar(60),
     date date,
+    currency varchar(60),
     amount numeric(10,2),
     type varchar(60)
-    
 );
 
-insert into expense (username,date,amount,type) values ('User1', CURRENT_TIMESTAMP , 500.00, 'Travel');
-insert into expense (username,date,amount,type) values ('User2', CURRENT_TIMESTAMP , 500.00, 'Food');
-insert into expense (username,date,amount,type) values ('User1', CURRENT_TIMESTAMP , 500.00, 'Mobile');
+insert into expense (username, date, currency, amount, type) values ('Fowmi', CURRENT_TIMESTAMP , 'USD', 500.00, 'Travel');
+insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 10.00, 'Food');
+insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 50.00, 'Mobile');
 
 select * from expense
 
@@ -28,8 +28,7 @@ email varchar(60)
 );
 
 insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com');
-select * from appuser
-);
+select * from appuser;
 
 --drop table currency
 CREATE TABLE currency(

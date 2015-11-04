@@ -58,9 +58,9 @@ public class ExpenseController extends BaseController {
 			resultList.add(user);
 		}      
         return resultList;
-    }}
+    }
     
-  /*  @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, AmountSpent> amountSpent(@RequestParam String username) {
     	
     	//TODO: Validate null for username, period
@@ -88,7 +88,7 @@ public class ExpenseController extends BaseController {
         
         return fmap;
     }
-    
+    /*
     
     public List<Expense> dummyData(){
     	List<Expense> list = new ArrayList<Expense>();
@@ -115,7 +115,7 @@ public class ExpenseController extends BaseController {
     	list.add(new Expense(1L,"User3", new Date(115,11,15),"INR",100.00,"Mobile"));
     	
     	return list;
-    }
+    }*/
     
     public HashMap<String, AmountSpent> filterExpenses(List<Expense> list, String username, String period) {
     	
@@ -255,4 +255,4 @@ class AmountSpent extends BaseEntity {
 		this.username = username;
 	}
 	
-}*/
+}

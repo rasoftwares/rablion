@@ -1,6 +1,13 @@
 <div class="page-header"> <h3>Expenses </h3></div>
 <!--<div class="panel panel-primary">
     <div class="panel-heading">Expenses</div>-->
+
+<!-- 
+-->
+ 
+
+<!-- -->
+    
     <div>
           <form name="expenseForm" action="#/expense" novalidate>
           <div class="alert alert-danger" ng-show> {{ expenseForm_add_error }} </div>
@@ -21,7 +28,21 @@
                 
                 <th><input name="date" class="form-control" type="date" placeholder="dd/mm/yyyy" maxlength="10" ng-model="newExpense.date" ng-required="true" ng-minlength="10" ng-maxlength="10"/></th>
                 
-                <th><input name="amount" class="form-control" type="number" placeholder="amount here..." maxlength="6" ng-model="newExpense.amount" ng-required="true" ng-maxlength="6"/></th>
+                <!--  th><input name="amount" class="form-control" type="number" placeholder="amount here..." maxlength="6" ng-model="newExpense.amount" ng-required="true" ng-maxlength="6"/></th>
+                -->
+                <th>
+                <div class="input-group">
+			       <div class="input-group-btn">
+			         <button type="button" class="btn btn-default dropdown-toggle"  data-toggle="dropdown" 
+			         	aria-haspopup="true" aria-expanded="false" id="dropdownMenu1"> {{curr}} <span class="caret"></span></button>
+			         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			           <li ng-repeat="currency in currencies"><a ng-click='validate(currency)' >{{currency}}</a></li>
+			          </ul>
+			       </div>
+			       <input name='amount'  type="number" class="form-control" aria-label="..." 
+			       placeholder="amount here..." maxlength="6" ng-model="newExpense.amount" ng-required="true" ng-maxlength="6"/>
+			     </div>
+			   </th>
                 
                 <!--th><input name="type" class="form-control" list="expenseTypesList" ng-model="newExpense.type" ng-required="true"></th-->
                 
@@ -36,7 +57,7 @@
                 <td>{{data.id}}</td>
                 <td>{{data.user}}</td>
                 <td>{{data.date | date :'mediumDate'}}</td>        
-                <td>{{data.amount | currency:"INR ":2}}</td>
+                <td>{{data.amount | currency: data.currency + " " : 2 }}</td>
                 <td>{{data.type}}</td>
                 <td>
                 	<a href="#/expense" class="btn btn-primary" ng-click="deleteExpense(data.id)">
@@ -48,3 +69,5 @@
           </form>
         </div>
 </div>
+
+

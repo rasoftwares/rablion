@@ -11,6 +11,9 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.users = users; 
     $scope.expenseTypes= ["Travel", "Food", "Hotel", "Show-case", "Mobile", "Others"];
     
+    $scope.curr = "Currency";
+    $scope.currencies = ["USD","INR"];
+    
     $scope.countries= ["India", "China", "Shanghai"];
     $scope.city= ["Beijing", "Shanghai", "Guangzhou"];
 
@@ -24,6 +27,7 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 	/* Create */
 	//$scope, $http, method, entityName, EntityObject, url,  
 	$scope.addExpense = function(newExpense){
+		newExpense.currency = $scope.curr;
 		add($scope, $http, 'POST', expense_URL, 'expenses', newExpense); 
 	};
 	
@@ -36,6 +40,14 @@ gemsApp.controller('expenseCtrl', ['$scope', '$http', function ($scope, $http) {
 	$scope.deleteExpense = function(index) {
 		remove($scope, $http, 'DELETE', expense_URL, 'expense', index); 
 	};
+	
+	
+	$scope.validate = function(currency){
+		//console.log(newExpense.amt);
+		$scope.curr = currency;
+		console.log($scope.curr + ":" + currency);
+	}
+	
 }]);
 
 gemsApp.controller('reportCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
