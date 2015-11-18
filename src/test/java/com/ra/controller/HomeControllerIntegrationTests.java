@@ -26,8 +26,8 @@ public class HomeControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
     String url = "http://localhost:9095";
-    Expense e = new Expense(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
-
+    Expense e1 = new Expense(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
+    Expense e2 = new Expense(2L,"User2",new Date(System.currentTimeMillis()),789.12,"Travel");
     
     @Test
     public void read_Expense_ToDB(){
@@ -62,3 +62,4 @@ public class HomeControllerIntegrationTests {
         */}
 
 }
+
