@@ -1,6 +1,6 @@
 <html ng-app="catalogApp">
 <head>
-    <title>Catalog</title>
+    <title>CatalogApp</title>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0">
@@ -28,6 +28,12 @@ opacity: 0;
 opacity: 1;
 }
 
+#t-cards {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 80px
+    background-color: #345;    
+}
 
 
 
@@ -40,30 +46,34 @@ opacity: 1;
               <a href="#/" class="brand">CatalogApp</a>
             </div>
           <hr>
-           <div ng-view></div>
+           <div ng-view>
            
         </div>
-       <center><h3>Picture Catalog</h3></center>
+       <h3>Picture Catalog</h3>
+   
     <body ng-controller='catalogCtrl'>
-       <div class="container"> 
-            <div class="col-md-12 text-center">
-              
-            </div>
-            <hr>
-                <div class="row" ></center>
-                    <div class="col-xs-6 col-md-3" style="width: 160px; color: navy; background-color: white; border: 2px solid gray; padding: 4px;" ng-repeat='product in productList'>
-                        <center><img src="{{product.image}}" height="150" width="150" alt=""> 
-                           <!-- <div class="caption">-->
-                               <p>Model:{{product.name}}</p>
-							  <p>Price:{{product.price}}</p>
-							  <p>Discount : {{product.discount}}</p>
+	<section id="t-cards">
+    <div class="container">
+        <div class="row">
+             <div class="col-sm-6 col-md-3" ng-repeat='catalog in catalog'>
+                <div class="panel panel-default panel-card">
+                    <div class="panel-heading">
+                     <div class="panel-figure">
+                        <center><img src="{{catalog.image}}" height="150" width="150" alt="" /></center>
+                    </div>
+						<center> <p>Model:{{catalog.model}}</p>
+							  <p>Price:{{catalog.price}}</p>
+							  <p>Discount : {{catalog.discount}}
 							  
-                            <!--p>{{app.description}}</p-->
-                           </div>
-                       
-	                </div>
+                             </div></section>
+                        </div>
 	            </div>
-            <hr>
+          
         </div>
+		</div>
+	
+          
+        </div>
+        <hr>
     </body>
 </html>
