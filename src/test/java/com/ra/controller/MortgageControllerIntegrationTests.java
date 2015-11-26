@@ -1,7 +1,5 @@
 package com.ra.controller;
 
-import java.sql.Date;
-
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,19 +14,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.ra.config.AppConfig;
-import com.ra.domain.Expense;
+import com.ra.domain.Loan;
 import com.ra.util.RestClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {AppConfig.class})
 @WebIntegrationTest("server.port:9000")
-public class ExpenseControllerIntegrationTests {
+public class MortgageControllerIntegrationTests {
 
     RestTemplate restTemplate = new TestRestTemplate();
     //String url = "http://localhost:9095";
     
-    Expense e1 = new Expense(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
-    Expense e2 = new Expense(2L,"User2",new Date(System.currentTimeMillis()),789.12,"Travel");
+   /* Loan e1 = new Loan(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
+    Loan e2 = new Loan(2L,"User2",new Date(System.currentTimeMillis()),789.12,"Travel");*/
 
     
     @Test
@@ -39,42 +37,42 @@ public class ExpenseControllerIntegrationTests {
     	
     	RestClient client = new RestClient();
     	client.setApplicationPath("");
-    	String url = client.login("robin", "password");
+    	String url = client.login("raja", "password");
     	System.out.println(url);
     	
-    	ResponseEntity<Expense[]> response = client.template().exchange(client.apiUrl("expense"), HttpMethod.GET, request, Expense[].class);
+    	ResponseEntity<Loan[]> response = client.template().exchange(client.apiUrl("mortgage"), HttpMethod.GET, request, Loan[].class);
     	System.out.println("Response -->" + response.getBody());
     	
-    	final Expense[] expense = response.getBody();
-    	if(expense != null) {
-    		System.out.println("Total Expenses Found " + expense.length);
+    	final Loan[] loan = response.getBody();
+    	if(loan != null) {
+    		System.out.println("Total Loan Found " + loan.length);
     	}
-    	for(int i=0;i<expense.length;i++) {
-        	Assertions.assertThat(expense[i]).isNotNull();    
+    	for(int i=0;i<loan.length;i++) {
+        	Assertions.assertThat(loan[i]).isNotNull();    
         }
     	
-    
+    }
     }
     
-    @Test
+ /*   @Test
     public void create(){
     	HttpHeaders headers = new HttpHeaders();
     	final HttpEntity<String> request = new HttpEntity<String>(headers);
     	
     	RestClient client = new RestClient();
     	client.setApplicationPath("");
-    	String url = client.login("robin", "password");
+    	String url = client.login("raja", "password");
     	System.out.println(url);
     	
-    	ResponseEntity<Expense[]> response = client.template().exchange(client.apiUrl("expense"), HttpMethod.POST, request, Expense[].class);
+    	ResponseEntity<Loan[]> response = client.template().exchange(client.apiUrl("loan"), HttpMethod.POST, request, Loan[].class);
     	System.out.println("Response -->" + response.getBody());
     	
-    	final Expense[] expense = response.getBody();
-    	if(expense != null) {
-    		System.out.println("Total Expenses Found " + expense.length);
+    	final Loan[] Loan = response.getBody();
+    	if(Loan != null) {
+    	System.out.println("Total Loans Found " + Loan.length);
     	}
-    	for(int i=0;i<expense.length;i++) {
-        	Assertions.assertThat(expense[i]).isNotNull();    
+    	for(int i=0;i<Loan.length;i++) {
+        	Assertions.assertThat(Loan[i]).isNotNull();    
         }
     
     	
@@ -87,23 +85,23 @@ public class ExpenseControllerIntegrationTests {
     	
     	RestClient client = new RestClient();
     	client.setApplicationPath("");
-    	String url = client.login("robin", "password");
+    	String url = client.login("raja", "password");
     	System.out.println(url);
     	
-    	ResponseEntity<Expense[]> response = client.template().exchange(client.apiUrl("expense"), HttpMethod.DELETE, request, Expense[].class);
+    	ResponseEntity<Loan[]> response = client.template().exchange(client.apiUrl("Loan"), HttpMethod.DELETE, request, Loan[].class);
     	System.out.println("Response -->" + response.getBody());
     	
-    	final Expense[] expense = response.getBody();
-    	if(expense != null) {
-    		System.out.println("Total Expenses Found " + expense.length);
+    	final Loan[] loan = response.getBody();
+    	if(loan != null) {
+    		System.out.println("Total Loans Found " + loan.length);
     	}
-    	for(int i=0;i<expense.length;i++) {
-        	Assertions.assertThat(expense[i]).isNotNull();    
+    	for(int i=0;i<loan.length;i++) {
+        	Assertions.assertThat(loan[i]).isNotNull();    
         }
     
     }
 }
-
+*/
 
 
 
