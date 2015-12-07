@@ -3,31 +3,31 @@ var todoApp = angular.module('todoApp',['ngRoute']);
 
 //TODO: Move this to a common place
 var todo_URL = 'rest/todo';
-var users= ["raj", "foemi", "karan"];
+var users= ["raj", "fowmi", "karan"];
 
 todoApp.controller('todoCtrl', ['$scope', '$http', function ($scope, $http) {
-	$scope.users= ["raj", "foemi", "karan"];
-	$scope.users= ["raj", "foemi", "karan"];
-	$scope.users= ["raj", "foemi", "karan"];
+	$scope.users= ["raj", "fowmi", "karan"];
+	$scope.users= ["raj", "fowmi", "karan"];
+	$scope.users= ["raj", "fowmi", "karan"];
 
 	
 	 /* Read */
    //$scope, $http, method, url, entityname, formEntity
-	$scope.data = get($scope, $http, 'GET',todo_URL, 'todo', $scope.data);
+	//$scope.data = get($scope, $http, 'GET',todo_URL, 'todo', $scope.data);
 	
 	
-	$scope.userForm_add_error = "";
+	//$scope.userForm_add_error = "";
 	
 	/* Create */
 	//$scope, $http, method, entityName, EntityObject, url,  
-	$scope.adduser = function(newTodo){
-		add($scope, $http, 'POST', todo_URL, 'todo', newTodo); 
-	};
+	//$scope.adduser = function(newTodo){
+		//add($scope, $http, 'POST', todo_URL, 'todo', newTodo); 
+	//};
 
     /* Read */
 
 
-	    $http({
+	   $http({
 	    	  method: 'GET',
 	    	  url: todo_URL
 	    	}).then(function successCallback(response) {
@@ -50,7 +50,7 @@ todoApp.controller('todoCtrl', ['$scope', '$http', function ($scope, $http) {
 	$scope.todoForm_add_error = "";
 	
 	/* Create */
-	/*$scope.addTodo = function(newTodo) {
+	$scope.addTodo = function(newTodo) {
 		
         //TODO: Add validations here
 		//if(!newExpense.user){ $scope.expenseForm_add_error="Missing Date"; }
@@ -77,29 +77,14 @@ todoApp.controller('todoCtrl', ['$scope', '$http', function ($scope, $http) {
 	    	  });
 		
 		$scope.newTodo={};
-	}*/
+	};
 	
 	
 	/* Delete */
-/*	$scope.deleteExpense = function(index) {
-		
-		alert("Deleting Expense : " + index);
-		
-		$http({
-	    	  method: 'DELETE',
-	    	  url: expense_URL + '/' + index
-	    	  //data: {newExpense:''}
-	    	}).then(function successCallback(response) {
-	    		alert("Deleted successfully ");
-	    		//Remove from the UI Layer
-	    		$("#_expense_" + index).remove();
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    		  alert("Problem deleting record " + index);
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-	}*/
+	
+	$scope.deleteTodo= function(index) {
+		remove($scope, $http, 'DELETE', todo_URL, 'todo', index); 
+	};
+
 }]);
 

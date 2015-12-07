@@ -17,7 +17,7 @@ public class Todo {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id", nullable = false)
-    private String id;
+    private Long id;
 	
 	@Column(name = "task", nullable = false)
     private String task;
@@ -46,7 +46,7 @@ public class Todo {
 	
 	 
 	 
-	 public Todo(String id, String task, String status, Date startdate,
+	 public Todo(Long id, String task, String status, Date startdate,
 				Date enddate, String assignedto, String createdby,Date createdtime,String modifiedby) {
 			super();
 			this.id = id;
@@ -59,12 +59,12 @@ public class Todo {
 			this.createdtime= createdtime;
 			this.modifiedby = modifiedby;
 			}
-public String getId() {
+public Long getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

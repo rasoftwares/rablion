@@ -38,11 +38,11 @@ public class Todocontroller extends BaseController {
     }
     
     
-   /* @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteTodo(@PathVariable Long id) {
         todoRepository.delete(id);
         System.out.println("todo item " + id  + "deleted successfully");
-    }*/
+    }
     
     
     @RequestMapping(value = "/todo", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
