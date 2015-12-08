@@ -11,17 +11,18 @@
                 <th>Itemtype </th>
                 <th>Quantity </th> 
                 <th>Alertlimit </th>
+                <th>Action</th>
                 
                  </tr>
-            <tr> 
+                 <tr> 
                 <th></th>
-                <!--th><input name="userList" list="usersList" ng-model="newExpense.user" ng-required="true"></th-->
- <th><input name="type" class="form-control" list="inventoryTypesList" ng-model="newInventory.type" ng-required="true"></th>
-  <th><input name="type" class="form-control" list="inventoryTypesList" ng-model="newInventory1.type" ng-required="true"></th>
-   <th><input name="type" class="form-control" list="inventoryTypesList" ng-model="newInventory2.type" ng-required="true"></th>
-  <th><select ng-model="newInventory.type" ng-options="type for type in alertlimit" class="form-control">Pick a user</select></th>
+   <th><input name="itemname" class="form-control" type="text" placeholder="Item Name.."  ng-model="newInventory.itemname" ng-required="true" /></th>             
+   <!-- <th><input name="itemname" class="form-control" type="text" placeholder="Itemname..." ng-model="newInventory.itemname" ng-required="true"></th>-->
+   <th><input name="itemtype" class="form-control" type="text" placeholder=" ItemType..." ng-model="newInventory.itemtype" ng-required="true"/></th>
+   <th><input name="quantity" class="form-control" type="number" placeholder="Quantity..." ng-model="newInventory.quantity" ng-required="true"/></th>
+   <th><select ng-model="newInventory.alertlimit" ng-options="type for type in alertlimit" placeholder="Select" class="form-control">Pick a user</select></th>
    
- <th><a href="#/inventory" class="btn" ng-click="addInventory(newInventory)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+   <th><a href="#/inventory" class="btn" ng-click="addInventory(newInventory)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
  
              </tr>
             <tr ng-repeat="data in data" id='_inventory_{{data.id}}'>
@@ -30,7 +31,7 @@
                 <td>{{data.itemtype}}</td>
                 <td>{{data.quantity}}</td>
                 <td>{{data.alertlimit}}</td>
-                <td><a href="#/expense" class="btn btn-primary" ng-click="deleteExpense(data.id)">
+                <td><a href="#/inventory" class="btn btn-primary" ng-click="deleteInventory(data.id)">
                 		<span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a></td>
   
                 </td>

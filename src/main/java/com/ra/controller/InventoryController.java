@@ -40,12 +40,12 @@ public class InventoryController extends BaseController {
     	return inventoryRepository.save(inventory);
     }
     
-  /*  @RequestMapping(value = "/Inventory/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+   @RequestMapping(value = "/inventory/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteInventory(@PathVariable Long id) {
-        InventoryRepository.delete(id);
+        inventoryRepository.delete(id);
         System.out.println("Inventory item " + id  + "deleted successfully");
     }
-    */
+    
     
     @RequestMapping(value = "/inventory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Inventory> findInventory() {
@@ -54,8 +54,8 @@ public class InventoryController extends BaseController {
         
         Iterator<Inventory> all_I = all.iterator();
         while (all_I.hasNext()) {
-        	Inventory user = (Inventory) all_I.next();
-			resultList.add(user);
+        	Inventory inventory = (Inventory) all_I.next();
+			resultList.add(inventory);
 		}      
         return resultList;
     }

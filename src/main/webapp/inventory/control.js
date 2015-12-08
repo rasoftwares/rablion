@@ -9,16 +9,16 @@ inventoryApp.controller('inventoryCtrl', ['$scope', '$http', function ($scope, $
 	$scope.alertlimit= ["3", "5", "10", "20", "50", "70"];
 	 /* Read */
     //$scope, $http, method, url, entityname, formEntity
-	$scope.data = get($scope, $http, 'GET', inventory_URL, 'inventory', $scope.data);
+	//$scope.data = get($scope, $http, 'GET', inventory_URL, 'inventory', $scope.data);
 	
 	
-	$scope.inventoryForm_add_error = "";
+	//$scope.inventoryForm_add_error = "";
 	
 	/* Create */
 	//$scope, $http, method, entityName, EntityObject, url,  
-	$scope.addInventory = function(newInventory){
-		add($scope, $http, 'POST', inventory_URL, 'inventory', newInventory); 
-	};
+	//$scope.addInventory = function(newInventory){
+		//add($scope, $http, 'POST', inventory_URL, 'inventory', newInventory); 
+	//};
 
    $http({
 	      method: 'GET',
@@ -43,7 +43,7 @@ inventoryApp.controller('inventoryCtrl', ['$scope', '$http', function ($scope, $
 	$scope.dataForm_add_error = "";
 	
 	/* Create */
-	$scope.addItem = function(newItem){
+	$scope.addInventory = function(newInventory){
 		
         //TODO: Add validations here1
 		//if(!newExpense.user){ $scope.expenseForm_add_error="Missing Date"; }
@@ -52,11 +52,11 @@ inventoryApp.controller('inventoryCtrl', ['$scope', '$http', function ($scope, $
 $http({
 	    	  method: 'POST',
 	    	  url: inventory_URL,
-	    	  data: newItem
+	    	  data: newInventory
 	    	}).then(function successCallback(response) {
 	    		//console.log("Response after insert" + response.data);
 	    		if($scope.data== undefined){
-	                $scope.data = response.data;
+	                $scope.data= response.data;
 	            }
 	            else {
 	            	//console.log("have to push the data into the array" + response.data) ;
@@ -69,7 +69,12 @@ $http({
 	    	    // or server returns response with an error status.
 	    	  });
 		
-		$scope.newUser={};
+		$scope.newInventory={};
+		
+	/*	delete */
+		 $scope.deleteInventory= function(index) {
+			remove($scope, $http, 'DELETE', inventory_URL, 'inventory', index); 
+		};
 
 		
 	}}]);
