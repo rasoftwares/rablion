@@ -7,21 +7,21 @@ var loan_URL = 'rest/loan';
 var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
 
 mortgageApp.controller('mortgageCtrl', ['$scope', '$http', function ($scope, $http) {
-	$scope.users=users;
+	    $scope.users=users;
 	
-		$scope.Item = ["3", "5", "10", "20", "50", "70"];
+		$scope.Item = ["bangle", "ring", "chain"];
 		 /* Read */
 	    //$scope, $http, method, url, entityname, formEntity
-		$scope.data = get($scope, $http, 'GET', loan_URL, 'loan', $scope.data);
+		//$scope.data = get($scope, $http, 'GET', loan_URL, 'loan', $scope.data);
 		
 		
-		$scope.loanForm_add_error = "";
+		//$scope.loanForm_add_error = "";
 		
 		/* Create */
 		//$scope, $http, method, entityName, EntityObject, url,  
-		$scope.addLoan = function(newLoan){
-			add($scope, $http, 'POST', loan_URL, 'loan', newLoan); 
-		};
+		//$scope.addLoan = function(newLoan){
+			//add($scope, $http, 'POST', loan_URL, 'loan', newLoan); 
+		//};
 
     /* Read */
 	$http.get(loan_URL).success(function(data) {
@@ -57,7 +57,7 @@ mortgageApp.controller('mortgageCtrl', ['$scope', '$http', function ($scope, $ht
 	$scope.dataForm_add_error = "";
 	
 	/* Create */
-	$scope.addItem = function(newItem){
+	$scope.addLoan = function(newLoan){
 		
       //TODO: Add validations here1
 		//if(!newExpense.user){ $scope.expenseForm_add_error="Missing Date"; }
@@ -66,11 +66,11 @@ mortgageApp.controller('mortgageCtrl', ['$scope', '$http', function ($scope, $ht
 $http({
 	    	  method: 'POST',
 	    	  url: loan_URL,
-	    	  data: newItem
+	    	  data: newLoan
 	    	}).then(function successCallback(response) {
 	    		//console.log("Response after insert" + response.data);
 	    		if($scope.data== undefined){
-	                $scope.data = response.data;
+	                $scope.data= response.data;
 	            }
 	            else {
 	            	//console.log("have to push the data into the array" + response.data) ;
@@ -83,7 +83,11 @@ $http({
 	    	    // or server returns response with an error status.
 	    	  });
 		
-		$scope.newUser={};
+		$scope.newLoan={};
+		
+		$scope.deleteLoan= function(index) {
+			remove($scope, $http, 'DELETE', loan_URL, 'loan', index); 
+		};
 
 		
 	}}]);
@@ -92,7 +96,7 @@ $http({
 
 
 /* Create */
-	$scope.addLoan = function(newLoan) {
+	/*$scope.addLoan = function(newLoan) {
 		
         //TODO: Add validations here
 		//if(!newLoan.user){ $scope.loanForm_add_error="Missing Date"; }
@@ -108,7 +112,7 @@ $http({
 	
 	
 	/* Delete */
-	$scope.deleteLoan = function(index) {
+	/*$scope.deleteLoan = function(index) {
 		
         for(i=0; i < $scope.loan.length; i++) {
             
@@ -121,6 +125,6 @@ $http({
                 });
                 console.log("Loans Length :" + $scope.loan.length);
 			}}};
-	
+	*/
 				
 	

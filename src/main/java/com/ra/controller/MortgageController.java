@@ -7,9 +7,11 @@ import java.util.List;
 
 
 
+
 import javax.inject.Inject;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,10 +33,10 @@ public class MortgageController {
     MortgageRepository mortgageRepository;
    
     
-    @RequestMapping(value = "/helloLoan", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/loan", method = RequestMethod.GET)
     public String sayHello(){
           return "Hello there !";
-    }
+    }*/
 
      @RequestMapping(value = "/loan", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Loan createloan(@RequestBody Loan loan) 
@@ -46,16 +48,15 @@ public class MortgageController {
     }	
     
    
-   /* @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteExpense(@PathVariable Long id) {
-        mortgageRepository.delete(id);
-        
-        System.out.println("Expense item " + id  + "deleted successfully");
-    }*/
+     @RequestMapping(value = "/loan/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+     public void deleteLoan(@PathVariable Long id) {
+         mortgageRepository.delete(id);
+         System.out.println("Loan item " + id  + "deleted successfully");
+     }
    
     
     @RequestMapping(value = "/loan", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Loan> findloan() {
+    public List<Loan> findLoan() {
         final List<Loan> resultList = new ArrayList<>();
         final Iterable<Loan> all = mortgageRepository.findAll();
         
