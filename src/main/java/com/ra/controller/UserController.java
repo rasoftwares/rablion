@@ -3,6 +3,7 @@ package com.ra.controller;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.http.MediaType;
@@ -33,11 +34,11 @@ public class UserController extends BaseController {
     	return userRepository.save(user);
     }
     
-    @RequestMapping(value = "/user", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteUser(@PathVariable Long id) {
-        userRepository.delete(id);
-        System.out.println("User item " + id  + "deleted successfully");
-    }
+  @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public void deleteUser(@PathVariable Long id) {
+      userRepository.delete(id);
+      System.out.println("User item " + id  + "deleted successfully");
+  }
     
     
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

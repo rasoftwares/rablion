@@ -7,19 +7,19 @@ var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
 
 adminApp.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
 	$scope.users = users;
-	$scope.type= ["3", "5", "10", "20", "50", "70"];
+	$scope.type= ["Owner", "UserA", "UserB", "Guest"];
 	 /* Read */
    //$scope, $http, method, url, entityname, formEntity
-	$scope.data = get($scope, $http, 'GET', user_URL, 'user', $scope.data);
+	//$scope.data = get($scope, $http, 'GET', user_URL, 'user', $scope.data);
 	
 	
-	$scope.userForm_add_error = "";
+	//$scope.userForm_add_error = "";
 	
 	/* Create */
 	//$scope, $http, method, entityName, EntityObject, url,  
-	$scope.adduser = function(newUser){
-		add($scope, $http, 'POST', user_URL, 'user', newUser); 
-	};
+	//$scope.adduser = function(newUser){
+		//add($scope, $http, 'POST', user_URL, 'user', newUser); 
+	//};
 
 	$http({
 	      method: 'GET',
@@ -71,6 +71,11 @@ $http({
 	    	  });
 		
 		$scope.newUser={};
+		
+		/*Delete*/
+		$scope.deleteUser= function(index) {
+			remove($scope, $http, 'DELETE', user_URL, 'user', index); 
+		};
 
 		
 	}}]);

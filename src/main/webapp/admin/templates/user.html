@@ -1,0 +1,40 @@
+<div class="page-header"> <h3>User</h3></div>
+<!--<div class="panel panel-primary">
+    <div class="panel-heading">User</div>-->
+    <div>
+          <form name="userForm" action="#/user" novalidate>
+          
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> Id </th>
+                <th>Name </th>
+                <th>Type </th>        
+                <th>Loginid</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+            <th></th>
+           
+              <th><select ng-model="newUser.username" ng-options="user for user in users" class="form-control">Pick a user</select></th>
+              <th><select ng-model="newUser.usertype" ng-options="type for type in type" class="form-control">Pick a user</select></th>
+                <th><input name="loginid" class="form-control" type="text" placeholder="login id..." maxlength="8" ng-model="newUser.loginid" ng-required="true" ng-maxlength="8"/></th>
+                 <th><input name="password" class="form-control" type="password" placeholder="password..." maxlength="8" ng-model="newUser.password" ng-required="true" ng-maxlength="8"/></th>
+                <th><input name="email" class="form-control" type="email" placeholder="email..." maxlength="30" ng-model="newUser.email" ng-required="true" ng-maxlength="30"/></th>
+                <th> <a href="#/user" class="btn" ng-click="addUser(newUser)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a></th>
+             
+                <tr ng-repeat="user in user" id='_user_{{user.id}}'>
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.usertype}}</td>        
+                <td>{{user.loginid}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.email}}</td>
+              </a>  <td>
+    <a href="#/user" class="btn" ng-click="deleteUser(user.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a><a href="#/user" class="btn" ng-click="editExpense(expense.id)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+
+            </tr>
+          </table>
+          </form>
+        </div>
