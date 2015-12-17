@@ -71,6 +71,7 @@ $http({
 	    	  });
 		
 		$scope.newUser={};
+	};
 		
 		/*Delete*/
 		$scope.deleteUser= function(index) {
@@ -78,7 +79,7 @@ $http({
 		};
 
 		
-	}}]);
+	}]);
 
 /*currency*/
 
@@ -129,52 +130,16 @@ $http({
 	    	    });
 		
 		$scope.newCurrency={};
+    };
 		
-	/*currency delete*/	
-		
-	/*$scope.deleteExpense = function(index) {
-		
-		alert("Deleting Expense : " + index);
-		
-		$http({
-	    	  method: 'DELETE',
-	    	  url: expense_URL + '/' + index
-	    	  //data: {newExpense:''}
-	    	}).then(function successCallback(response) {
-	    		alert("Deleted successfully ");
-	    		//Remove from the UI Layer
-	    		$("#_expense_" + index).remove();
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    		  alert("Problem deleting record " + index);
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-	}*/
+	
 		
 		$scope.deleteCurrency= function(index) {
 			remove($scope, $http, 'DELETE', currency_URL, 'currency', index); 
 		};
 		
-		/*$scope.deleteCurrency = function(index) {
-			
-	        for(i=0; i < $scope.currency.length; i++) {
-	            
-				if($scope.currency[i].id == index) {
-	                //console.log("for index :" + i + ": index from click :" + index);
-					//console.log("Will be deleting expense" + $scope.expenses[i].id + ":" + $scope.expenses[i].type);                
-					$("#_currency_" + index).remove();
-	                $scope.currency = $.grep($scope.currency, function(value) {
-	                    return value.id != index;
-	                });
-	                console.log("Currency Length :" + $scope.currency.length);
-				}
-			}		
-		}*/
-
-    	
-    	}}]);
+		    	
+    	}]);
 
 
 /*catalog*/
@@ -229,32 +194,9 @@ $http({
 	    	    });
 		
 		$scope.newCatalog={};
+   };
 		
-	/*catalog delete*/	
-		
-		
-		
-	/*$scope.deleteCatalog = function(index) {
-		
-		alert("Deleting Catalog : " + index);
-		
-		$http({
-	    	  method: 'DELETE',
-	    	  url: catalog_URL + '/' + index
-	    	  //data: {newCatalog:''}
-	    	}).then(function successCallback(response) {
-	    		alert("Deleted successfully ");
-	    		//Remove from the UI Layer
-	    		$("#_catalog_" + index).remove();
-	    	    // this callback will be called asynchronously
-	    	    // when the response is available
-	    	  }, function errorCallback(response) {
-	    		  alert("Problem deleting record " + index);
-	    	    // called asynchronously if an error occurs
-	    	    // or server returns response with an error status.
-	    	  });
-	}*/
-		
+			
 		$scope.deleteCatalog= function(index) {
 			remove($scope, $http, 'DELETE', catalog_URL, 'catalog', index); 
 		};
@@ -262,4 +204,4 @@ $http({
 		
 
     	
-   }}]);
+   }]);

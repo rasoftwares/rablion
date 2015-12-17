@@ -84,13 +84,14 @@ $http({
 	    	  });
 		
 		$scope.newLoan={};
+	};
 		
 		$scope.deleteLoan= function(index) {
 			remove($scope, $http, 'DELETE', loan_URL, 'loan', index); 
 		};
 
 		
-	}}]);
+	}]);
 
 
 
