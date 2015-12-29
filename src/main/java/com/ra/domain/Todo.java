@@ -31,33 +31,17 @@ public class Todo {
 	 @Column(name = "enddate", nullable = false)
 	    private Date enddate;
 		
-	 @Column(name = "assignedto", nullable = false)
-	    private String assignedto;
-		
-	 @Column(name = "createdby", nullable = false)
-	    private String createdby;
-	 
-	 @Column(name = "createdtime", nullable = false)
-	    private Date createdtime;
-	 
-	 @Column(name = "modifiedby", nullable = false)
-	    private String modifiedby;
-	 
 	
 	 
-	 
 	 public Todo(Long id, String task, String status, Date startdate,
-				Date enddate, String assignedto, String createdby,Date createdtime,String modifiedby) {
+				Date enddate) {
 			super();
 			this.id = id;
 			this.task = task;
 			this.status = status;
 			this.startdate = startdate;
 			this.enddate = enddate;
-			this.assignedto =assignedto;
-			this.createdby = createdby;
-			this.createdtime= createdtime;
-			this.modifiedby = modifiedby;
+			
 			}
 public Long getId() {
 		return id;
@@ -107,47 +91,7 @@ public Long getId() {
 	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
-
-
-	public String getAssignedto() {
-		return assignedto;
 	}
-
-
-	public void setAssignedto(String assignedto) {
-		this.assignedto = assignedto;
-	}
-
-
-	public String getCreatedby() {
-		return createdby;
-	}
-
-
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
-
-
-	public Date getCreatedtime() {
-		return createdtime;
-	}
-
-
-	public void setCreatedtime(Date createdtime) {
-		this.createdtime = createdtime;
-	}
-
-
-	public String getModifiedby() {
-		return modifiedby;
-	}
-
-
-	public void setModifiedby(String modifiedby) {
-		this.modifiedby = modifiedby;
-	}
-}
 	
 	
 			
