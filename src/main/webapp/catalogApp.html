@@ -49,30 +49,35 @@ opacity: 1;
            <div ng-view>
            
         </div>
-       <h3>Picture Catalog</h3>
+       <h3>Catalog</h3>
    <hr>
     <body ng-controller='catalogCtrl'>
 	<section id="t-cards">
     <div class="container">
         <div class="row">
-             <div class="col-sm-6 col-md-3" ng-repeat='catalog in catalog'>
+             <div class="col-sm-6 col-md-3" ng-repeat='data in data'>
                 <div class="panel panel-default panel-card">
                     <div class="panel-heading">
                      <div class="panel-figure">
-                        <center><img src="{{catalog.image}}" height="150" width="150" alt="" /></center>
+                       <center><img src="{{data.image}}" height="150" width="150" alt="" /></center> 
                     </div>
-						<center> <p>Model:{{catalog.model}}</p>
-							  <p>Price:{{catalog.price}}</p>
-							  <p>Discount : {{catalog.discount}}
-							  
+						<p>Item Name : {{data.itemname}}</p> 
+                                  <p>Item Type : {{data.itemtype}}</p> 
+                                   <p>Quantity : {{data.quantity}}</p> 
+                                   <p>Alert Limit : {{data.alertlimit}}</p> 
+                                  <p>Purchase Price : {{data.purchaseprice}}</p>
+                                 <p>Discount  Percentage : {{data.discountpercentage}}</p> 
+                                   <p>Purchase Date : {{data.purchasedate}}</p> 
+                                   <p>Sale Date : {{data.saledate}}</p>
+                                   
+												  
+							  						  
                              </div></section>
                         </div>
 	            </div>
-          
-        </div>
+                </div>
 		</div>
-	
-          
+	          
         </div>
         <hr>
     </body>

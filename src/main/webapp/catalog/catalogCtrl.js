@@ -1,15 +1,15 @@
 var catalog = angular.module('catalogApp', ['ngRoute']);
 
-var catalog_URL = 'rest/catalog';
+var inventory_URL = 'rest/inventory';
 
 catalog.controller('catalogCtrl', ['$scope', '$http', function ($scope, $http) {
 	 $http({
 	      method: 'GET',
-	    	  url: catalog_URL,
+	    	  url: inventory_URL,
 	    	}).then(function successCallback(response) {
 	    		//console.log(response.data);
-	    		if($scope.catalog == undefined){
-	                $scope.catalog = response.data;
+	    		if($scope.data == undefined){
+	                $scope.data = response.data;
 	            }
 	            else{
 	                //no need to do anything right now...as the data is temporarily stored in the javascript array
