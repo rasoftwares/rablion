@@ -11,6 +11,11 @@
                 <th>Itemtype </th>
                 <th>Quantity </th> 
                 <th>Alertlimit </th>
+                <th>PurchasePrice</th>
+                <th>DiscountPercentage</th>
+                 <th>PurchaseDate</th>
+                 <th>SaleDate</th>
+                 <th>Image</th>
                 <th>Action</th>
                 
                  </tr>
@@ -21,6 +26,14 @@
    <th><input name="itemtype" class="form-control" type="text" placeholder=" ItemType..." ng-model="newInventory.itemtype" ng-required="true"/></th>
    <th><input name="quantity" class="form-control" type="number" placeholder="Quantity..." ng-model="newInventory.quantity" ng-required="true"/></th>
    <th><select ng-model="newInventory.alertlimit" ng-options="type for type in alertlimit" placeholder="Select" class="form-control">Pick a user</select></th>
+   <th><input name="purchaseprice" class="form-control" type="number" placeholder="purchaseprice.." ng-model="newInventory.purchaseprice" ng-required="true"/></th>
+   <th><input name="discountpercentage" class="form-control" type="text" placeholder="Discount %..." ng-model="newInventory.discountpercentage" ng-required="true"/></th>
+   <th><input name="purchasedate" class="form-control" type="date" placeholder="" ng-model="newInventory.purchasedate" ng-required="true"/></th>
+   <th><input name="saledate" class="form-control" type="date" placeholder="" ng-model="newInventory.saledate" ng-required="true"/></th>
+    <th><input name="image" class="form-control" type="text" placeholder="path"  ng-model="newInventory.image" ng-required="true" /></th>
+   
+   
+   
    
    <th><a href="#/inventory" class="btn" ng-click="addInventory(newInventory)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
  
@@ -31,6 +44,11 @@
                 <td>{{data.itemtype}}</td>
                 <td>{{data.quantity}}</td>
                 <td>{{data.alertlimit}}</td>
+                <td>{{data.purchaseprice}}</td>
+                <td>{{data.discountpercentage}}</td>
+                <td>{{data.purchasedate| date :'mediumDate'}}</td>
+                <td>{{data.saledate | date :'mediumDate'}}</td>
+                <td>{{data.image}}</td>  
                 <td><a href="#/inventory" class="btn btn-primary" ng-click="deleteInventory(data.id)">
                 		<span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a></td>
   

@@ -27,18 +27,44 @@ public class Inventory extends BaseEntity {
     @Column(name = "alertlimit", nullable = false)
     private Long alertlimit;
     
+    @Column(name = "purchaseprice", nullable = false)
+    private Long purchaseprice;
+    
+    @Column(name = "discountpercentage", nullable = false)
+    private String discountpercentage;
+    
+    @Column(name = "purchasedate", nullable = false)
+    private Date purchasedate;
+    
+    @Column(name = "saledate", nullable = false)
+    private Date saledate;
+    
+    @Column(name = "image", nullable = false)
+    private String image;
+    
+
+
+
+
+    
     
     public Inventory(){
     }
     
        
-    public Inventory(Long id, String itemname,String itemtype,Long quantity,Long alertlimit) {
+    public Inventory(Long id, String itemname,String itemtype,Long quantity,Long alertlimit,Long purchaseprice,String discountpercentage,Date purchasedate,Date saledate,String image) {
 		super();
 		this.id = id;
 		this.itemname= itemname;
 		this.itemtype= itemtype;
 		this.quantity= quantity;
 		this.alertlimit= alertlimit;
+		this.purchaseprice=purchaseprice;
+		this.discountpercentage=discountpercentage;
+		this.image=image;
+		this.purchasedate=purchasedate;
+		this.saledate=saledate;
+		
 		
 		
 	}
@@ -82,6 +108,59 @@ public class Inventory extends BaseEntity {
 
 	public void setAlertlimit(Long alertlimit) {
 		this.alertlimit = alertlimit;
+	}
+	
+	
+	
+	public Long getPurchaseprice() {
+		return purchaseprice;
+	}
+
+
+	public void setPurchaseprice(Long purchaseprice) {
+		this.purchaseprice = purchaseprice;
+	}
+
+
+	public String getDiscountpercentage() {
+		return discountpercentage;
+	}
+
+
+	public void setDiscountpercentage(String discountpercentage) {
+		this.discountpercentage = discountpercentage;
+	}
+
+
+	public Date getPurchasedate() {
+		return purchasedate;
+	}
+	
+	
+
+
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
+	public void setPurchasedate(Date purchasedate) {
+		this.purchasedate = purchasedate;
+	}
+
+
+	public Date getSaledate() {
+		return saledate;
+	}
+
+
+	public void setSaledate(Date saledate) {
+		this.saledate = saledate;
 	}
 
 
