@@ -65,7 +65,7 @@ opacity: 1;
                                   <p>Item Type : {{data.itemtype}}</p> 
                                    <p>Quantity : {{data.quantity}}</p> 
                                    <p>Alert Limit : {{data.alertlimit}}</p> 
-                                  <p>Purchase Price : {{data.purchaseprice}}</p>
+                                  <p>Purchase Price : {{data.purchaseprice |currency:"":2 }}</p>
                                  <p>Discount  Percentage : {{data.discountpercentage}}</p> 
                                    <p>Purchase Date : {{data.purchasedate}}</p> 
                                    <p>Sale Date : {{data.saledate}}</p>

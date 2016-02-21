@@ -44,7 +44,7 @@
                 <td>{{data.itemtype}}</td>
                 <td>{{data.quantity}}</td>
                 <td>{{data.alertlimit}}</td>
-                <td>{{data.purchaseprice}}</td>
+                <td>{{data.purchaseprice |currency:"":2 }}</td>
                 <td>{{data.discountpercentage}}</td>
                 <td>{{data.purchasedate| date :'mediumDate'}}</td>
                 <td>{{data.saledate | date :'mediumDate'}}</td>
