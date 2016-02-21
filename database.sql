@@ -73,18 +73,24 @@ CREATE TABLE loan(
 insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
 
 --drop table inventory;
-select * from inventory
 
 CREATE TABLE inventory( 
 id SERIAL PRIMARY KEY,
 itemname varchar(255),
 itemtype varchar(255),
 quantity numeric(10),
-alertlimit numeric(100)
+alertlimit numeric(100),
+purchaseprice numeric(10,2),
+discountpercentage varchar(255),
+purchasedate date,
+saledate date,
+image varchar(255)
 );
-insert into inventory(itemname,itemtype,quantity,alertlimit) values ('Graphicscard','Insertcard',20,25);
-insert into inventory(itemname,itemtype,quantity,alertlimit) values ('pendrives','Insertcard',100,110);
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('processor','intel I7',5,10,10000.00,'10%','Feb-06-2014','Feb-12-2014','catalog\images\pros.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('ram','intel I7',5,10,10000.00,'10%','Jan-02-2016','Jan-10-2016','catalog\images\ram.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('data cable','intel I7',5,10,10000.00,'10%','Jun-24-2014','Jun-28-2014','catalog\images\dc.jpg');
 
+select * from inventory
 
 ---drop table catalog;
 CREATE TABLE catalog (
