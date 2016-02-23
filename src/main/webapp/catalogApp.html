@@ -61,16 +61,16 @@ opacity: 1;
                      <div class="panel-figure">
                        <center><img src="{{data.image}}" height="150" width="150" alt="" /></center> 
                     </div>
-						<p>Item Name : {{data.itemname}}</p> 
-                                  <p>Item Type : {{data.itemtype}}</p> 
-                                   <p>Quantity : {{data.quantity}}</p> 
-                                   <p>Alert Limit : {{data.alertlimit}}</p> 
-                                  <p>Purchase Price : {{data.purchaseprice |currency:"":2 }}</p>
-                                 <p>Discount  Percentage : {{data.discountpercentage}}</p> 
-                                   <p>Purchase Date : {{data.purchasedate}}</p> 
-                                   <p>Sale Date : {{data.saledate}}</p>
-                                   
-												  
+						<p>Name : {{data.itemname}}</p> 
+                                  <p>Type : {{data.itemtype}}</p> 
+                                  <p>Rs : {{data.purchaseprice | currency:"":2}}
+                                 <p>Discount : {{data.discountpercentage}}%</p>
+                                 <p>Quantity Available : {{data.quantity}}</p> 
+                                 <p>Discount  Price : {{data.purchaseprice*data.discountpercentage/100}}<p>
+                                  
+                                  
+ 
+						           			  
 							  						  
                              </div></section>
                         </div>
@@ -82,3 +82,4 @@ opacity: 1;
         <hr>
     </body>
 </html>
+

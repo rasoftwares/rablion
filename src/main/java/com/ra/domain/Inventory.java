@@ -31,7 +31,7 @@ public class Inventory extends BaseEntity {
     private Long purchaseprice;
     
     @Column(name = "discountpercentage", nullable = false)
-    private String discountpercentage;
+    private Long discountpercentage;
     
     @Column(name = "purchasedate", nullable = false)
     private Date purchasedate;
@@ -52,7 +52,7 @@ public class Inventory extends BaseEntity {
     }
     
        
-    public Inventory(Long id, String itemname,String itemtype,Long quantity,Long alertlimit,Long purchaseprice,String discountpercentage,Date purchasedate,Date saledate,String image) {
+    public Inventory(Long id, String itemname,String itemtype,Long quantity,Long alertlimit,Long purchaseprice,Long discountpercentage,Date purchasedate,Date saledate,String image) {
 		super();
 		this.id = id;
 		this.itemname= itemname;
@@ -122,12 +122,12 @@ public class Inventory extends BaseEntity {
 	}
 
 
-	public String getDiscountpercentage() {
+	public Long getDiscountpercentage() {
 		return discountpercentage;
 	}
 
 
-	public void setDiscountpercentage(String discountpercentage) {
+	public void setDiscountpercentage(Long discountpercentage) {
 		this.discountpercentage = discountpercentage;
 	}
 

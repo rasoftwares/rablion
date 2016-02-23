@@ -81,14 +81,14 @@ itemtype varchar(255),
 quantity numeric(10),
 alertlimit numeric(100),
 purchaseprice numeric(10,2),
-discountpercentage varchar(255),
+discountpercentage numeric(10),
 purchasedate date,
 saledate date,
 image varchar(255)
 );
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('processor','intel I7',5,10,10000.00,'10%','Feb-06-2014','Feb-12-2014','catalog\images\pros.jpg');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('ram','intel I7',5,10,10000.00,'10%','Jan-02-2016','Jan-10-2016','catalog\images\ram.jpg');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('data cable','intel I7',5,10,10000.00,'10%','Jun-24-2014','Jun-28-2014','catalog\images\dc.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','catalog\images\pros.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','catalog\images\ram.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','catalog\images\dc.jpg');
 
 select * from inventory
 
