@@ -8,6 +8,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,11 +32,13 @@ public class Extract {
   String url = "http://www.bseindia.com/download/BhavCopy/Equity/";
   String outputFileLocation ="C:/test";
   String outputFolder="C:/data";
-  Extract  e = new  Extract ();
-  
+  Extract e = new Extract();
+  String dburl = "jdbc:mysql://localhost:3306/rabliondb";
+  String Username = "root";
+  String Password = "root123";
 
-  String startDate = "01/01/2015";
-  String lastDate = "12/01/2015";
+  String startDate = "01/01/2008";
+  String lastDate = "31/12/2015";
   SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
   Calendar st=Calendar.getInstance();
   Calendar lt=Calendar.getInstance();
@@ -55,7 +61,7 @@ public class Extract {
  
   e.functionB(url, outputFileLocation, date); //only download the zip file
   e.functionC(outputFileLocation, date,outputFolder); // extract the zip file
-  //e.fuctionD(outputFileLocation, date);  upload into database by row wise
+  e.functionD(date,outputFolder,dburl,Username,Password);  //upload into database by row wise
   //e.functionE(outputFileLocation, date); perform some operation....
   
 }
@@ -63,7 +69,25 @@ public class Extract {
 }
 
 
+ public void functionD( String date,String outputFolder, String dburl,String Username,String Password) throws Exception {
+ 
+	   try {
+         Connection conn = DriverManager.getConnection(dburl,Username,Password);
 
+         String sql = "INSERT INTO csvlist (csvfiles) values (LOAD_FILE(?))";
+         PreparedStatement statement = conn.prepareStatement(sql);
+
+         statement.setString(1, outputFolder +"//"+ "EQ" + date + ".CSV");
+         int row = statement.executeUpdate();
+         if (row > 0) {
+             System.out.println("File was inserted into db");
+         }
+         conn.close();
+     } catch (SQLException ex) {
+         ex.printStackTrace();
+     }
+ }
+ 
 public void functionC(String outputFileLocation, String date,String outputFolder) throws Exception 
             {
 	 
