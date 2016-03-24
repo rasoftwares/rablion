@@ -14,30 +14,85 @@
   <script src="external/bootstrap/js/bootstrap.min.js"></script>
   
   <script src="catalog/catalogCtrl.js"></script>
-    
-    <style>
-    .ng-enter {
-  -webkit-transition: all 5s linear;
--moz-transition: all 5s linear;
--ms-transition: all 5s linear;
--o-transition: all 5s linear;
-transition: all 5s linear;
-opacity: 0;
-}
-.ng-enter-active {
-opacity: 1;
+  <script src="catalog/view.js"></script>
+   <style>
+ .glyphicon {
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
+.thumbnail {
+  margin-bottom: 20px;
+  padding: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.item.list-group-item {
+  float: none;
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.item.list-group-item:nth-of-type(odd):hover,
+.item.list-group-item:hover {
+  background: #428bca;
+}
+
+.item.list-group-item .list-group-image {
+  margin-right: 10px;
+}
+
+.item.list-group-item .thumbnail {
+  margin-bottom: 0px;
+}
+
+.item.list-group-item .caption {
+  padding: 9px 9px 0px 9px;
+}
+
+.item.list-group-item:nth-of-type(odd) {
+  background: #eeeeee;
+}
+
+.item.list-group-item:before,
+.item.list-group-item:after {
+  display: table;
+  content: " ";
+}
+
+.item.list-group-item img {
+  float: left;
+}
+
+.item.list-group-item:after {
+  clear: both;
+}
+
+.list-group-item-text {
+  margin: 0 0 11px;
+}
+
+#t-cards{
+
+padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+        background-color: #345; 
+}
+ </style>
+ 
+
+<!--   
 #t-cards {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 80px
-    background-color: #345;    
-}
+    
+
+}-->
 
 
-
-</style>
 </head>
     
      <div class="container">
@@ -47,39 +102,43 @@ opacity: 1;
             </div>
           <hr>
            <div ng-view>
-           
-        </div>
+          </div>
        <h3>Catalog</h3>
    <hr>
-    <body ng-controller='catalogCtrl'>
-	<section id="t-cards">
-    <div class="container">
-        <div class="row">
-             <div class="col-sm-6 col-md-3" ng-repeat='data in data'>
-                <div class="panel panel-default panel-card">
-                    <div class="panel-heading">
-                     <div class="panel-figure">
-                       <center><img src="{{data.image}}" height="150" width="150" alt="" /></center> 
-                    </div>
-						<p>Name : {{data.itemname}}</p> 
-                                  <p>Type : {{data.itemtype}}</p> 
-                                  <p>Rs : {{data.purchaseprice | currency:"":2}}
-                                 <p>Discount : {{data.discountpercentage}}%</p>
-                                 <p>Quantity Available : {{data.quantity}}</p> 
-                                 <p>Discount  Price : {{data.purchaseprice*data.discountpercentage/100}}<p>
-                                  
-                                  
- 
-						           			  
-							  						  
-                             </div></section>
+   <div class="wel wel-sm"">
+        <strong>Display</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div></div>
+  <hr>
+    <body ng-controller='catalogCtrl'><br>
+
+	<div class="container">
+    </div>
+    <div id="data" class="row list-group" alt="chaina"><br>
+        <div class="item  col-sm-6 col-md-3"  ng-repeat= "data in data">
+            <div class="thumbnail">
+                <img class="group list-group-image"  src="{{data.image}}" style="width:150px;height:150px"  alt=""/>
+                <div class="caption">
+                       <p>Name: {{data.itemname}}<p>
+                        <p>Type : {{data.itemtype}}</p>
+                        <p>Rs : {{data.purchaseprice | currency:"":2}}</p>
+                        <p>Discount : {{data.discountpercentage}}%<br></p>
+                        <p>Quantity Available : {{data.quantity}}<p>
+                        <center> <a class="btn btn-success">Net Price : Rs. {{data.purchaseprice-data.purchaseprice*data.discountpercentage/100|currency:"":2}}</a></center>
                         </div>
-	            </div>
+                        
                 </div>
-		</div>
-	          
-        </div>
+            </div>
+        </div></section>
+       
+        
+                   
         <hr>
     </body>
 </html>
+
+
 

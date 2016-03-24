@@ -1,9 +1,16 @@
 var catalog = angular.module('catalogApp', ['ngRoute']);
 
+
+
+
 var inventory_URL = 'rest/inventory';
 
+
+
 catalog.controller('catalogCtrl', ['$scope', '$http', function ($scope, $http) {
-	 $http({
+	 
+	$scope.currentPage = 5;
+	$http({
 	      method: 'GET',
 	    	  url: inventory_URL,
 	    	}).then(function successCallback(response) {
@@ -19,6 +26,21 @@ catalog.controller('catalogCtrl', ['$scope', '$http', function ($scope, $http) {
 	    	  }, function errorCallback(response) {
 	    	    // called asynchronously if an error occurs
 	    	    // or server returns response with an error status.
+	    	 
+	
+	 
 	    	  });
-	    
+	 
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
