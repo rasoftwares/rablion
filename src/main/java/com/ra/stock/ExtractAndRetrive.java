@@ -35,13 +35,17 @@ public class ExtractAndRetrive {
   String url = "http://www.bseindia.com/download/BhavCopy/Equity/";
   String outputFileLocation ="C:/test";
   String outputFolder="C:/data";
+  String retriveFileFolder="D://output";
+  String Query="SELECT csvfiles FROM csvlist WHERE date=?";
+  String fieldName="csvfiles";
+  String insertquery= "insert into csvlist(csvfiles,date) values (?, ?)";
   ExtractAndRetrive e = new ExtractAndRetrive();
   String dburl = "jdbc:mysql://localhost:3306/csvdb";
   String Username = "root";
   String Password = "root123";
 
-  String startDate = "01/02/2016";
-  String lastDate = "16/02/2016";
+  String startDate = "01/01/2014";
+  String lastDate = "16/02/2014";
   
   SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
   Calendar st=Calendar.getInstance();
@@ -69,30 +73,33 @@ public class ExtractAndRetrive {
          
 e.functionB(url, outputFileLocation, date); //only download the zip file
 e.functionC(outputFileLocation, date,outputFolder); // extract the zip file
-e.functionD(date,outputFolder,dburl,Username,Password);  //upload into database by row wise
-e.functionE(date,dburl,Username,Password); //read from database....
+e.functionD(date,outputFolder,insertquery,dburl,Username,Password);  //upload into database by row wise
+e.functionE(date,Query,retriveFileFolder,fieldName,dburl,Username,Password); //read from database....
  
  }
   st.add(Calendar.DATE, 1);
  }
 
  }
-
+ 
+ // Function E :Retrive file from database....
+ 
  private static final int BUFFER_SIZE = 4096;
- public void functionE(String date,String dburl,String Username,String Password) throws Exception {
+ 
+ public void functionE(String date,String Query,String retriveFileFolder,String fieldName,String dburl,String Username,String Password) throws Exception {
 
-	 String filepath="D://output"+"//"+ date + ".CSV"; 
+	    String filepath=retriveFileFolder +"//"+ date + ".CSV"; 
 	 
-	 try {
+	 	 try {
          Connection conn = DriverManager.getConnection(dburl,Username,Password);
 
-         String sql = "SELECT csvfiles FROM csvlist WHERE date=?";
+         String sql = Query;
          PreparedStatement statement = conn.prepareStatement(sql);
     statement.setString(1, date);
       
          ResultSet result = statement.executeQuery();
          if (result.next()) {
-            Blob blob = result.getBlob("csvfiles");
+            Blob blob = result.getBlob(fieldName);
              InputStream inputStream = blob.getBinaryStream();
              OutputStream outputStream = new FileOutputStream(filepath);
 
@@ -114,12 +121,11 @@ e.functionE(date,dburl,Username,Password); //read from database....
      }
  }
  
- 
- public void functionD( String date,String outputFolder, String dburl,String Username,String Password)  throws Exception {
+ //Function D:Insert file into databse.....
+ public void functionD( String date,String outputFolder,String insertquery, String dburl,String Username,String Password)  throws Exception {
 	 
 	 Connection conn = DriverManager.getConnection(dburl,Username,Password);
-	    String INSERT_FILE = "insert into csvlist(csvfiles,date) values (?, ?)";
-
+	    String INSERT_FILE =insertquery;
 	    FileInputStream fis = null;
 	    PreparedStatement ps = null;
 	    try {
@@ -140,7 +146,7 @@ e.functionE(date,dburl,Username,Password); //read from database....
 	
 
 	 
-	 
+//Function C: Unzip file....	 
 public void functionC(String outputFileLocation, String date,String outputFolder) throws Exception 
             {
 	 
@@ -179,7 +185,7 @@ public void functionC(String outputFileLocation, String date,String outputFolder
  }
 	 
 	
-	  
+	// Function B :Download bhavcopy file from bse site...  
  public void functionB(String url, String outputLocation, String date)throws Exception {
         System.out.println("Started Downloading file  for date " + date +
 " to output location " + outputLocation);
@@ -204,6 +210,7 @@ public void functionC(String outputFileLocation, String date,String outputFolder
                
  }
  
+ //Function A: link
  public void functionA() throws Exception {
   URL bse = new URL("http://www.bseindia.com/stock-share-price/SiteCache/IrBackupStockReach.aspx?scripcode=500470");
         BufferedReader in = new BufferedReader(new
