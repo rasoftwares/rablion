@@ -103,3 +103,24 @@ CREATE TABLE catalog (
 );
 
 insert into catalog(model,price,discount,image) values ('halfsaree',1000.00,250.00,'image\1.jpg')
+
+
+---MySql Script For Bse Application--
+
+--1.Extract and Retrive
+---csvlist table---
+CREATE TABLE  `csvdb`.`csvlist` (
+  `sno` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `csvfiles` longblob,
+  `date` varchar(50) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`sno`)
+) ENGINE=InnoDB AUTO_INCREMENT=659 DEFAULT CHARSET=latin1;
+
+---2.Bulkeals---
+--bulkdeals table---
+CREATE TABLE  `csvdb`.`bulkdeals` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `csvfiles` longblob,
+  `date` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
