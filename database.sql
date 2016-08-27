@@ -124,3 +124,21 @@ CREATE TABLE  `csvdb`.`bulkdeals` (
   `date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
+
+--drop table article;
+CREATE TABLE article(
+    id     SERIAL PRIMARY KEY,
+    title varchar(255),
+    publishdate date,
+    content varchar(255),
+    category varchar(25),
+    type varchar(255),
+    item varchar(255),
+    summary varchar(255)
+);
+
+select * from article;
+
+
+
+
