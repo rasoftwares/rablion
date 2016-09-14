@@ -27,7 +27,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-public class ExtractAndRetrive {
+/*public class ExtractAndRetrive {
 
  public static void main(String[] args) throws Exception {
   // TODO Auto-generated method stub
@@ -228,3 +228,4 @@ InputStreamReader(bse.openStream()));
 
 
 
+*/

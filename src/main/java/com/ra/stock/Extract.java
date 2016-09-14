@@ -24,7 +24,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-public class Extract {
+/*public class Extract {
 
  public static void main(String[] args) throws Exception {
   // TODO Auto-generated method stub
@@ -33,12 +33,12 @@ public class Extract {
   String outputFileLocation ="C:/test";
   String outputFolder="C:/data";
   Extract e = new Extract();
-  String dburl = "jdbc:mysql://localhost:3306/rabliondb";
-  String Username = "root";
+  String dburl = "jdbc:postgresql://localhost:5432/rabliondb";
+  String Username = "postgres";
   String Password = "root123";
 
-  String startDate = "01/01/2008";
-  String lastDate = "31/12/2015";
+  String startDate = "01/01/2005";
+  String lastDate = "31/12/2005";
   SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
   Calendar st=Calendar.getInstance();
   Calendar lt=Calendar.getInstance();
@@ -61,7 +61,7 @@ public class Extract {
  
   e.functionB(url, outputFileLocation, date); //only download the zip file
   e.functionC(outputFileLocation, date,outputFolder); // extract the zip file
-  e.functionD(date,outputFolder,dburl,Username,Password);  //upload into database by row wise
+  //e.functionD(date,outputFolder,dburl,Username,Password);  //upload into database by row wise
   //e.functionE(outputFileLocation, date); perform some operation....
   
 }
@@ -128,8 +128,7 @@ public void functionC(String outputFileLocation, String date,String outputFolder
 	
 	  
  public void functionB(String url, String outputLocation, String date)throws Exception {
-        System.out.println("Started Downloading file  for date " + date +
-" to output location " + outputLocation);
+        System.out.println("Started Downloading file  for date " + date +" to output location " + outputLocation);
         File outputFile;
         URL bse;
         BufferedInputStream breader ;
@@ -165,6 +164,6 @@ InputStreamReader(bse.openStream()));
  }
 }
 
-
+*/
 
 

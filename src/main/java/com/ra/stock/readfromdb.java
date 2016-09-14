@@ -11,13 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
  
-/**
- * This program demonstrates how to read file data from database and save the
- * data into a file on disk.
- * @author www.codejava.net
- *
- */
-public class readfromdb {
+
+/*public class readfromdb {
     private static final int BUFFER_SIZE = 4096;
  
     public static void main(String[] args) {
@@ -58,4 +53,4 @@ public class readfromdb {
         }
     }
 }
- 
+ */
