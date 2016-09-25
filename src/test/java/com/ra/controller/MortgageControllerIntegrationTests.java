@@ -17,30 +17,30 @@ import com.ra.config.AppConfig;
 import com.ra.domain.Loan;
 import com.ra.util.RestClient;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {AppConfig.class})
-@WebIntegrationTest("server.port:9000")
-public class MortgageControllerIntegrationTests {
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(classes = {AppConfig.class})
+//@WebIntegrationTest("server.port:9000")
+//public class MortgageControllerIntegrationTests {
 
-    RestTemplate restTemplate = new TestRestTemplate();
+    //RestTemplate restTemplate = new TestRestTemplate();
     //String url = "http://localhost:9095";
     
    /* Loan e1 = new Loan(1L,"User1",new Date(System.currentTimeMillis()),1234.56,"Food");
     Loan e2 = new Loan(2L,"User2",new Date(System.currentTimeMillis()),789.12,"Travel");*/
 
     
-    @Test
-    public void find(){
+//   @Test
+  // public void find(){
     	
-    	HttpHeaders headers = new HttpHeaders();
+    /*	HttpHeaders headers = new HttpHeaders();
     	final HttpEntity<String> request = new HttpEntity<String>(headers);
     	
     	RestClient client = new RestClient();
     	client.setApplicationPath("");
-    	String url = client.login("raja", "password");
+    	String url = client.login("robin", "password");
     	System.out.println(url);
     	
-    	ResponseEntity<Loan[]> response = client.template().exchange(client.apiUrl("mortgage"), HttpMethod.GET, request, Loan[].class);
+    	ResponseEntity<Loan[]> response = client.template().exchange(client.apiUrl("loan"), HttpMethod.GET, request, Loan[].class);
     	System.out.println("Response -->" + response.getBody());
     	
     	final Loan[] loan = response.getBody();
@@ -52,7 +52,7 @@ public class MortgageControllerIntegrationTests {
         }
     	
     }
-    }
+    }*/
     
  /*   @Test
     public void create(){
