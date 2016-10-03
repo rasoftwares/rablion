@@ -86,10 +86,11 @@ purchasedate date,
 saledate date,
 image varchar(255),
 category varchar(255),
+available varchar(255),
 );
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','1','pros');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','1','ram');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','1','dc');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','pros','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','ram','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','dc','1','yes');
 
 select * from inventory
 
