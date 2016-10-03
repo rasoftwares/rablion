@@ -84,13 +84,43 @@ purchaseprice numeric(10,2),
 discountpercentage numeric(10),
 purchasedate date,
 saledate date,
-image varchar(255)
+image varchar(255),
+category varchar(255),
 );
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','catalog\images\pros.jpg');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','catalog\images\ram.jpg');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','catalog\images\dc.jpg');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','1','pros');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','1','ram');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,category,image) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','1','dc');
 
 select * from inventory
+
+---MySql Script For inventory table--mobileapp--
+
+CREATE TABLE  `rabliondb`.`inventory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `itemname` varchar(255),
+  `itemtype` varchar(255),
+  `quantity` decimal(10,0),
+  `alertlimit` decimal(10,0),
+  `purchaseprice` decimal(10,2),
+  `discountpercentage` decimal(10,0),
+  `purchasedate` datetime,
+  `saledate` datetime,
+  `image` varchar(255),
+  `category` varchar(255),
+  `available` varchar(45),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Processor','intel I7',5,10,10000.00,10,'2012-01-01','2012-01-01','pros','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Ram','DDR2',5,10,1000.00,10,'2014-01-05','2014-01-10','ram','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Datacable','mobile',5,10,230.00,10,'2015-01-05','2015-01-10','dc','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Processor','intel I7',5,10,10000.00,10,'2012-01-01','2012-01-01','pros','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Ram','DDR2',5,10,1000.00,10,'2014-01-05','2014-01-10','ram','1','yes');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('Datacable','mobile',5,10,230.00,10,'2015-01-05','2015-01-10','dc','1','yes');
+
+
+
+
 
 ---drop table catalog;
 CREATE TABLE catalog (
