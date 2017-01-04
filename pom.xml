@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>com.ra</groupId>
-    <artifactId>rablion</artifactId>
+    <artifactId>rablion-apps</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Rablion Softwares</name>
@@ -110,11 +110,19 @@
         	<groupId>org.springframework.boot</groupId>
         	<artifactId>spring-boot-starter-data-solr</artifactId>
         </dependency>
+        <dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.0</version>
+		</dependency>
     </dependencies>
 
     <!-- Main Build -->
     <build>
-        <finalName>ra-${project.version}</finalName>
+    	<!-- war file name 
+    	Sample : ${artifactId}-${project.version}
+    	-->
+        <finalName>${artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

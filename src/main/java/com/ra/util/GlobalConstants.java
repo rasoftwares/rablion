@@ -15,4 +15,10 @@ public class GlobalConstants {
 	
 	public static final String LOGIN_PAGE = "/login";
 	
+	
+	public static final String FILE_SEPERATOR = "/";
+	public static final String URL_SEPERATOR = "/";
+	public static final String URL_RESOURCE_SEPERATOR = "?";
+	public static final String URL_PARAM_SEPERATOR = "&";
+	
 }
