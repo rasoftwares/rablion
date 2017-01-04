@@ -8,7 +8,7 @@ deploy:
   provider: openshift
   user: "robinbennedict@gmail.com"
   password: "Rabl@1234" # can be encrypted
-  domain: "rablion"
+  domain: "apps"
 
 # uncomment this line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
