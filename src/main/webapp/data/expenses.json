@@ -2,15 +2,15 @@
 	"id" : 1,
 	"user": "Fowmi",
 	"type" : "Travel",
-	"currency":"INR"
-	"amount" : "3000",
+	"currency":"INR",
+    "amount" : "3000",
 	"date" : "16/08/2015"
 },
 {
 	"id" : 2,
 	"user": "Raja",
 	"type" : "Mobile",
-	"currency":"INR"
+	"currency":"INR",
 	"amount" : "500",
 	"date" : "17/08/2015"
 }]
