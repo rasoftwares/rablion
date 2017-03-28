@@ -1,4 +1,5 @@
 ﻿--Expense 
+
 --drop table expense;
 
 CREATE TABLE expense (
@@ -7,7 +8,10 @@ CREATE TABLE expense (
     date date,
     currency varchar(60),
     amount numeric(10,2),
-    type varchar(60)
+    type varchar(60),
+    createdby varchar(60),
+	createdtimestamp date,
+	modifiedby varchar(60)
 );
 
 insert into expense (username, date, currency, amount, type) values ('Fowmi', CURRENT_TIMESTAMP , 'USD', 500.00, 'Travel');
@@ -16,15 +20,20 @@ insert into expense (username, date, currency, amount,type) values ('Fowmi', CUR
 
 select * from expense
 
---Appuser
+
 --drop table appuser
+
 CREATE TABLE appuser( 
 id SERIAL PRIMARY KEY,
 username varchar(255),
 usertype varchar (25),
 loginid varchar(60),
 password varchar(60),
-email varchar(60)
+email varchar(60),
+createdby varchar(60),
+createdtimestamp date,
+modifiedby varchar(60),
+modifiedtimestamp date
 );
 
 insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com');
@@ -32,10 +41,14 @@ select * from appuser;
 
 --drop table currency
 CREATE TABLE currency(
-  id  SERIAL PRIMARY KEY,
-   currency varchar(60),
+ id  SERIAL PRIMARY KEY,
+ currency varchar(60),
  sourcevalue numeric(10,2),
- inrvalue numeric(10,2)
+ inrvalue numeric(10,2),
+ createdby varchar(60),
+ createdtimestamp date,
+ modifiedby varchar(60),
+ modifiedtimestamp date
  );
  insert into currency (currency,sourcevalue,inrvalue) values ('US$', 5000.00 , 500000.00);
  select * from currency
@@ -53,7 +66,8 @@ create table todo(
 	assignedto varchar(60),
 	createdby varchar(60),
 	createdtimestamp date,
-	modifiedby varchar(60)
+	modifiedby varchar(60),
+	modifiedtimestamp date
 	
 );
 insert into todo(task,status,startdate,enddate,assignedto,createdby,createdtimestamp,modifiedby) values ('todo','pending','20/10/2015','25/10/2015','who','me',CURRENT_TIMESTAMP,'jack');
@@ -68,7 +82,11 @@ CREATE TABLE loan(
     customername varchar(60),
     amount numeric(10,2),
      totalweight varchar(60),
-    item varchar(60)
+    item varchar(60),
+    createdby varchar(60),
+   createdtimestamp date,
+   modifiedby varchar(60),
+   modifiedtimestamp date
     );
 insert into loan(loanno,customername,amount,totalweight,item) values ('7891','mahi',5666.666,58.22,'bangles');
 
@@ -85,14 +103,55 @@ discountpercentage numeric(10),
 purchasedate date,
 saledate date,
 image varchar(255),
-category varchar(255),
-available varchar(255),
+createdby varchar(60),
+createdtimestamp date,
+modifiedby varchar(60),
+modifiedtimestamp date
 );
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('processor','intel I7',5,10,10000.00,10,'Feb-06-2014','Feb-12-2014','pros','1','yes');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('ram','intel I7',5,10,10000.00,5,'Jan-02-2016','Jan-10-2016','ram','1','yes');
-insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,category,available) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','dc','1','yes');
+
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,createdby,createdtimestamp,modifiedby,modifiedtimestamp) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','dc','mari','Jun-28-2014','mari','Jun-28-2014');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,createdby,createdtimestamp,modifiedby,modifiedtimestamp) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','dc','mari','Jun-28-2014','mari','Jun-28-2014');
+insert into inventory(itemname,itemtype,quantity,alertlimit,purchaseprice,discountpercentage,purchasedate,saledate,image,createdby,createdtimestamp,modifiedby,modifiedtimestamp) values ('data cable','intel I7',5,10,10000.00,4,'Jun-24-2014','Jun-28-2014','dc','mari','Jun-28-2014','mari','Jun-28-2014');
 
 select * from inventory
+
+
+
+--drop table discount;
+
+create table discount( 
+	id SERIAL PRIMARY KEY,
+	startdate date,
+	enddate date,
+	percentage numeric(10),
+	isactive varchar(60),
+	createdby varchar(60),
+	createdtimestamp date,
+	modifiedby varchar(60),
+	modifiedtimestamp date
+);
+
+--drop table payment;
+
+create table payment( 
+	id SERIAL PRIMARY KEY,
+	txnid varchar(255),
+	userid varchar(255),
+	orderid varchar(255),
+	status varchar(255),
+	date date,
+	amount numeric(10,2),
+	createdby varchar(255),
+	createdtimestamp date,
+	modifiedby varchar(255),
+	modifiedtimestamp date
+);
+
+select * from payment
+
+insert into payment(txnid,userid,orderid,status,date,amount,createdby,createdtimestamp,modifiedby,modifiedtimestamp) values ('ID0021','USR0001','OD0001','orderplaced','Feb-06-2014',10000.00,'mari','Feb-12-2014','mari','Feb-12-2014');
+
+
 
 ---MySql Script For inventory table--mobileapp--
 
@@ -102,7 +161,7 @@ CREATE TABLE  `rabliondb`.`inventory` (
   `itemtype` varchar(255),
   `quantity` decimal(10,0),
   `alertlimit` decimal(10,0),
-  `purchaseprice` decimal(10,2),
+  `purchaseprice` decimal(10,2),﻿
   `discountpercentage` decimal(10,0),
   `purchasedate` datetime,
   `saledate` datetime,
