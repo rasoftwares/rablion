@@ -131,6 +131,9 @@ create table discount(
 	modifiedtimestamp date
 );
 
+insert into discount(startdate,enddate,percentage,isactive,createdby,createdtimestamp,modifiedby,modifiedtimestamp) values ('01-FEB-2016','05-FEB-2016',10,'yes','mari','01-FEB-2016','mari','01-FEB-2016');
+
+
 --drop table payment;
 
 create table payment( 

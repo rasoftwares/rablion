@@ -19,7 +19,11 @@ adminApp.config(['$routeProvider', function($routeProvider) {
      
      when('/payment',{
          templateUrl: (adminTemplateDir + '/payment.html'), controller: 'paymentCtrl'
-        }).
+     }).
+        
+     when('/discount',{
+            templateUrl: (adminTemplateDir + '/discount.html'), controller: 'discountCtrl'
+     }).
              
      when('/catalog',{
       templateUrl: (adminTemplateDir + '/catalog.html'), controller: 'catalogCtrl'
