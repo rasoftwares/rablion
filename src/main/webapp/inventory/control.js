@@ -2,6 +2,9 @@
 var inventoryApp = angular.module('inventoryApp',['ngRoute']);
 
 
+
+
+
 //TODO: Move this to a common place
 var inventory_URL = 'rest/inventory';
 var users = ["Fowmi","Mohammed","Ramesh","Rajesh","Suhail"];
@@ -12,6 +15,11 @@ inventoryApp.controller('inventoryCtrl', ['$scope','$http','$filter',function ($
 	$scope.alertlimit= ["3", "5", "10", "20", "50", "70"];
 	$scope.currentPage = 0;
 	$scope.itemsPerPage = 5;
+	
+	$scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
+		  alert('this is handler for file reader onload event!');
+		};
+
 	   
 	 /* Read */
     //$scope, $http, method, url, entityname, formEntity
@@ -126,10 +134,29 @@ $http({
 
 /*image Upload*/
 
-		/*var handleFileSelect = function(evt) {
-		    var files = evt.target.files;
-		    var file = files[0];
+function readFile() {
+	 var filesSelected = document.getElementById("inputFileToLoad").files;
+	    if (filesSelected.length > 0) {
+	      var fileToLoad = filesSelected[0];
 
+	      var fileReader = new FileReader();
+
+	      fileReader.onload = function(fileLoadedEvent) {
+	        var srcData = fileLoadedEvent.target.result; // <--- data: base64
+	        var textbox = document.getElementById('fill');
+	       // var newImage = document.createElement('img');
+	        //newImage.src = srcData;
+	       
+	        document.getElementById("fill").value =srcData ;
+	        //alert("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+	        //console.log("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+	      }
+	      fileReader.readAsDataURL(fileToLoad);
+	    }
+	  
+	}
+
+	/*
 		    if (files && file) {
 		        var reader = new FileReader();
 
@@ -144,15 +171,15 @@ $http({
 
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
 		    document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
-		} ;/*
+		} ;
 		
 				
 	
 
 
-    //the image
+    /* //the image
 		    you need this function to convert the dataURI
-  /*function dataURItoBlob(dataURI) {
+ function dataURItoBlob(dataURI) {
     var binary = atob(dataURI.split(',')[1]);
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
     var array = [];

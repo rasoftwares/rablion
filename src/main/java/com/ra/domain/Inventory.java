@@ -15,11 +15,11 @@ public class Inventory extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "itemname", nullable = false)
-    private String itemname;
+    @Column(name = "name", nullable = false)
+    private String name;
     
-    @Column(name = "itemtype", nullable = false)
-    private String itemtype;
+    @Column(name = "type", nullable = false)
+    private String type;
     
     @Column(name = "quantity", nullable = false)
     private Long quantity;
@@ -27,11 +27,11 @@ public class Inventory extends BaseEntity {
     @Column(name = "alertlimit", nullable = false)
     private Long alertlimit;
     
-    @Column(name = "purchaseprice", nullable = false)
-    private Long purchaseprice;
+    @Column(name = "price", nullable = false)
+    private Long price;
     
-    @Column(name = "discountpercentage", nullable = false)
-    private Long discountpercentage;
+    @Column(name = "discount", nullable = false)
+    private Long discount;
     
     @Column(name = "purchasedate", nullable = false)
     private Date purchasedate;
@@ -64,15 +64,15 @@ public class Inventory extends BaseEntity {
     }
     
        
-    public Inventory(Long id, String itemname,String itemtype,Long quantity,Long alertlimit,Long purchaseprice,Long discountpercentage,Date purchasedate,Date saledate,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Inventory(Long id, String name,String type,Long quantity,Long alertlimit,Long price,Long discount,Date purchasedate,Date saledate,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
-		this.itemname= itemname;
-		this.itemtype= itemtype;
+		this.name= name;
+		this.type= type;
 		this.quantity= quantity;
 		this.alertlimit= alertlimit;
-		this.purchaseprice=purchaseprice;
-		this.discountpercentage=discountpercentage;
+		this.price=price;
+		this.discount=discount;
 		this.image=image;
 		this.purchasedate=purchasedate;
 		this.saledate=saledate;
@@ -127,24 +127,6 @@ public class Inventory extends BaseEntity {
 	}
 
 
-	public String getItemname() {
-		return itemname;
-	}
-
-
-	public void setItemname(String itemname) {
-		this.itemname = itemname;
-	}
-
-
-	public String getItemtype() {
-		return itemtype;
-	}
-
-
-	public void setItemtype(String itemtype) {
-		this.itemtype = itemtype;
-	}
 
 
 	public Long getQuantity() {
@@ -168,23 +150,46 @@ public class Inventory extends BaseEntity {
 	
 	
 	
-	public Long getPurchaseprice() {
-		return purchaseprice;
+	
+
+
+	public String getName() {
+		return name;
 	}
 
 
-	public void setPurchaseprice(Long purchaseprice) {
-		this.purchaseprice = purchaseprice;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
-	public Long getDiscountpercentage() {
-		return discountpercentage;
+	public String getType() {
+		return type;
 	}
 
 
-	public void setDiscountpercentage(Long discountpercentage) {
-		this.discountpercentage = discountpercentage;
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+	public Long getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+
+
+	public Long getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(Long discount) {
+		this.discount = discount;
 	}
 
 
