@@ -16,9 +16,6 @@ inventoryApp.controller('inventoryCtrl', ['$scope','$http','$filter',function ($
 	$scope.currentPage = 0;
 	$scope.itemsPerPage = 5;
 	
-	$scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
-		  alert('this is handler for file reader onload event!');
-		};
 
 	   
 	 /* Read */
