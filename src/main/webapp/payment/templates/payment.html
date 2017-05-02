@@ -1,0 +1,64 @@
+<div class="page-header"> <h3>Payment</h3></div>
+<!--<div class="panel panel-primary">
+    <div class="panel-heading">Payment</div>-->
+    <div>
+          <form name="paymentForm" action="#/payment" novalidate>
+           
+          </div>
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> id </th>
+                <th> TxnId</th>
+                <th> UserId</th>
+                <th> OrderId</th>
+                <th> Status</th>
+                <th> Amount</th>
+                <th> Date</th>
+                <th> CreatedBy</th>
+                <th>CreatedTimeStamp</th>
+                <th>ModifiedBy</th>
+                <th>ModifiedTimeStamp</th>                           
+                <th>Action</th>    
+
+            </tr>
+            <tr> 
+                    <th></th>    
+              
+             <th><input name="txnid" class="form-control" type="text" placeholder="currency type..." maxlength="6" ng-model="newPayment.txnid" ng-required="true" ng-maxlength="12"/></th>
+              <th><input name="userid" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newPayment.userid" ng-required="true" ng-maxlength="12"/></th>
+               <th><input name="orderid" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newPayment.orderid" ng-required="true" ng-maxlength="12"/></th>
+                <th><input name="status" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newPayment.status" ng-required="true" ng-maxlength="12"/></th>
+                <th><input name="amount" class="form-control" type="number" placeholder="" maxlength="6" ng-model="newPayment.amount" ng-required="true" ng-maxlength="12"/></th>
+                   <th><input name="date" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newPayment.date" ng-required="true" ng-maxlength="12"/></th>
+                   <th><input name="createdby" class="form-control" type="text" placeholder="" ng-model="newPayment.createdby" ng-required="true"/></th>
+ <th><input name="createdtimestamp" class="form-control" type="date" placeholder="" ng-model="newPayment.createdtimestamp" ng-required="true"/></th>
+    <th><input name="modifiedby" class="form-control" type="text" placeholder="" ng-model="newPayment.modifiedby" ng-required="true"/></th>
+   <th><input name="modifiedtimestamp" class="form-control" type="date" placeholder="" ng-model="newPayment.modifiedtimestamp" ng-required="true"/></th>
+             
+                               
+                
+                <th>
+                    
+                    <a href="#/payment" class="btn" ng-click="addPayment(newPayment)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                </th>
+            </tr>
+            <tr ng-repeat="data in data" id='_payment_{{data.id}}'>
+                  <td>{{data.id}}</td>
+                <td>{{data.txnid}}</td>
+                <td>{{data.userid}}</td>
+                <td>{{data.orderid}}</td>                
+                <td>{{data.status}}</td>
+                <td>{{data.amount |currency:"":2 }}</td>
+                 <td>{{data.date| date :'mediumDate'}}</td>
+                <td>{{data.createdby}}</td> 
+                <td>{{data.createdtimestamp | date :'mediumDate'}}</td>
+                 <td>{{data.modifiedby}}</td> 
+               <td>{{data.modifiedtimestamp | date :'mediumDate'}}</td>  
+               
+                
+                <td><a href="#/payment" class="btn" ng-click="deletePayment(data.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                        </tr>
+          </table>
+          </form>
+        </div>
+</div>
