@@ -44,14 +44,14 @@ var a = [
         		 
          },
          {
-        	 "name" :"payment",
+        	 "name" :"Payment",
         	 "page" : "paymentApp.html",
         	 "icon" : "images/payment.png",
         	 "description" : " Payment Application "
         		 
          },
          {
-        	 "name" :"discount",
+        	 "name" :"Discount",
         	 "page" : "discountApp.html",
         	 "icon" : "images/payment.png",
         	 "description" : " discount Application "
