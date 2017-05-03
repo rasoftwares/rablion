@@ -50,6 +50,13 @@ var a = [
         	 "description" : " Payment Application "
         		 
          },
+         {
+        	 "name" :"discount",
+        	 "page" : "discountApp.html",
+        	 "icon" : "images/payment.png",
+        	 "description" : " discount Application "
+        		 
+         },
          ];
 
 apps.controller('appsCtrl', ['$scope', '$http', function ($scope, $http) {

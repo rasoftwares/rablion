@@ -1,0 +1,57 @@
+<div class="page-header"> <h3>Discount Details</h3></div>
+    <div>
+          <form name="discountForm" action="#/discount" novalidate>
+           
+          </div>
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> id </th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>Percentage</th>
+                <th>IsActive</th>
+                <th> CreatedBy</th>
+                <th>CreatedTimeStamp</th>
+                <th>ModifiedBy</th>
+                <th>ModifiedTimeStamp</th>                           
+                <th>Action</th>    
+
+            </tr>
+            <tr> 
+                    <th></th>    
+              
+          
+   <th><input name="startdate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.startdate" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="enddate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.enddate" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="percentage" class="form-control" type="number" placeholder="" maxlength="6" ng-model="newDiscount.percentage" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="isactive" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newDiscount.isactive" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="createdby" class="form-control" type="text" placeholder="" ng-model="newDiscount.createdby" ng-required="true"/></th>
+   <th><input name="createdtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.createdtimestamp" ng-required="true"/></th>
+   <th><input name="modifiedby" class="form-control" type="text" placeholder="" ng-model="newDiscount.modifiedby" ng-required="true"/></th>
+   <th><input name="modifiedtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.modifiedtimestamp" ng-required="true"/></th>
+             
+                               
+                
+                <th>
+                    
+                    <a href="#/discount" class="btn" ng-click="addDiscount(newDiscount)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                </th>
+            </tr>
+            <tr ng-repeat="data in data" id='_discount_{{data.id}}'>
+                <td>{{data.id}}</td>
+                <td>{{data.startdate | date :'mediumDate'}}</td>
+                <td>{{data.enddate | date :'mediumDate'}}</td>
+                <td>{{data.percentage}}</td>
+                <td>{{data.isactive}}</td>
+                <td>{{data.createdby}}</td> 
+                <td>{{data.createdtimestamp | date :'mediumDate'}}</td>
+                <td>{{data.modifiedby}}</td> 
+               <td>{{data.modifiedtimestamp | date :'mediumDate'}}</td>  
+               
+                
+                <td><a href="#/discount" class="btn" ng-click="deleteDiscount(data.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                        </tr>
+          </table>
+          </form>
+        </div>
+</div>
