@@ -97,6 +97,32 @@ insert into payment(txnid,userid,orderid,status,date,amount,createdby,createdtim
 
 
 
+CREATE TABLE customer( 
+id SERIAL PRIMARY KEY,
+customerid varchar(255),
+companyname varchar(255),
+title varchar (255),
+registrationno varchar(255),
+registrationyear date,
+ownername varchar(255),
+photograph varchar(255),
+shortdescription varchar(255),
+registredaddress varchar(255),
+officeaddress varchar(255),
+landlineno numeric(15),
+mobileno numeric(13),
+emailid varchar(255),
+website varchar(255),
+aboutcompany varchar(255)
+);
+
+insert into customer(customerid,companyname,title,registrationno,registrationyear,ownername,photograph,shortdescription,registredaddress,
+officeaddress,landlineno,mobileno,emailid,website,aboutcompany) values 
+('ID0021','rablion','rablion','RA1234','May-06-2015','Rajesh','1.jpg','Software','Kelambakkam','Kelambakkam',12345657890,044123456,'info@rasoftwares.com','www.rablion.com','development');
+
+select * from customer
+
+
 
 
 --------->------->
