@@ -8,9 +8,6 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 
 	$(document).ready(function() {
 
-		/**
-		 * call the data.php file to fetch the result from db table.
-		 */
 		$.ajax({
 			url :reports_URL ,
 			type : "GET",
@@ -67,6 +64,19 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 						position : "bottom"
 					}
 				};
+				var options1 = {
+						title : {
+							display : true,
+							position : "top",
+							text : "Doughnut Chart",
+							fontSize : 18 ,
+							fontColor : "#111"
+						},
+						legend : {
+							display : true,
+							position : "bottom"
+						}
+					};
 
 				var chart = new Chart( ctx, {
 					type : "pie",
@@ -77,7 +87,7 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 				var chart = new Chart( ctx1, {
 					type : "doughnut",
 					data : data,
-					options : options
+					options : options1
 				});
 
 			},
