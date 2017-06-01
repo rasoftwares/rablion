@@ -1,20 +1,7 @@
 var apps = angular.module('apps', ['ngRoute']);
 
 var a = [
-         {
-        	 "name" :"Gems",
-        	 "page" : "gemsApp.html",
-        	 "icon" : "images/diamond36.png",
-        	 "description" : " Gems Application "
-         },
-         {
-        	 "name" :"Mortgage",
-        	 "page" : "mortgageApp.html",
-        	 "icon" : "images/house256.png",
-        	 "description" : " Mortgage  Application "
-        		 
-         },
-         {
+        {
         	 "name" :"Admin",
         	 "page" : "adminApp.html",
         	 "icon" : "images/tools6.png",
@@ -22,25 +9,10 @@ var a = [
         		 
          },
          {
-        	 "name" :"Todo",
-        	 "page" : "todoApp.html",
-        	 "icon" : "images/checked20.png",
-        	 "description" : " TODO Application "
-        		 
-         },
-         
-         {
-        	 "name" :"Inventory",
-        	 "page" : "inventoryApp.html",
-        	 "icon" : "images/inventory.png",
-        	 "description" : " INVENTORY Application "
-        		 
-         },
-         {
-        	 "name" :"Catalog",
-        	 "page" : "catalogApp.html",
+        	 "name" :"Reports",
+        	 "page" : "reportApp.html",
         	 "icon" : "images/circular22.png",
-        	 "description" : " Catalog Application "
+        	 "description" : " Reports Application "
         		 
          },
          {
@@ -51,12 +23,22 @@ var a = [
         		 
          },
          {
+        	 "name" :"Inventory",
+        	 "page" : "inventoryApp.html",
+        	 "icon" : "images/inventory.png",
+        	 "description" : " INVENTORY Application "
+        		 
+         },
+        
+         
+         {
         	 "name" :"Discount",
         	 "page" : "discountApp.html",
-        	 "icon" : "images/payment.png",
+        	 "icon" : "images/discount.png",
         	 "description" : " discount Application "
         		 
          },
+        
          ];
 
 apps.controller('appsCtrl', ['$scope', '$http', function ($scope, $http) {
