@@ -12,7 +12,12 @@ reportsApp.config(['$routeProvider', function($routeProvider) {
   
      when('/paymentReport',{
       templateUrl: (reportsTemplateDir + '/paymentReport.html'), controller: 'paymentReportCtrl'
-    
+
+     }).
+     
+     when('/saleReport',{
+      templateUrl: (reportsTemplateDir + '/saleReport.html'), controller: 'paymentReportCtrl'   	  
+    	  
     });
     
         }]);

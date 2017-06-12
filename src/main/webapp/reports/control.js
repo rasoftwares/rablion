@@ -21,7 +21,7 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 					quantity.push(data[i].quantity);
 				}
 
-
+				var ctx2 = $("#mycanvas");
 				var ctx = $("#pie-chartcanvas-1");
 				var ctx1 = $("#doughnut-chartcanvas-1");
 				var data = {
@@ -88,6 +88,11 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 					type : "doughnut",
 					data : data,
 					options : options1
+				});
+				
+				var barGraph = new Chart(ctx2, {
+					type: 'bar',
+					data: data
 				});
 
 			},
