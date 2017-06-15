@@ -31,21 +31,10 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 						{
 							label : "Stock Available",
 							data : quantity,
-							backgroundColor : [
-			                    "#DEB887",
-			                    "#A9A9A9",
-			                    "#DC143C",
-			                    "#F4A460",
-			                    "#2E8B57"
-			                ],
-			                borderColor : [
-			                    "#CDA776",
-			                    "#989898",
-			                    "#CB252B",
-			                    "#E39371",
-			                    "#1D7A46"
-			                ],
-			                borderWidth : [1, 1, 1, 1, 1]
+							backgroundColor :  palette('tol', data.length).map(function(hex) {
+						        return '#' + hex;
+						      })
+			               
 						}
 					]
 				};
@@ -123,6 +112,8 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 
 
 
+	
+	
 }]);
 	
 	
