@@ -21,9 +21,10 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 					quantity.push(data[i].quantity);
 				}
 
-				var ctx2 = $("#mycanvas");
+				
 				var ctx = $("#pie-chartcanvas-1");
 				var ctx1 = $("#doughnut-chartcanvas-1");
+				var ctx2 = $("#bar-chartcanvas-1");
 				var data = {
 					labels : type,
 					datasets : [
@@ -51,7 +52,7 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 
 
 
-				var options = {
+				var optionspie = {
 					title : {
 						display : true,
 						position : "top",
@@ -64,7 +65,7 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 						position : "bottom"
 					}
 				};
-				var options1 = {
+				var optionsdoughnut = {
 						title : {
 							display : true,
 							position : "top",
@@ -77,22 +78,39 @@ reportsApp.controller('invenroyReportCtrl', ['$scope', '$http', function ($scope
 							position : "bottom"
 						}
 					};
+				var optionsbar = {
+						title : {
+							display : true,
+							position : "top",
+							text : "Bar Chart",
+							fontSize : 18 ,
+							fontColor : "#111"
+						},
+						legend : {
+							display : true,
+							position : "bottom"
+						}
+					};
+				
+				
 
-				var chart = new Chart( ctx, {
+				var pie = new Chart( ctx, {
 					type : "pie",
 					data : data,
-					options : options
+					options : optionspie
 				});
 				
-				var chart = new Chart( ctx1, {
+				var doughnut = new Chart( ctx1, {
 					type : "doughnut",
 					data : data,
-					options : options1
+					options : optionsdoughnut
 				});
 				
-				var barGraph = new Chart(ctx2, {
-					type: 'bar',
-					data: data
+				var bar = new Chart(ctx2, {
+					type: "bar",
+					data: data,
+					options : optionsbar
+					
 				});
 
 			},

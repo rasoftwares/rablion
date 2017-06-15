@@ -1,18 +1,12 @@
 <div class="page-header"> <h3>Report charts for Inventory</h3></div>
-<style>
-.chart-container {
-	width:  40%;
-	height: 480px;
-	margin: 0 auto;
-}
-</style>
+
 <head>
    
     <title> Chart</title>
 </head>
 <body ng-controller="inventoryReportCtrl">
  <div class="row">
- <div class="col-sm-6">
+ <div class="col-sm-4">
 	<div class="chart-container">
 		<div class="pie-chart-container">
 			<canvas id="pie-chartcanvas-1"></canvas>
@@ -20,7 +14,7 @@
 		</div>
 		</div>
 		
-    <div class="col-sm-6">
+    <div class="col-sm-4">
 			<div class="chart-container">
 		<div class="doughnut-chart-container">
 			<canvas id="doughnut-chartcanvas-1"></canvas>
@@ -28,10 +22,11 @@
 		</div>
 </div>
 
-       <div class="col-sm-6">
+       <div class="col-sm-4">
+       
 			<div class="chart-container">
 		<div class="bar-chart-container">
-			<canvas id="mycanvas"></canvas>
+			<canvas id="bar-chartcanvas-1"></canvas>
 		</div>
 		</div>
 </div>
