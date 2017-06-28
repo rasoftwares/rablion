@@ -33,11 +33,7 @@ public class Inventory extends BaseEntity {
     @Column(name = "discount", nullable = false)
     private Long discount;
     
-    @Column(name = "purchasedate", nullable = false)
-    private Date purchasedate;
-    
-    @Column(name = "saledate", nullable = false)
-    private Date saledate;
+  
     
     @Column(name = "image", nullable = false)
     private String image;
@@ -64,7 +60,7 @@ public class Inventory extends BaseEntity {
     }
     
        
-    public Inventory(Long id, String name,String type,Long quantity,Long alertlimit,Long price,Long discount,Date purchasedate,Date saledate,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Inventory(Long id, String name,String type,Long quantity,Long alertlimit,Long price,Long discount,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.name= name;
@@ -74,8 +70,7 @@ public class Inventory extends BaseEntity {
 		this.price=price;
 		this.discount=discount;
 		this.image=image;
-		this.purchasedate=purchasedate;
-		this.saledate=saledate;
+	
 		this.createdby=createdby;
 		this.createdtimestamp=createdtimestamp;
 		this.modifiedby=modifiedby;
@@ -193,9 +188,6 @@ public class Inventory extends BaseEntity {
 	}
 
 
-	public Date getPurchasedate() {
-		return purchasedate;
-	}
 	
 	
 
@@ -210,19 +202,8 @@ public class Inventory extends BaseEntity {
 	}
 
 
-	public void setPurchasedate(Date purchasedate) {
-		this.purchasedate = purchasedate;
-	}
 
 
-	public Date getSaledate() {
-		return saledate;
-	}
-
-
-	public void setSaledate(Date saledate) {
-		this.saledate = saledate;
-	}
 
 
 	public Long getId() {
