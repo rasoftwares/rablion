@@ -44,8 +44,7 @@
 <th><input name="name" class="form-control" type="text" placeholder="Item Name.."  ng-model="newInventory.name"  ng-required="true"/></th>
       
 <th><input name="type" class="form-control" type="text" placeholder=" ItemType..." ng-model="newInventory.type" ng-required="true"/></th>
-<th><input name="quantity" class="form-control" type="number" placeholder="Quantity..." ng-model="newInventory.quantity" ng-required="true"  type = "number" oninput="javascript: if (this.value.length > this.max) this.value = this.value.slice(0, this.max);"
-               min="" max="4"/></th>
+<th><input name="quantity" class="form-control" type="number" placeholder="Quantity..." ng-model="newInventory.quantity" ng-required="true"  type = "number"/></th>
 <th><select ng-model="newInventory.alertlimit" ng-options="type for type in alertlimit" placeholder="Select" class="form-control">Pick a user</select></th>
 <th><input name="price" class="form-control" type="number" placeholder="purchaseprice.." ng-model="newInventory.price" ng-required="true" type = "number" min="0" max="" /></th>
 <th><input name="discount" class="form-control" type="number" placeholder="Discount %..." ng-model="newInventory.discount" ng-required="true"  type = "number" min="0" max="99"/></th>
