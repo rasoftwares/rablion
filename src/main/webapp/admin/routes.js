@@ -25,8 +25,8 @@ adminApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: (adminTemplateDir + '/discount.html'), controller: 'discountCtrl'
      }).
              
-     when('/catalog',{
-      templateUrl: (adminTemplateDir + '/catalog.html'), controller: 'catalogCtrl'
+     when('/customer',{
+      templateUrl: (adminTemplateDir + '/customer.html'), controller: 'customerCtrl'
     });
   
   

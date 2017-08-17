@@ -53,7 +53,7 @@ public class Customer extends BaseEntity {
     private Double  landlineno;
     
     @Column(name = "mobileno", nullable = false)
-    private Double  mobiledno;
+    private Double  mobileno;
     
     
     @Column(name = "emailid", nullable = false)
@@ -93,7 +93,7 @@ public class Customer extends BaseEntity {
 	    this.registredaddress = registredaddress;
 	    this.officeaddress = officeaddress;
 	    this.landlineno = landlineno;
-	    this.mobiledno = mobileno;
+	    this.mobileno = mobileno;
 	    this.emailid= emailid;
 	    this.website = website;
 	    this.aboutcompany = aboutcompany;
@@ -224,13 +224,13 @@ public class Customer extends BaseEntity {
 	}
 
 
-	public Double getMobiledno() {
-		return mobiledno;
+	public Double getMobileno() {
+		return mobileno;
 	}
 
 
-	public void setMobiledno(Double mobiledno) {
-		this.mobiledno = mobiledno;
+	public void setMobileno(Double mobileno) {
+		this.mobileno = mobileno;
 	}
 
 

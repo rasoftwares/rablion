@@ -1,0 +1,79 @@
+<div class="page-header"> <h3>Customer Details</h3></div>
+    <div>
+          <form name="customerForm" action="#/customer" novalidate>
+
+          </div>
+          <table border='1' class='table table-striped'>
+            <tr>
+                <th> S.No </th>
+                <th>CustomerId</th>
+                <th>CompanyName</th>
+                <th>Title</th>
+                <th>Registration No</th>
+                <th>Registration Year</th>
+                <th>OwnerName</th>
+                <th>Photograph</th>
+                <th>ShortDescription</th>
+                <th>Registred Address</th>
+                <th>Office Address</th>
+                <th>Landline No</th>
+                <th>Mobile No</th>
+                <th>Email Id</th>
+                <th>Website</th>
+                <th>About Company</th>
+                <th>Action</th>
+
+            </tr>
+            <!-- tr>
+                    <th></th>
+
+
+   <th><input name="startdate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.startdate" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="enddate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.enddate" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="percentage" class="form-control" type="number" placeholder="" maxlength="6" ng-model="newDiscount.percentage" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="isactive" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newDiscount.isactive" ng-required="true" ng-maxlength="12"/></th>
+   <th><input name="createdby" class="form-control" type="text" placeholder="" ng-model="newDiscount.createdby" ng-required="true"/></th>
+   <th><input name="createdtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.createdtimestamp" ng-required="true"/></th>
+   <th><input name="modifiedby" class="form-control" type="text" placeholder="" ng-model="newDiscount.modifiedby" ng-required="true"/></th>
+   <th><input name="modifiedtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.modifiedtimestamp" ng-required="true"/></th>
+
+
+
+                <th>
+
+                    <a href="#/discount" class="btn" ng-click="addDiscount(newDiscount)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                </th>
+            </tr-->
+            <tr ng-repeat="data in data" id='_customer_{{data.id}}'>
+            <td>{{$index +1}}</td>
+                <td>{{data.customerid}}</td>
+                <td>{{data.companyname}}</td>
+                <td>{{data.title}}</td>
+                <td>{{data.registrationno}}</td>
+                <td>{{data.registrationyear|date : 'mediumDate'}}</td>
+                <td>{{data.ownername}}</td>
+                <td>{{data.photograph}}</td>
+                <td>{{data.shortdescription}}</td>
+                <td>{{data.registredaddress}}</td>
+                <td>{{data.officeaddress}}</td>
+                <td>{{data.landlineno}}</td>
+                <td>{{data.mobileno}}</td>
+                <td>{{data.emailid}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.aboutcompany}}</td>
+
+
+
+
+
+
+
+
+
+
+                <td><a href="#/customer" class="btn" ng-click="deleteCustomer(data.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                        </tr>
+          </table>
+          </form>
+        </div>
+</div>
