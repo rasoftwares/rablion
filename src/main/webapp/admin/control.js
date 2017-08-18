@@ -388,7 +388,7 @@ $http({
 	
 		
 		$scope.deleteCustomer= function(index) {
-			remove($scope, $http, 'DELETE', _URL, 'customer', index); 
+			remove($scope, $http, 'DELETE', customer_URL, 'customer', index); 
 		};
 		
 		    	
