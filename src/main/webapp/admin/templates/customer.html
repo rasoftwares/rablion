@@ -24,28 +24,33 @@
                 <th>Action</th>
 
             </tr>
-            <!-- tr>
+            <!--tr>
                     <th></th>
 
 
-   <th><input name="startdate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.startdate" ng-required="true" ng-maxlength="12"/></th>
-   <th><input name="enddate" class="form-control" type="date" placeholder="" maxlength="6" ng-model="newDiscount.enddate" ng-required="true" ng-maxlength="12"/></th>
-   <th><input name="percentage" class="form-control" type="number" placeholder="" maxlength="6" ng-model="newDiscount.percentage" ng-required="true" ng-maxlength="12"/></th>
-   <th><input name="isactive" class="form-control" type="text" placeholder="" maxlength="6" ng-model="newDiscount.isactive" ng-required="true" ng-maxlength="12"/></th>
-   <th><input name="createdby" class="form-control" type="text" placeholder="" ng-model="newDiscount.createdby" ng-required="true"/></th>
-   <th><input name="createdtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.createdtimestamp" ng-required="true"/></th>
-   <th><input name="modifiedby" class="form-control" type="text" placeholder="" ng-model="newDiscount.modifiedby" ng-required="true"/></th>
-   <th><input name="modifiedtimestamp" class="form-control" type="date" placeholder="" ng-model="newDiscount.modifiedtimestamp" ng-required="true"/></th>
-
-
+   <th><input name="customerid" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.customerid" ng-required="true" /></th>
+   <th><input name="companyname" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.companyname" ng-required="true"/></th>
+   <th><input name="title" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.title" ng-required="true" /></th>
+   <th><input name="registrationno" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.registrationno" ng-required="true"/></th>
+   <th><input name="registrationyear" class="form-control" type="date" placeholder="" maxlength="10" ng-model="newCustomer.registrationyear" ng-required="true"/></th>
+   <th><input name="ownername" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.ownername" ng-required="true" /></th>
+   <th><input name="photograph" class="form-control" type="file" placeholder="" maxlength="10" ng-model="newCustomer.photograph" ng-required="true" /></th>
+   <th><input name="shortdescription" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.shortdescription" ng-required="true"/></th>
+   <th><input name="registredaddress" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.registredaddress" ng-required="true" /></th>
+   <th><input name="officeaddress" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.officeaddress" ng-required="true" /></th>
+   <th><input name="landlineno" class="form-control" type="number" placeholder="" maxlength="10" ng-model="newCustomer.landlineno" ng-required="true" /></th>
+   <th><input name="mobileno" class="form-control" type="number" placeholder="" maxlength="10" ng-model="newCustomer.mobileno" ng-required="true" /></th>
+   <th><input name="emailid" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.emailid" ng-required="true" /></th>
+   <th><input name="website" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.website" ng-required="true" /></th>
+   <th><input name="aboutcompany" class="form-control" type="text" placeholder="" maxlength="10" ng-model="newCustomer.aboutcompany" ng-required="true" /></th>
 
                 <th>
 
-                    <a href="#/discount" class="btn" ng-click="addDiscount(newDiscount)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                    <a href="#/customer" class="btn" ng-click="addCustomer(newCustomer)"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
                 </th>
             </tr-->
             <tr ng-repeat="data in data" id='_customer_{{data.id}}'>
-            <td>{{$index +1}}</td>
+                <td>{{$index +1}}</td>
                 <td>{{data.customerid}}</td>
                 <td>{{data.companyname}}</td>
                 <td>{{data.title}}</td>
@@ -61,16 +66,7 @@
                 <td>{{data.emailid}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.aboutcompany}}</td>
-
-
-
-
-
-
-
-
-
-
+                
                 <td><a href="#/customer" class="btn" ng-click="deleteCustomer(data.id)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
                         </tr>
           </table>
