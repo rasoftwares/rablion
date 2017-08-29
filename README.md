@@ -1,5 +1,7 @@
 # Rablion Softwares
 
+- Master : [![Build Status]](https://travis-ci.org/rasoftwares/rablion)
+
 ## Pre requisities
 Java 8
 Maven 3.1.x
