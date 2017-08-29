@@ -1,6 +1,6 @@
 # Rablion Softwares
 
-- Master : [![Build Status](https://img.shields.io/travis/rasoftwares/rablion/master.svg?label=rablion)](https://travis-ci.org/rasoftwares/rablion)
+- Build Status : [![Build Status](https://img.shields.io/travis/rasoftwares/rablion/master.svg?label=rablion)](https://travis-ci.org/rasoftwares/rablion)
 
 ## Pre requisities
 Java 8
