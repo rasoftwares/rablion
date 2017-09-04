@@ -1,5 +1,7 @@
 # Rablion Softwares
 
+- Build Status : [![Build Status](https://img.shields.io/travis/rasoftwares/rablion/master.svg?label=rablion)](https://travis-ci.org/rasoftwares/rablion)
+
 ## Pre requisities
 Java 8
 Maven 3.1.x
