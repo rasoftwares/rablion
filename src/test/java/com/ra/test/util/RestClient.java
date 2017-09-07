@@ -1,4 +1,4 @@
-package com.ra.util;
+package com.ra.test.util;
 
 import java.net.URI;
 
@@ -18,7 +18,9 @@ public class RestClient
     private final String usernameInputFieldName = "username";
     private final String passwordInputFieldName = "password";
     private final StatefullRestTemplate template = new StatefullRestTemplate();
+    
 
+    
     /**
      * This method logs into a service by doing an standard http using the configuration in this class.
      * 

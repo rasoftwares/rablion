@@ -1,24 +1,6 @@
-package com.ra.controller;
+package com.ra.test.controller;
 
-import java.sql.Date;
-
-import org.fest.assertions.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.TestRestTemplate;
-import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.client.RestTemplate;
-
-import com.ra.config.AppConfig;
-import com.ra.domain.Expense;
-import com.ra.util.RestClient;
-
+/*
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {AppConfig.class})
 @WebIntegrationTest("server.port:9000")
@@ -58,7 +40,7 @@ public class ExpenseControllerIntegrationTests {
     
     @Test
     public void create(){
-    	/*HttpHeaders headers = new HttpHeaders();
+    	HttpHeaders headers = new HttpHeaders();
     	final HttpEntity<String> request = new HttpEntity<String>(headers);
     	
     	RestClient client = new RestClient();
@@ -76,13 +58,13 @@ public class ExpenseControllerIntegrationTests {
     	for(int i=0;i<expense.length;i++) {
         	Assertions.assertThat(expense[i]).isNotNull();    
         }
-    */
+    
     	
     }
     
     @Test
     public void delete(){
-    	/*HttpHeaders headers = new HttpHeaders();
+    	HttpHeaders headers = new HttpHeaders();
     	final HttpEntity<String> request = new HttpEntity<String>(headers);
     	
     	RestClient client = new RestClient();
@@ -99,10 +81,12 @@ public class ExpenseControllerIntegrationTests {
     	}
     	for(int i=0;i<expense.length;i++) {
         	Assertions.assertThat(expense[i]).isNotNull();    
-        }*/
+        }
     
     }
 }
+
+*/
 
 
 

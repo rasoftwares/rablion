@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/*
+		
 		http.authorizeRequests()
 			.antMatchers("/**").hasRole("USER")
 			.and()
@@ -29,8 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 					.loginPage("/login")
 			.and()
 				.csrf().disable();
-				
-		*/
+		/*
 		http
 			.authorizeRequests()
 				.antMatchers("/", "/home").permitAll()
@@ -42,8 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 				.and()
 			.logout()
 				.permitAll();
-			
-				
-				
+				*/	
 	}
 }

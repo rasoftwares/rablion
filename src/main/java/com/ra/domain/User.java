@@ -8,8 +8,9 @@ import javax.persistence.Id;
 
 @Entity(name="appuser")
 public class User {
-	public User() {
-		// TODO Auto-generated constructor stub
+	
+	public User(){
+		
 	}
 	
 	@Id

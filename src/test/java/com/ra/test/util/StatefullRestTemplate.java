@@ -1,4 +1,4 @@
-package com.ra.util;
+package com.ra.test.util;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;

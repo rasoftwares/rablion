@@ -1,4 +1,4 @@
-package com.ra.util;
+package com.ra.test.util;
 
 
 import java.net.URI;
