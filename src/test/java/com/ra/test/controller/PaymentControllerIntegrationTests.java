@@ -6,41 +6,40 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ra.domain.Expense;
-
+import com.ra.domain.Payment;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ExpenseControllerIntegrationTests extends BaseControllerIntegrationTests {
-	
+public class PaymentControllerIntegrationTests extends BaseControllerIntegrationTests{
 	@Test
 	public void create() {
-		Expense response = (Expense) create(entity, POST, Expense.class);
+		Payment response = (Payment) create(entity, POST, Payment.class);
 		Assert.assertNotNull(response);
 	}
 	
     @Test
     public void find() {
     	
-    	ResponseEntity<Object[]> response = find(entity, GET, Expense[].class); 
+    	ResponseEntity<Object[]> response = find(entity, GET, Payment[].class); 
     	
-    	Expense[] expense = (Expense[])response.getBody();
+    	Payment[] payment = (Payment[])response.getBody();
     	
-    	if(expense != null) {
-    		Assert.assertEquals("Total expenses Found ", 1, expense.length);
-    		Assert.assertNotNull(expense);
-    		Assertions.assertThat(expense.length).isEqualTo(1);
+    	if(payment != null) {
+    		Assert.assertEquals("Total payment Found ", 1, payment.length);
+    		Assert.assertNotNull(payment);
+    		Assertions.assertThat(payment.length).isEqualTo(1);
     	}
     	else {
-    		Assertions.assertThat(expense).isNull();
+    		Assertions.assertThat(payment).isNull();
     	}
     }
     
 	@Before
 	public void setup() {
-		entity = "expense";
+		entity = "payment";
 		initialize();
 	}
 }

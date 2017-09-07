@@ -11,9 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ra.domain.User;
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment=WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class UserControllerIntegrationTests extends BaseControllerIntegrationTests{
 	@Test
 	public void create() {
