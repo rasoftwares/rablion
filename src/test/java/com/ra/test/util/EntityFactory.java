@@ -33,6 +33,11 @@ public class EntityFactory {
 			user.setUsertype("CUSTOMER");
 			user.setEmail("demo@gmail.com");
 			user.setPassword("123456");
+			user.setCreatedby("");
+			user.setCreatedtimestamp(new Date(System.currentTimeMillis()));
+			user.setModifiedby("");
+			user.setModifiedtimestamp(new Date(System.currentTimeMillis()));
+		    
 			entity = user;
 		}
 		else if(obj.equals(Catalog.class)) {
@@ -43,7 +48,11 @@ public class EntityFactory {
 			catalog.setPrice(1D);
 			catalog.setDiscount(1D);
 			catalog.setImage("");
-			entity = catalog;
+			catalog.setCreatedby("");
+			catalog.setCreatedtimestamp(new Date(System.currentTimeMillis()));
+			catalog.setModifiedby("");
+			catalog.setModifiedtimestamp(new Date(System.currentTimeMillis()));
+		    entity = catalog;
 		}
 		else if(obj.equals(Inventory.class)) {
 			System.out.println("Returning ---> Inventory Class");
@@ -71,10 +80,10 @@ public class EntityFactory {
 			expense.setUser("");
 			expense.setCurrency("");
 			expense.setDate(new Date(System.currentTimeMillis()));
-			/*expense.setCreatedby("");
+			expense.setCreatedby("");
 			expense.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			expense.setModifiedby("");
-			expense.setModifiedtimestamp(new Date(System.currentTimeMillis()));*/
+			expense.setModifiedtimestamp(new Date(System.currentTimeMillis()));
 			entity = expense;
 		}
 		else if(obj.equals(Payment.class)) {
@@ -112,6 +121,11 @@ public class EntityFactory {
 			currency.setCurrency("");
 			currency.setSourcevalue(1D);
 			currency.setInrvalue(1D);
+			currency.setCreatedby("");
+			currency.setCreatedtimestamp(new Date(System.currentTimeMillis()));
+			currency.setModifiedby("");
+			currency.setModifiedtimestamp(new Date(System.currentTimeMillis()));
+		
 			entity = currency;
 		}
 		else if(obj.equals(Customer.class)) {
@@ -132,6 +146,11 @@ public class EntityFactory {
 			customer.setEmailid("");
 			customer.setWebsite("");
 			customer.setAboutcompany("");
+			customer.setCreatedby("");
+			customer.setCreatedtimestamp(new Date(System.currentTimeMillis()));
+			customer.setModifiedby("");
+			customer.setModifiedtimestamp(new Date(System.currentTimeMillis()));
+		
 			entity = customer;
 		}
 		else{
