@@ -2,6 +2,8 @@ package com.ra.domain;
 
 
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,15 +31,32 @@ public class Catalog {
     
     @Column(name = "image", nullable = false)
     private String image;
+    @Column(name = "createdby", nullable = false)
+    private String createdby;
+    
+    @Column(name = "createdtimestamp", nullable = false)
+    private Date createdtimestamp;
+    
+    @Column(name = "modifiedby", nullable = false)
+    private String modifiedby;
+    
+    @Column(name = "modifiedtimestamp", nullable = false)
+    private Date modifiedtimestamp;
+    
      
 	
-    public Catalog(Long id, String model,Double price,Double discount,String image) {
+    public Catalog(Long id, String model,Double price,Double discount,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.model=model;
 		this.price=price;
 		this.discount=discount;
 		this.image=image;
+		this.createdby=createdby;
+		this.createdtimestamp=createdtimestamp;
+		this.modifiedby=modifiedby;
+		this.modifiedtimestamp=modifiedtimestamp;
+		
 		
 		
 		
@@ -91,6 +110,46 @@ public class Catalog {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+
+	public String getCreatedby() {
+		return createdby;
+	}
+
+
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
+	}
+
+
+	public Date getCreatedtimestamp() {
+		return createdtimestamp;
+	}
+
+
+	public void setCreatedtimestamp(Date createdtimestamp) {
+		this.createdtimestamp = createdtimestamp;
+	}
+
+
+	public String getModifiedby() {
+		return modifiedby;
+	}
+
+
+	public void setModifiedby(String modifiedby) {
+		this.modifiedby = modifiedby;
+	}
+
+
+	public Date getModifiedtimestamp() {
+		return modifiedtimestamp;
+	}
+
+
+	public void setModifiedtimestamp(Date modifiedtimestamp) {
+		this.modifiedtimestamp = modifiedtimestamp;
 	}
 
 	
