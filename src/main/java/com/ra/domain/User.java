@@ -1,5 +1,7 @@
 package com.ra.domain;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,9 +33,22 @@ public class User {
 	    private String password;
 	  @Column(name = "email", nullable = false)
 	    private String email;
+	  
+	    @Column(name = "createdby", nullable = false)
+	    private String createdby;
+	    
+	    @Column(name = "createdtimestamp", nullable = false)
+	    private Date createdtimestamp;
+	    
+	    @Column(name = "modifiedby", nullable = false)
+	    private String modifiedby;
+	    
+	    @Column(name = "modifiedtimestamp", nullable = false)
+	    private Date modifiedtimestamp;
+
 		
 	  public User(Long id, String username, String usertype, 
-				String loginid, String password, String email) {
+				String loginid, String password, String email,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 			super();
 			this.id = id;
 			this.username = username;
@@ -41,6 +56,10 @@ public class User {
 			this.loginid = loginid;
 			this.password = password;
 			this.email =email;
+			this.createdby=createdby;
+			this.createdtimestamp=createdtimestamp;
+			this.modifiedby=modifiedby;
+			this.modifiedtimestamp=modifiedtimestamp;
 			
 			
 		}
@@ -93,4 +112,38 @@ public class User {
 		this.email = email;
 	}
 
+	public String getCreatedby() {
+		return createdby;
+	}
+
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
+	}
+
+	public Date getCreatedtimestamp() {
+		return createdtimestamp;
+	}
+
+	public void setCreatedtimestamp(Date createdtimestamp) {
+		this.createdtimestamp = createdtimestamp;
+	}
+
+	public String getModifiedby() {
+		return modifiedby;
+	}
+
+	public void setModifiedby(String modifiedby) {
+		this.modifiedby = modifiedby;
+	}
+
+	public Date getModifiedtimestamp() {
+		return modifiedtimestamp;
+	}
+
+	public void setModifiedtimestamp(Date modifiedtimestamp) {
+		this.modifiedtimestamp = modifiedtimestamp;
+	}
+
+	
+	
 }

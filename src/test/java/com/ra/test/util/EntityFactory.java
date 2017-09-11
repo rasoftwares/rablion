@@ -33,7 +33,7 @@ public class EntityFactory {
 			user.setUsertype("CUSTOMER");
 			user.setEmail("demo@gmail.com");
 			user.setPassword("123456");
-			user.setCreatedby("");
+			user.setCreatedby("mari");
 			user.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			user.setModifiedby("");
 			user.setModifiedtimestamp(new Date(System.currentTimeMillis()));
@@ -48,7 +48,7 @@ public class EntityFactory {
 			catalog.setPrice(1D);
 			catalog.setDiscount(1D);
 			catalog.setImage("");
-			catalog.setCreatedby("");
+			catalog.setCreatedby("mari");
 			catalog.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			catalog.setModifiedby("");
 			catalog.setModifiedtimestamp(new Date(System.currentTimeMillis()));
@@ -78,7 +78,7 @@ public class EntityFactory {
 			expense.setAmount(1D);
 			expense.setType("");
 			expense.setUser("");
-			expense.setCurrency("");
+			expense.setCurrency("mari");
 			expense.setDate(new Date(System.currentTimeMillis()));
 			expense.setCreatedby("");
 			expense.setCreatedtimestamp(new Date(System.currentTimeMillis()));
@@ -94,7 +94,7 @@ public class EntityFactory {
 			payment.setUserid("");
 			payment.setOrderid("");
 			payment.setAmount(1L);
-			payment.setCreatedby("");
+			payment.setCreatedby("mari");
 			payment.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			payment.setModifiedby("");
 			payment.setModifiedtimestamp(new Date(System.currentTimeMillis()));
@@ -108,8 +108,8 @@ public class EntityFactory {
 			discount.setStartdate(new Date(System.currentTimeMillis()));
 			discount.setEnddate(new Date(System.currentTimeMillis()));
 			discount.setPercentage(1L);
-			discount.setIsactive("");
-			discount.setCreatedby("");
+			discount.setIsactive("yes");
+			discount.setCreatedby("mari");
 			discount.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			discount.setModifiedby("");
 			discount.setModifiedtimestamp(new Date(System.currentTimeMillis()));
@@ -121,7 +121,7 @@ public class EntityFactory {
 			currency.setCurrency("");
 			currency.setSourcevalue(1D);
 			currency.setInrvalue(1D);
-			currency.setCreatedby("");
+			currency.setCreatedby("mari");
 			currency.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			currency.setModifiedby("");
 			currency.setModifiedtimestamp(new Date(System.currentTimeMillis()));
@@ -145,7 +145,7 @@ public class EntityFactory {
 			customer.setMobileno(1D);
 			customer.setEmailid("");
 			customer.setWebsite("");
-			customer.setAboutcompany("");
+			customer.setAboutcompany("rablion");
 			customer.setCreatedby("");
 			customer.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 			customer.setModifiedby("");
