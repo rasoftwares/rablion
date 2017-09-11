@@ -13,7 +13,7 @@ modifiedby varchar(60),
 modifiedtimestamp date
 );
 
-insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com');
+insert into appuser(username,usertype,loginid,password,email) values ('jhari','guest','0001','rablion-1','hari@rasoftwares.com','mari',CURRENT_TIMESTAMP,'mari',CURRENT_TIMESTAMP);
 select * from appuser;
 
 --drop table currency
@@ -27,8 +27,9 @@ CREATE TABLE currency(
  modifiedby varchar(60),
  modifiedtimestamp date
  );
- insert into currency (currency,sourcevalue,inrvalue) values ('US$', 5000.00 , 500000.00);
- select * from currency
+ insert into currency (currency,sourcevalue,inrvalue) values ('US$', 5000.00 , 500000.00, 'mari',CURRENT_TIMESTAMP,'mari',CURRENT_TIMESTAMP);
+ 
+select * from currency
  
  
  
@@ -113,7 +114,12 @@ landlineno numeric(15),
 mobileno numeric(13),
 emailid varchar(255),
 website varchar(255),
-aboutcompany varchar(255)
+aboutcompany varchar(255),
+createdby varchar(255),
+createdtimestamp date,
+modifiedby varchar(255),
+modifiedtimestamp date
+
 );
 
 insert into customer(customerid,companyname,title,registrationno,registrationyear,ownername,photograph,shortdescription,registredaddress,
@@ -140,14 +146,15 @@ CREATE TABLE expense (
     currency varchar(60),
     amount numeric(10,2),
     type varchar(60),
-    createdby varchar(60),
-	createdtimestamp date,
-	modifiedby varchar(60)
+    createdby varchar(255),
+    createdtimestamp date,
+    modifiedby varchar(255),
+    modifiedtimestamp date
 );
 
-insert into expense (username, date, currency, amount, type) values ('Fowmi', CURRENT_TIMESTAMP , 'USD', 500.00, 'Travel');
-insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 10.00, 'Food');
-insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 50.00, 'Mobile');
+insert into expense (username, date, currency, amount, type) values ('Fowmi', CURRENT_TIMESTAMP , 'USD', 500.00, 'Travel','mari',CURRENT_TIMESTAMP,'mari',CURRENT_TIMESTAMP);
+insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 10.00, 'Food','mari',CURRENT_TIMESTAMP,'mari',CURRENT_TIMESTAMP);
+insert into expense (username, date, currency, amount,type) values ('Fowmi', CURRENT_TIMESTAMP , 'INR', 50.00, 'Mobile','mari',CURRENT_TIMESTAMP,'mari',CURRENT_TIMESTAMP);
 
 select * from expense
 
@@ -226,7 +233,11 @@ CREATE TABLE catalog (
     model varchar(60),
     price numeric(10,2),
     discount numeric(10,2),
-    image varchar(60)
+    image varchar(60),
+     createdby varchar(255),
+	createdtimestamp date,
+	modifiedby varchar(255),
+	modifiedtimestamp date
     
 );
 
