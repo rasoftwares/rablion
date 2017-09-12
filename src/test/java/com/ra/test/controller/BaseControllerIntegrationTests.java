@@ -30,19 +30,19 @@ public class BaseControllerIntegrationTests {
 
 	String POST = "POST";
 	String GET = "GET";
-	
+
 	@LocalServerPort
 	private int port;
 
 	public void initialize() {
 		headers = new HttpHeaders();
 		request = new HttpEntity<String>(headers);
-		
+
 		client = new RestClient();
 		client.setApplicationPath("");
 		String url = client.login("admin", "password");
 
-		url = getProtocol() + getHost() + ":" + port + "/" + application_prefix ;
+		url = getProtocol() + getHost() + ":" + port + "/" + application_prefix;
 	}
 
 	public String getProtocol() {
@@ -59,15 +59,15 @@ public class BaseControllerIntegrationTests {
 			response = client.template().exchange(client.apiUrl(entityName), HttpMethod.GET, request, obj);
 		} else {
 		}
-		System.out.println("====>" + response);
+		//System.out.println("====>" + response);
 		return response;
 	}
 
 	public Object create(String entityName, String methodName, Class obj) {
 		Object response = null;
 		Object entityObj = EntityFactory.getDomainEntityforClass(obj);
-		System.out.println("Entiy object" + entityObj);
-		
+		//System.out.println("Entiy object" + entityObj);
+
 		if (methodName.equals(POST)) {
 			response = client.template().postForObject(client.apiUrl(entityName), entityObj, obj);
 		}
