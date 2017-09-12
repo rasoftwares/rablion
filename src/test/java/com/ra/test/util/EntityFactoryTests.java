@@ -29,7 +29,7 @@ public class EntityFactoryTests {
 		for(int i=0;i<clsArray.length;i++){
 			Class c = clsArray[i];
 			Object retObject = EntityFactory.getDomainEntityforClass(c);
-			assertEquals(c.getClass().getName(), retObject.getClass().getName());
+			assertEquals(c.getName(), retObject.getClass().getName());
 			
 		}
 	}
