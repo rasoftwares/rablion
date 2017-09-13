@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,8 @@ import com.ra.repository.InventoryRepository;
 
 @RestController
 public class InventoryController extends BaseController {
+	public static Logger logger = LogManager.getLogger(BaseController.class);
+
 	String name = "InventoryController";
 
 	public InventoryController() {
@@ -36,14 +40,14 @@ public class InventoryController extends BaseController {
     
     @RequestMapping(value = "/inventory", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Inventory creaet(@RequestBody Inventory inventory) {
-    	System.out.println("Inventory from UI :" + inventory + ":");
+    	logger.debug("Inventory from UI :" + inventory + ":");
     	return inventoryRepository.save(inventory);
     }
     
    @RequestMapping(value = "/inventory/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteInventory(@PathVariable Long id) {
         inventoryRepository.delete(id);
-        System.out.println("Inventory item " + id  + "deleted successfully");
+        logger.debug("Inventory item " + id  + "deleted successfully");
     }
     
     
@@ -51,7 +55,7 @@ public class InventoryController extends BaseController {
     public List<Inventory> findInventory() {
         final List<Inventory> resultList = new ArrayList<>();
         final Iterable<Inventory> all = inventoryRepository.findAll();
-        
+        logger.debug("Fetching inventory items");
         Iterator<Inventory> all_I = all.iterator();
         while (all_I.hasNext()) {
         	Inventory inventory = (Inventory) all_I.next();

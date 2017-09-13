@@ -1,14 +1,26 @@
 package com.ra.controller;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 
 import com.ra.util.GlobalConstants;
 
 
 @RequestMapping(value = GlobalConstants.REST_BASE_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class BaseController {
+	
+public static Logger logger = LogManager.getLogger(BaseController.class);
+	
+	public BaseController(){
+		
+				
+	}
     
 	private String name = "BaseController" ;
 	
