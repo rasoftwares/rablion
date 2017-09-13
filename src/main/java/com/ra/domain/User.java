@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="appuser")
-public class User {
+public class User extends BaseEntity{
 	
 	public User(){
 		
@@ -31,20 +31,9 @@ public class User {
 		
 	 @Column(name = "password", nullable = false)
 	    private String password;
-	  @Column(name = "email", nullable = false)
+	  @Column(name = "email")
 	    private String email;
 	  
-	    @Column(name = "createdby", nullable = false)
-	    private String createdby;
-	    
-	    @Column(name = "createdtimestamp", nullable = false)
-	    private Date createdtimestamp;
-	    
-	    @Column(name = "modifiedby", nullable = false)
-	    private String modifiedby;
-	    
-	    @Column(name = "modifiedtimestamp", nullable = false)
-	    private Date modifiedtimestamp;
 
 		
 	  public User(Long id, String username, String usertype, 
@@ -56,10 +45,10 @@ public class User {
 			this.loginid = loginid;
 			this.password = password;
 			this.email =email;
-			this.createdby=createdby;
-			this.createdtimestamp=createdtimestamp;
-			this.modifiedby=modifiedby;
-			this.modifiedtimestamp=modifiedtimestamp;
+			createdby=createdby;
+			createdtimestamp=createdtimestamp;
+			modifiedby=modifiedby;
+			modifiedtimestamp=modifiedtimestamp;
 			
 			
 		}
@@ -111,39 +100,4 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getCreatedby() {
-		return createdby;
-	}
-
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
-
-	public Date getCreatedtimestamp() {
-		return createdtimestamp;
-	}
-
-	public void setCreatedtimestamp(Date createdtimestamp) {
-		this.createdtimestamp = createdtimestamp;
-	}
-
-	public String getModifiedby() {
-		return modifiedby;
-	}
-
-	public void setModifiedby(String modifiedby) {
-		this.modifiedby = modifiedby;
-	}
-
-	public Date getModifiedtimestamp() {
-		return modifiedtimestamp;
-	}
-
-	public void setModifiedtimestamp(Date modifiedtimestamp) {
-		this.modifiedtimestamp = modifiedtimestamp;
-	}
-
-	
-	
 }

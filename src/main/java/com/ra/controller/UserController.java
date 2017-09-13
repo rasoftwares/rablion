@@ -1,25 +1,30 @@
 package com.ra.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ra.domain.User;
 import com.ra.repository.UserRepository;
 
+import lombok.Data;
+
 @RestController
 public class UserController extends BaseController {
 	String name = "UserController";
+	public static Logger logger = LogManager.getLogger(UserController.class);
 
 	public UserController() {
 		this.setName(name);
@@ -30,7 +35,11 @@ public class UserController extends BaseController {
     
   @RequestMapping(value = "/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public User create(@RequestBody User user) {
-    	System.out.println("User from UI :" + user + ":");
+    	logger.debug("User from UI :" + user + ":");
+    	
+    	//Lifecycle method to save
+    	updateWHOColumns(user);
+    	
     	return userRepository.save(user);
     }
     
@@ -43,6 +52,8 @@ public class UserController extends BaseController {
     
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> findUser() {
+    	
+    	logger.debug("Finding user");
         final List<User> resultList = new ArrayList<>();
         final Iterable<User> all = userRepository.findAll();
         

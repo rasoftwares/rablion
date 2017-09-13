@@ -3,17 +3,9 @@ package com.ra.test.util;
 import java.lang.reflect.Method;
 import java.sql.Date;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import com.ra.domain.Catalog;
-import com.ra.domain.Currency;
-import com.ra.domain.Customer;
-import com.ra.domain.Discount;
-import com.ra.domain.Expense;
-import com.ra.domain.Inventory;
-import com.ra.domain.Payment;
-import com.ra.domain.User;
 
 /*
  * 1. Create Domain Entities dynamically based on the class name
@@ -26,9 +18,10 @@ public class EntityFactory {
 	
 	public static EntityFactory ef = new EntityFactory();
 	public static boolean setAttributes = true;
-
+	
 	// Create and return a domain entity for the requested class
 	public static Object getDomainEntityforClass(Class obj) {
+		
 		Object entity = null;
 		logger.debug("Fetching Entity for class " + obj.getName());
 		EntityFactory ef = new EntityFactory();
@@ -49,8 +42,7 @@ public class EntityFactory {
 		Method[] methods = c.getMethods();
 		for (Method method : methods) {
 			if(setAttributes && method.getName().startsWith("set")) {
-				// System.out.println("Invoking Method :" + method.getName() +
-				// ":" + method.getParameterTypes());
+				logger.trace("Invoking Method :" + method.getName() + method.getParameterTypes());
 				method.invoke(o, getParamValues(method.getParameterTypes()));
 			}
 		}

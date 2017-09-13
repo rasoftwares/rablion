@@ -23,10 +23,9 @@ public class EntityFactoryTests {
 	 */
 	@Test
 	public void testGetDomainEntityForClass() {
-		
 		Class[] clsArray = {User.class, Catalog.class,Inventory.class, Expense.class, Payment.class, Discount.class, Currency.class, Customer.class };
 		
-		for(int i=0;i<clsArray.length;i++){
+		for(int i=0;i<clsArray.length;i++) {
 			Class c = clsArray[i];
 			Object retObject = EntityFactory.getDomainEntityforClass(c);
 			assertEquals(c.getName(), retObject.getClass().getName());

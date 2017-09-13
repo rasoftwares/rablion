@@ -1,14 +1,15 @@
 package com.ra.controller;
 
+import java.sql.Date;
+
 import org.apache.log4j.LogManager;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
-
+import com.ra.domain.BaseEntity;
 import com.ra.util.GlobalConstants;
 
 
@@ -21,9 +22,12 @@ public static Logger logger = LogManager.getLogger(BaseController.class);
 		
 				
 	}
-    
 	private String name = "BaseController" ;
 	
+	public void updateWHOColumns(BaseEntity entity){
+		entity.setCreatedby("");
+    	entity.setCreatedtimestamp(new Date(System.currentTimeMillis()));
+	}
     
     /*@RequestMapping(value = GlobalConstants.REST_ERR_URL)
     public String error() {
