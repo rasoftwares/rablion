@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,8 @@ import com.ra.repository.DiscountRepository;
 
 @RestController
 public class DiscountController extends BaseController {
+	
+	public static Logger logger = LogManager.getLogger(DiscountController.class);
 	String name = "DiscountController";
 
 	public DiscountController() {
@@ -36,14 +40,16 @@ public class DiscountController extends BaseController {
     
     @RequestMapping(value = "/discount", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Discount creaet(@RequestBody Discount discount) {
-    	System.out.println("Discount from UI :" + discount+ ":");
+    	logger.debug("Discount from UI :" + discount+ ":");
+    	//Lifecycle method to add who columns save
+     	updateWHOColumns(discount);
     	return discountRepository.save(discount);
     }
     
    @RequestMapping(value = "/discount/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteDiscount(@PathVariable Long id) {
 	   discountRepository.delete(id);
-        System.out.println("Discount item " + id  + "deleted successfully");
+	   logger.debug("Discount item " + id  + "deleted successfully");
     }
    
    

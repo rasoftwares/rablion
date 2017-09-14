@@ -17,14 +17,14 @@ public class EntityFactory {
 	public static Logger logger = LogManager.getLogger(EntityFactory.class);
 	
 	public static EntityFactory ef = new EntityFactory();
-	public static boolean setAttributes = true;
+	private boolean setAttributes = false;
 	
-	// Create and return a domain entity for the requested class
-	public static Object getDomainEntityforClass(Class obj) {
+	
+	public static Object getDomainEntityforClass(Class obj, boolean setAttributes){
+		ef.setAttributes = setAttributes;
 		
 		Object entity = null;
 		logger.debug("Fetching Entity for class " + obj.getName());
-		EntityFactory ef = new EntityFactory();
 		try {
 			entity = ef.getEntity(obj);
 		} catch (Exception e) {
@@ -32,6 +32,14 @@ public class EntityFactory {
 			e.printStackTrace();
 		}
 		return entity;
+		
+		
+	}
+	
+	// Create and return a domain entity for the requested class
+	public static Object getDomainEntityforClass(Class obj) {
+		
+		return getDomainEntityforClass(obj, true);
 	}
 
 	public Object getEntity(Class cls) throws Exception {
@@ -41,6 +49,7 @@ public class EntityFactory {
 		Class c = o.getClass();
 		Method[] methods = c.getMethods();
 		for (Method method : methods) {
+			logger.trace("Property - setattributes : " + setAttributes);
 			if(setAttributes && method.getName().startsWith("set")) {
 				logger.trace("Invoking Method :" + method.getName() + method.getParameterTypes());
 				method.invoke(o, getParamValues(method.getParameterTypes()));
@@ -48,7 +57,11 @@ public class EntityFactory {
 		}
 		return o;
 	}
-
+	
+	 /*
+	  * get ParamValues - dynamically identifies parameter type and populates the dummy value for the same
+	  */
+	
 	public Object[] getParamValues(Class cls[]) {
 		int index = 0;
 		Object[] retVal = new Object[cls.length];

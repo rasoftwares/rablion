@@ -3,12 +3,15 @@ package com.ra.test.util;
 import java.net.URI;
 
 import org.apache.commons.lang3.Validate;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-public class RestClient
-{
+public class RestClient {
+	public static Logger logger = LogManager.getLogger(RestClient.class);
+	
     private String host = "localhost";
     private String port = "9000";
     private String applicationPath;
@@ -57,7 +60,7 @@ public class RestClient
     }
 
     public String apiUrl(String relativePath)
-    {
+    {	
         return applicationUrl(apiPath + "/" + Validate.notNull(relativePath));
     }
 

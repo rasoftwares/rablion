@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,8 @@ import com.ra.repository.ExpenseRepository;
 
 @RestController
 public class ExpenseController extends BaseController {
+	
+	public static Logger logger = LogManager.getLogger(ExpenseController.class);
 	String name = "ExpenseController";
 
 	public ExpenseController() {
@@ -36,14 +40,17 @@ public class ExpenseController extends BaseController {
     
     @RequestMapping(value = "/expense", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Expense creaet(@RequestBody Expense expense) {
-    	System.out.println("Expense from UI :" + expense + ":");
+    	logger.debug("Expense from UI :" + expense + ":");
+    	//Lifecycle method to add who columns save
+     	updateWHOColumns(expense);
+     	
     	return expenseRepository.save(expense);
     }
     
     @RequestMapping(value = "/expense/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteExpense(@PathVariable Long id) {
         expenseRepository.delete(id);
-        System.out.println("Expense item " + id  + "deleted successfully");
+        logger.debug("Expense item " + id  + "deleted successfully");
     }
     
     
@@ -66,7 +73,7 @@ public class ExpenseController extends BaseController {
     	//TODO: Validate null for username, period
     	String period = "Week";
     	
-    	System.out.println( "--->" +username + ":" + period);
+    	logger.debug( "--->" +username + ":" + period);
     	List<Expense> resultList = new ArrayList<>();
         
         final Iterable<Expense> all = expenseRepository.findAll();
@@ -77,7 +84,7 @@ public class ExpenseController extends BaseController {
 			resultList.add(user);
 		}
         
-        System.out.println("resultList Size :" + resultList.size());
+        logger.debug("resultList Size :" + resultList.size());
         
         if(resultList.size() == 0) {
         	System.out.println("FATAL : there are no expenses found for userid " + username);
