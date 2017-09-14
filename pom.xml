@@ -240,6 +240,25 @@
 			             <artifactId>maven-pmd-plugin</artifactId>
 			             <version>3.8</version>
 			        </plugin>
+                        <plugin>
+                            <artifactId>maven-antrun-plugin</artifactId>
+                            <version>1.8</version>
+                            <executions>
+                              <execution>
+                                <phase> prepare-package </phase>
+                                <configuration>
+                                  <target>
+                                     <concat destfile="${project.build.directory}/classes/application.properties" force="yes">
+                                        <filelist dir="${basedir}/src/main/resources" files="application.properties, application-dev.properties"/>
+                                      </concat>
+                                  </target>
+                                </configuration>
+                                <goals>
+                                  <goal>run</goal>
+                                </goals>
+                              </execution>
+                            </executions>
+                          </plugin>
                 </plugins>
             </build>
         </profile>
@@ -257,6 +276,25 @@
                             <target>${java.version}</target>
                         </configuration>
                     </plugin>
+                        <plugin>
+                            <artifactId>maven-antrun-plugin</artifactId>
+                            <version>1.8</version>
+                            <executions>
+                              <execution>
+                                <phase> prepare-package </phase>
+                                <configuration>
+                                  <target>
+                                     <concat destfile="${project.build.directory}/classes/application.properties" force="yes">
+                                        <filelist dir="${basedir}/src/main/resources" files="application.properties, application-prod.properties"/>
+                                      </concat>
+                                  </target>
+                                </configuration>
+                                <goals>
+                                  <goal>run</goal>
+                                </goals>
+                              </execution>
+                            </executions>
+                          </plugin>
                 </plugins>
             </build>
         </profile>
