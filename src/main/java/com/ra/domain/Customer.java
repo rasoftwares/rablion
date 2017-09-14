@@ -65,27 +65,6 @@ public class Customer extends BaseEntity {
     @Column(name = "aboutcompany", nullable = false)
     private String  aboutcompany;
     
-    @Column(name = "createdby", nullable = false)
-    private String createdby;
-    
-    @Column(name = "createdtimestamp", nullable = false)
-    private Date createdtimestamp;
-    
-    @Column(name = "modifiedby", nullable = false)
-    private String modifiedby;
-    
-    @Column(name = "modifiedtimestamp", nullable = false)
-    private Date modifiedtimestamp;
-
-   
-   
-
-   
-
-   
-    
-
-    
     
     public Customer(){
     }
@@ -109,14 +88,10 @@ public class Customer extends BaseEntity {
 	    this.emailid= emailid;
 	    this.website = website;
 	    this.aboutcompany = aboutcompany;
-	    this.createdby=createdby;
-		this.createdtimestamp=createdtimestamp;
-		this.modifiedby=modifiedby;
-		this.modifiedtimestamp=modifiedtimestamp;
-		
-		
-		
-		
+	    createdby=createdby;
+		createdtimestamp=createdtimestamp;
+		modifiedby=modifiedby;
+		modifiedtimestamp=modifiedtimestamp;
 	}
 
 
@@ -278,50 +253,4 @@ public class Customer extends BaseEntity {
 	public void setAboutcompany(String aboutcompany) {
 		this.aboutcompany = aboutcompany;
 	}
-
-
-	public String getCreatedby() {
-		return createdby;
-	}
-
-
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
-
-
-	public Date getCreatedtimestamp() {
-		return createdtimestamp;
-	}
-
-
-	public void setCreatedtimestamp(Date createdtimestamp) {
-		this.createdtimestamp = createdtimestamp;
-	}
-
-
-	public String getModifiedby() {
-		return modifiedby;
-	}
-
-
-	public void setModifiedby(String modifiedby) {
-		this.modifiedby = modifiedby;
-	}
-
-
-	public Date getModifiedtimestamp() {
-		return modifiedtimestamp;
-	}
-
-
-	public void setModifiedtimestamp(Date modifiedtimestamp) {
-		this.modifiedtimestamp = modifiedtimestamp;
-	}
-
-
-	
-
-
-	
 }

@@ -29,23 +29,6 @@ public class Discount extends BaseEntity {
     @Column(name = "isactive", nullable = false)
     private String isactive;
     
-    @Column(name = "createdby", nullable = false)
-    private String createdby;
-    
-    @Column(name = "createdtimestamp", nullable = false)
-    private Date createdtimestamp;
-    
-    @Column(name = "modifiedby", nullable = false)
-    private String modifiedby;
-    
-    @Column(name = "modifiedtimestamp", nullable = false)
-    private Date modifiedtimestamp;
-    
-
-
-
-
-    
     
     public Discount(){
     }
@@ -58,13 +41,10 @@ public class Discount extends BaseEntity {
 		this.enddate=enddate;
 		this.percentage=percentage;
 		this.isactive=isactive;
-		this.createdby=createdby;
-		this.createdtimestamp=createdtimestamp;
-		this.modifiedby=modifiedby;
-		this.modifiedtimestamp=modifiedtimestamp;
-		
-		
-		
+		createdby=createdby;
+		createdtimestamp=createdtimestamp;
+		modifiedby=modifiedby;
+		modifiedtimestamp=modifiedtimestamp;
 	}
 
 
@@ -116,47 +96,4 @@ public class Discount extends BaseEntity {
 	public void setIsactive(String isactive) {
 		this.isactive = isactive;
 	}
-
-
-	public String getCreatedby() {
-		return createdby;
-	}
-
-
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
-
-
-	public Date getCreatedtimestamp() {
-		return createdtimestamp;
-	}
-
-
-	public void setCreatedtimestamp(Date createdtimestamp) {
-		this.createdtimestamp = createdtimestamp;
-	}
-
-
-	public String getModifiedby() {
-		return modifiedby;
-	}
-
-
-	public void setModifiedby(String modifiedby) {
-		this.modifiedby = modifiedby;
-	}
-
-
-	public Date getModifiedtimestamp() {
-		return modifiedtimestamp;
-	}
-
-
-	public void setModifiedtimestamp(Date modifiedtimestamp) {
-		this.modifiedtimestamp = modifiedtimestamp;
-	}
-
-	
-
 }

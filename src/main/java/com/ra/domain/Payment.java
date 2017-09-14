@@ -33,24 +33,6 @@ public class Payment extends BaseEntity {
     @Column(name = "date", nullable = false)
     private Date date;
            
-    @Column(name = "createdby", nullable = false)
-    private String createdby;
-    
-    @Column(name = "createdtimestamp", nullable = false)
-    private Date createdtimestamp;
-    
-    @Column(name = "modifiedby", nullable = false)
-    private String modifiedby;
-    
-    @Column(name = "modifiedtimestamp", nullable = false)
-    private Date modifiedtimestamp;
-    
-
-
-
-
-    
-    
     public Payment(){
     }
     
@@ -64,13 +46,10 @@ public class Payment extends BaseEntity {
 		this.status=status;
 		this.amount=amount;
 		this.date=date;
-		this.createdby=createdby;
-		this.createdtimestamp=createdtimestamp;
-		this.modifiedby=modifiedby;
-		this.modifiedtimestamp=modifiedtimestamp;
-		
-		
-		
+		createdby=createdby;
+		createdtimestamp=createdtimestamp;
+		modifiedby=modifiedby;
+		modifiedtimestamp=modifiedtimestamp;
 	}
 
 
@@ -142,50 +121,4 @@ public class Payment extends BaseEntity {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-
-	public String getCreatedby() {
-		return createdby;
-	}
-
-
-	public void setCreatedby(String createdby) {
-		this.createdby = createdby;
-	}
-
-
-	public Date getCreatedtimestamp() {
-		return createdtimestamp;
-	}
-
-
-	public void setCreatedtimestamp(Date createdtimestamp) {
-		this.createdtimestamp = createdtimestamp;
-	}
-
-
-	public String getModifiedby() {
-		return modifiedby;
-	}
-
-
-	public void setModifiedby(String modifiedby) {
-		this.modifiedby = modifiedby;
-	}
-
-
-	public Date getModifiedtimestamp() {
-		return modifiedtimestamp;
-	}
-
-
-	public void setModifiedtimestamp(Date modifiedtimestamp) {
-		this.modifiedtimestamp = modifiedtimestamp;
-	}
-
-	
-
-	
-		
-	
 }
