@@ -24,6 +24,8 @@ import com.ra.repository.InventoryRepository;
 public class CatalogController extends BaseController {
 
 	String name = "CatalogController";
+	
+	public static Logger logger = LogManager.getLogger(CatalogController.class);
 
 	public CatalogController() {
 		this.setName(name);
@@ -34,13 +36,17 @@ public class CatalogController extends BaseController {
       
      @RequestMapping(value = "/catalog", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
      public Catalog create(@RequestBody Catalog catalog) {
-     	System.out.println("Catalog from UI :" + catalog + ":");
+     	logger.debug("Catalog from UI :" + catalog + ":");
+     	
+     	//Lifecycle method to add who columns save
+    	updateWHOColumns(catalog);
+    	
      	return catalogRepository.save(catalog);
      }
      @RequestMapping(value = "/catalog/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
      public void deleteCatalog(@PathVariable Long id) {
          catalogRepository.delete(id);
-         System.out.println("Catalog item " + id  + "deleted successfully");
+         logger.debug("Catalog item " + id  + "deleted successfully");
      }
      
     

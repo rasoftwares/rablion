@@ -18,13 +18,13 @@ public class BaseController {
 	
 public static Logger logger = LogManager.getLogger(BaseController.class);
 	
-	public BaseController(){
-		
+	public BaseController() {
 				
 	}
+	
 	private String name = "BaseController" ;
 	
-	public void updateWHOColumns(BaseEntity entity){
+	public void updateWHOColumns(BaseEntity entity) {
 		entity.setCreatedby("");
     	entity.setCreatedtimestamp(new Date(System.currentTimeMillis()));
 	}

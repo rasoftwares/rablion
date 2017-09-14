@@ -27,7 +27,8 @@ import com.ra.repository.InventoryRepository;
 
 @RestController
 public class InventoryController extends BaseController {
-	public static Logger logger = LogManager.getLogger(BaseController.class);
+	
+	public static Logger logger = LogManager.getLogger(InventoryController.class);
 
 	String name = "InventoryController";
 
@@ -41,6 +42,8 @@ public class InventoryController extends BaseController {
     @RequestMapping(value = "/inventory", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Inventory creaet(@RequestBody Inventory inventory) {
     	logger.debug("Inventory from UI :" + inventory + ":");
+    	//Lifecycle method to add who columns save
+     	updateWHOColumns(inventory);
     	return inventoryRepository.save(inventory);
     }
     

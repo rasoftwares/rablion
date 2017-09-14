@@ -12,6 +12,8 @@ import java.util.Set;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +28,8 @@ import com.ra.repository.CustomerRepository;
 
 @RestController
 public class CustomerController extends BaseController {
+	
+	public static Logger logger = LogManager.getLogger(CustomerController.class);
 	String name = "CustomerController";
 
 	public CustomerController() {
@@ -37,21 +41,18 @@ public class CustomerController extends BaseController {
     
     @RequestMapping(value = "/customer", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Customer creaet(@RequestBody Customer customer) {
-    	System.out.println("Customer from UI :" +customer+ ":");
+    	
+    	logger.debug("Customer from UI :" +customer+ ":");
+    	//Lifecycle method to add who columns save
+     	updateWHOColumns(customer);
     	return customerRepository.save(customer);
     }
     
    @RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteCustomer(@PathVariable Long id) {
 	   customerRepository.delete(id);
-        System.out.println("Discount item " + id  + "deleted successfully");
-    }
-   
-   
-   
-  
-   
-   
+	   logger.debug("Discount item " + id  + "deleted successfully");
+    } 
     
    @RequestMapping(value = "/customer", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Customer> findCustomer() {

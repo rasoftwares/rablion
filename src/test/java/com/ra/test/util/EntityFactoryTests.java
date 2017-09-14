@@ -2,35 +2,44 @@ package com.ra.test.util;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import com.ra.domain.Catalog;
-import com.ra.domain.Currency;
-import com.ra.domain.Customer;
-import com.ra.domain.Discount;
-import com.ra.domain.Expense;
-import com.ra.domain.Inventory;
-import com.ra.domain.Payment;
-import com.ra.domain.User;
+import com.ra.domain.BaseEntity;
+import com.ra.util.GlobalConstants;
 
 
 
 public class EntityFactoryTests {
-
+	
+	public static Logger logger = LogManager.getLogger(EntityFactoryTests.class);
+	
 	/*
 	 * Unit test EntityFactory class.
 	 * Configure and test all of the entity objects
 	 */
 	@Test
 	public void testGetDomainEntityForClass() {
-		Class[] clsArray = {User.class, Catalog.class,Inventory.class, Expense.class, Payment.class, Discount.class, Currency.class, Customer.class };
-		
-		for(int i=0;i<clsArray.length;i++) {
-			Class c = clsArray[i];
+		for(int i=0;i<GlobalConstants.clsArray.length;i++) {
+			Class c = GlobalConstants.clsArray[i];
+			logger.trace("" + c.getName() + ":" + c.getSimpleName());
 			Object retObject = EntityFactory.getDomainEntityforClass(c);
 			assertEquals(c.getName(), retObject.getClass().getName());
+		}
+	}
+	
+	@Test
+	public void testGetDomainEntityForClassWithoutValues() {
+		for(int i=0;i<GlobalConstants.clsArray.length;i++) {
+			Class c = GlobalConstants.clsArray[i];
+			Object retObject = EntityFactory.getDomainEntityforClass(c, false);
+			assertEquals(c.getName(), retObject.getClass().getName());
+			assertEquals(null, ((BaseEntity)retObject).getCreatedby());
+			assertEquals(null, ((BaseEntity)retObject).getCreatedtimestamp());
 			
 		}
 	}
+	
 
 }

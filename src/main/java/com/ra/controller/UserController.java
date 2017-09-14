@@ -37,7 +37,7 @@ public class UserController extends BaseController {
     public User create(@RequestBody User user) {
     	logger.debug("User from UI :" + user + ":");
     	
-    	//Lifecycle method to save
+    	//Lifecycle method to add who columns save
     	updateWHOColumns(user);
     	
     	return userRepository.save(user);
