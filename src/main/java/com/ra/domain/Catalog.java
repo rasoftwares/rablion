@@ -20,16 +20,16 @@ public class Catalog extends BaseEntity{
     @Column(name = "id", nullable = false)
     private Long id;
     
-    @Column(name = "model", nullable = false)
+    @Column(name = "model")
     private String model;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private Double price;
    
-    @Column(name = "discount", nullable = false)
+    @Column(name = "discount")
     private Double discount;
     
-    @Column(name = "image", nullable = false)
+    @Column(name = "image")
     private String image;
     
      

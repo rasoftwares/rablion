@@ -14,27 +14,25 @@ public class Discount extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
-   
-      
-    @Column(name = "startdate", nullable = false)
+	    
+    @Column(name = "startdate")
     private Date startdate;
     
-    @Column(name = "enddate", nullable = false)
+    @Column(name = "enddate")
     private Date enddate;
     
-    @Column(name = "percentage", nullable = false)
+    @Column(name = "percentage")
     private Long percentage;
     
-    @Column(name = "isactive", nullable = false)
-    private String isactive;
+    @Column(name = "isactive")
+    private boolean isactive;
     
     
-    public Discount(){
+	public Discount(){
     }
     
        
-    public Discount(Long id, Date startdate,Date enddate,Long percentage,String isactive,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Discount(Long id, Date startdate,Date enddate,Long percentage,Boolean isactive,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.startdate=startdate;
@@ -87,13 +85,12 @@ public class Discount extends BaseEntity {
 		this.percentage = percentage;
 	}
 
-
-	public String getIsactive() {
+    public boolean isIsactive() {
 		return isactive;
 	}
 
 
-	public void setIsactive(String isactive) {
+	public void setIsactive(boolean isactive) {
 		this.isactive = isactive;
 	}
 }

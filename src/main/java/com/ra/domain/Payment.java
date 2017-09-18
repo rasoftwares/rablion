@@ -15,29 +15,29 @@ public class Payment extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "txnid", nullable = false)
+    @Column(name = "txnid")
     private String txnid;
     
-    @Column(name = "userid", nullable = false)
+    @Column(name = "userid")
     private String userid;
     
-    @Column(name = "orderid", nullable = false)
+    @Column(name = "orderid")
     private String orderid;
     
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private String status;
     
-    @Column(name = "amount", nullable = false)
+    @Column(name = "amount")
     private Long amount;
     
-    @Column(name = "date", nullable = false)
-    private Date date;
+    @Column(name = "paymentdate")
+    private Date paymentDate;
            
     public Payment(){
     }
     
        
-    public Payment(Long id, String txnid,String userid,String orderid,String status,Long amount,Date date,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Payment(Long id, String txnid,String userid,String orderid,String status,Long amount,Date paymentDate,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.txnid=txnid;
@@ -45,7 +45,7 @@ public class Payment extends BaseEntity {
 		this.orderid=orderid;
 		this.status=status;
 		this.amount=amount;
-		this.date=date;
+		this.paymentDate=paymentDate;
 		createdby=createdby;
 		createdtimestamp=createdtimestamp;
 		modifiedby=modifiedby;
@@ -113,12 +113,12 @@ public class Payment extends BaseEntity {
 	}
 
 
-	public Date getDate() {
-		return date;
+	public Date getPaymentDate() {
+		return paymentDate;
 	}
 
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 }

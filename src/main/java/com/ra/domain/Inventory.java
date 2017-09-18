@@ -18,8 +18,8 @@ public class Inventory extends BaseEntity {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "itemtype", nullable = false)
+    private String itemType;
     
     @Column(name = "quantity", nullable = false)
     private Long quantity;
@@ -33,19 +33,19 @@ public class Inventory extends BaseEntity {
     @Column(name = "discount", nullable = false)
     private Long discount;
     
-  
-    
     @Column(name = "image", nullable = false)
     private String image;
-        public Inventory(){
+    
+    public Inventory() {
+    	
     }
     
        
-    public Inventory(Long id, String name,String type,Long quantity,Long alertlimit,Long price,Long discount,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Inventory(Long id, String name,String itemType,Long quantity,Long alertlimit,Long price,Long discount,String image,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.name= name;
-		this.type= type;
+		this.itemType= itemType;
 		this.quantity= quantity;
 		this.alertlimit= alertlimit;
 		this.price=price;
@@ -95,13 +95,13 @@ public class Inventory extends BaseEntity {
 	}
 
 
-	public String getType() {
-		return type;
+	public String getItemType() {
+		return itemType;
 	}
 
 
-	public void setType(String type) {
-		this.type = type;
+	public void setItemType(String itemType) {
+		this.itemType = itemType;
 	}
 
 

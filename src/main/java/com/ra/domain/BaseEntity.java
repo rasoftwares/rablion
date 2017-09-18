@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 
 public class BaseEntity {
+	public String entityName = "";
 	
     @Column(name = "createdby", nullable = false)
     private String createdby;
@@ -28,8 +29,14 @@ public class BaseEntity {
 	
 	public static Logger logger = LogManager.getLogger(BaseEntity.class);
 	
-	public BaseEntity(){
+	public BaseEntity() {
 		
+		init();
+		System.out.println("Creating Entity " + entityName);
+	}
+	
+	public void init(){
+		entityName = this.getClass().getSimpleName();
 	}
 	
 	public String getCreatedby() {
@@ -71,4 +78,9 @@ public class BaseEntity {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.SIMPLE_STYLE);
 		
 	}
+	
+	protected void finalize() throws Throwable {
+		System.out.println("+++++ Object " + entityName +" getting deleted +++++");
+	}
+
 }

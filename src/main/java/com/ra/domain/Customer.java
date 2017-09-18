@@ -14,55 +14,51 @@ public class Customer extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-   
       
-    @Column(name = "customerid", nullable = false)
+    @Column(name = "customerid")
     private String customerid;
     
-    @Column(name = "companyname", nullable = false)
+    @Column(name = "companyname")
     private String companyname;
-    
         
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
     
-   
-    
-    @Column(name = "registrationno", nullable = false)
+    @Column(name = "registrationno")
     private String registrationno;
     
-    @Column(name = "registrationyear", nullable = false)
+    @Column(name = "registrationyear")
     private Date registrationyear;
     
-    @Column(name = "ownername", nullable = false)
+    @Column(name = "ownername")
     private String ownername;
     
-    @Column(name = " photograph", nullable = false)
+    @Column(name = " photograph")
     private String  photograph;
     
-    @Column(name = "shortdescription", nullable = false)    
+    @Column(name = "shortdescription")    
     private String  shortdescription;
     
-    @Column(name = "registredaddress", nullable = false)
+    @Column(name = "registredaddress")
     private String  registredaddress;
     
-    @Column(name = "officeaddress", nullable = false)
+    @Column(name = "officeaddress")
     private String  officeaddress;
     
-    @Column(name = "landlineno", nullable = false)
+    @Column(name = "landlineno")
     private Double  landlineno;
     
-    @Column(name = "mobileno", nullable = false)
+    @Column(name = "mobileno")
     private Double  mobileno;
     
     
-    @Column(name = "emailid", nullable = false)
+    @Column(name = "emailid")
     private String  emailid;
     
-    @Column(name = "website", nullable = false)
+    @Column(name = "website")
     private String  website;
     
-    @Column(name = "aboutcompany", nullable = false)
+    @Column(name = "aboutcompany")
     private String  aboutcompany;
     
     

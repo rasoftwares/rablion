@@ -27,12 +27,13 @@ public class User extends BaseEntity{
     private String usertype;
 	
 	 @Column(name = "loginid", nullable = false)
-	    private String loginid;
+	 private String loginid;
 		
 	 @Column(name = "password", nullable = false)
-	    private String password;
-	  @Column(name = "email")
-	    private String email;
+	 private String password;
+	 
+	 @Column(name = "email")
+	 private String email;
 	  
 
 		

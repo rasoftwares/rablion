@@ -16,60 +16,23 @@ public class Expense extends BaseEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username")
     private String user;
     
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private Date date;
     
-    @Column(name = "amount", nullable = false)
+    @Column(name = "amount")
     private Double amount;
     
-    @Column(name = "currency", nullable = false)
+    @Column(name = "currency")
     private String currency;
     
-    @Column(name = "type", nullable = false)
-    private String type;
+    @Column(name = "expensetype")
+    private String expenseType;
        
     
-    /*@Column(name = "period", insertable = false)
-    private String period;
-    
-   public String getPeriod() {
-		return period;
-	}
-
-	public void setPeriod(String period) {
-		this.period = period;
-	}*/
-
-public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public Double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-	
-	
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public Expense(long l, String string, Date date2, double d, String string2) {
+    public Expense(long l, String string, Date date2, double d, String string2) {
     	
     }
 
@@ -82,25 +45,23 @@ public Date getDate() {
     	
     }
    
-    public Expense(Long id, String user, Date date, Double amount, String type,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Expense(Long id, String user, Date date, Double amount, String expenseType, String createdby, Date createdtimestamp, String modifiedby, Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.user = user;
 		this.date = date;
 		
 		this.amount = amount;
-		this.type = type;
+		this.expenseType = expenseType;
 		createdby=createdby;
 		createdtimestamp=createdtimestamp;
 		modifiedby=modifiedby;
 		modifiedtimestamp=modifiedtimestamp;
 	}
-
-	
+    
 	public Expense(long id, String user) {
         this.id = id;
-        this.user = user;
-        
+        this.user = user;        
     }
 
 	public Long getId() {
@@ -110,7 +71,6 @@ public Date getDate() {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
 	
 	public String getUser() {
 		return user;
@@ -127,4 +87,29 @@ public Date getDate() {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+	
+	public String getExpenseType() {
+		return expenseType;
+	}
+
+	public void setExpeseType(String expenseType) {
+		this.expenseType = expenseType;
+	}
+
+
 }
