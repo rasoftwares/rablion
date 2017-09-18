@@ -276,68 +276,68 @@ select * from inventory
 
 --4.Discount--
 
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
-insert into discount(startdate,enddate,percentage,isactive) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,TRUE);
+insert into discount(startdate,enddate,percentage,active) values ('01-FEB-2016','05-FEB-2016',10,FALSE);
 
 
 --5.Payment--
@@ -370,8 +370,7 @@ insert into payment(txnid,userid,orderid,status,paymentdate,amount,mode) values 
 insert into payment(txnid,userid,orderid,status,paymentdate,amount,mode) values ('ID0021','USR0001','OD0001','orderplaced','Feb-06-2014',10000.00,'CARD');
 
 
-
---6.Customer-->
+--6.Customer--
 
 insert into customer(customerid,companyname,title,registrationno,registrationyear,ownername,photograph,shortdescription,registredaddress,
 officeaddress,landlineno,mobileno,emailid,website,aboutcompany) values('ID0021','rablion','rablion','RA1234','May-06-2015','Rajesh','1.jpg','Software','Kelambakkam','Kelambakkam',12345657890,044123456,'info@rasoftwares.com','www.rablion.com','development');
