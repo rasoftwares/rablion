@@ -50,7 +50,7 @@ public class EntityFactory {
 		Method[] methods = c.getMethods();
 		for (Method method : methods) {
 			logger.trace("Property - setattributes : " + setAttributes);
-			if(setAttributes && method.getName().startsWith("set")) {
+			if(setAttributes && method.getName().startsWith("set") != method.getName().startsWith("setId")) {
 				logger.trace("Invoking Method :" + method.getName() + method.getParameterTypes());
 				method.invoke(o, getParamValues(method.getParameterTypes()));
 			}
@@ -65,7 +65,7 @@ public class EntityFactory {
 	public Object[] getParamValues(Class cls[]) {
 		int index = 0;
 		Object[] retVal = new Object[cls.length];
-		// System.out.println("cls.length" + cls[0]);
+		//System.out.println("cls.length" + cls[0]);
 		for (int i = 0; i < cls.length; i++) {
 			retVal[index++] = getDummyValues(cls[i].getSimpleName());
 		}
@@ -76,7 +76,7 @@ public class EntityFactory {
 		Object retVal = null;
 		switch (type) {
 		case "String":
-			retVal = new String("\"\"");
+			retVal = new String("");
 			break;
 		case "Long":
 			retVal = new Long(1L);
@@ -84,6 +84,9 @@ public class EntityFactory {
 		case "Double":
 			retVal = new Double(1D);
 			break;
+		case "boolean":
+			retVal = false;
+			break;	
 		case "Date":
 			retVal = new Date(System.currentTimeMillis());
 			break;
