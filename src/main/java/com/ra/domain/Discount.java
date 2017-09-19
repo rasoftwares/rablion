@@ -24,37 +24,34 @@ public class Discount extends BaseEntity {
     @Column(name = "percentage")
     private Long percentage;
     
-    @Column(name = "isactive")
-    private boolean isactive;
+    @Column(name = "active")
+    private boolean active;
     
     
 	public Discount(){
     }
     
        
-    public Discount(Long id, Date startdate,Date enddate,Long percentage,Boolean isactive,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+    public Discount(Long id, Date startdate,Date enddate,Long percentage,boolean active,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 		super();
 		this.id = id;
 		this.startdate=startdate;
 		this.enddate=enddate;
 		this.percentage=percentage;
-		this.isactive=isactive;
+		this.active=active;
 		createdby=createdby;
 		createdtimestamp=createdtimestamp;
 		modifiedby=modifiedby;
 		modifiedtimestamp=modifiedtimestamp;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public Date getStartdate() {
 		return startdate;
@@ -65,32 +62,27 @@ public class Discount extends BaseEntity {
 		this.startdate = startdate;
 	}
 
-
 	public Date getEnddate() {
 		return enddate;
 	}
-
 
 	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
 
-
 	public Long getPercentage() {
 		return percentage;
 	}
 
-
 	public void setPercentage(Long percentage) {
 		this.percentage = percentage;
 	}
-
-    public boolean isIsactive() {
-		return isactive;
+	
+	public boolean isActive() {
+		return active;
 	}
-
-
-	public void setIsactive(boolean isactive) {
-		this.isactive = isactive;
+	
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 }

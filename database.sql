@@ -47,7 +47,7 @@ create table discount(
 	startdate date,
 	enddate date,
 	percentage numeric(10),
-	isactive boolean,
+	active boolean,
 	createdby varchar(60),
 	createdtimestamp date,
 	modifiedby varchar(60),
