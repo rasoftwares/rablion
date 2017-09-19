@@ -30,9 +30,10 @@ public class DiscountControllerIntegrationTests extends BaseControllerIntegratio
     	System.out.println("discount :" + discount.length ) ; 
     	if(discount != null) {
     		//TODO: Need to fix the bug here. It should be only one discount entry, but the discount length is showing as two.  
-    		Assert.assertEquals("Total discount Found ", 2, discount.length);
+    		Assert.assertEquals("Total discount Found ", 1, discount.length);
     		Assert.assertNotNull(discount);
-    		Assertions.assertThat(discount.length).isEqualTo(2);
+    		
+    		Assertions.assertThat(discount.length).isEqualTo(1);
     	}
     	else {
     		Assertions.assertThat(discount).isNull();
