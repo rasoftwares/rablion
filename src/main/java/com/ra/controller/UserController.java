@@ -36,17 +36,16 @@ public class UserController extends BaseController {
   @RequestMapping(value = "/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public User create(@RequestBody User user) {
     	logger.debug("User from UI :" + user + ":");
-    	
     	//Lifecycle method to add who columns save
     	updateWHOColumns(user);
-    	
     	return userRepository.save(user);
     }
     
   @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
   public void deleteUser(@PathVariable Long id) {
       userRepository.delete(id);
-      System.out.println("User item " + id  + "deleted successfully");
+      logger.debug("User item " + id  + "deleted successfully");
+      
   }
     
     
@@ -64,6 +63,7 @@ public class UserController extends BaseController {
 		}      
         return resultList;
     }
+    
     
    /* @RequestMapping(value = "/amountSpent", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public HashMap<String, AmountSpent> amountSpent(@RequestParam String username) {
