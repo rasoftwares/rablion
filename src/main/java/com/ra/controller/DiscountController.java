@@ -39,7 +39,7 @@ public class DiscountController extends BaseController {
     DiscountRepository discountRepository;
     
     @RequestMapping(value = "/discount", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Discount creaet(@RequestBody Discount discount) {
+    public Discount create(@RequestBody Discount discount) {
     	logger.debug("Discount from UI :" + discount+ ":");
     	//Lifecycle method to add who columns save
      	updateWHOColumns(discount);
