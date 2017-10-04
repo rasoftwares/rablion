@@ -13,10 +13,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.ra.domain.User;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class UserControllerIntegrationTests extends BaseControllerIntegrationTests{
+public class UserControllerIntegrationTests extends BaseControllerIntegrationTests {
+	
+	Class cls = User.class;
+	
 	@Test
 	public void create() {
-		User response = (User) create(entity, POST, User.class);
+		User response_2 = (User) create(entity, POST, cls);
+		
+		User response = (User) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -36,6 +41,11 @@ public class UserControllerIntegrationTests extends BaseControllerIntegrationTes
     		Assertions.assertThat(user).isNull();
     	}
     }
+    
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {

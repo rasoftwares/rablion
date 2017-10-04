@@ -30,6 +30,8 @@ public class BaseControllerIntegrationTests {
 
 	String POST = "POST";
 	String GET = "GET";
+	String DELETE = "DELETE";
+	String UPDATE = "UPDATE";
 
 	@LocalServerPort
 	private int port;
@@ -74,4 +76,20 @@ public class BaseControllerIntegrationTests {
 		Assert.assertNotNull(response);
 		return response;
 	}
+	
+	public void delete(String entityName, String methodName, Class obj) {
+		boolean flag = false;
+		
+		//Always delete the second entry that gets created during the test scenario.
+
+		if (methodName.equals(DELETE)) {
+			//System.out.println("Deleting object " + entityName + ":" + client.apiUrl(entityName) + "/" + "2");
+			client.template().delete(client.apiUrl(entityName) + "/" + "2");
+			flag = true;
+		}
+		
+		Assert.assertTrue( entityName + " deleted Successfully", flag == true);
+		
+	}
+	
 }
