@@ -10,14 +10,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ra.domain.Catalog;
+import com.ra.domain.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CatalogControllerIntegrationTests extends BaseControllerIntegrationTests {
+	Class cls = Catalog.class;
 	
 	@Test
 	public void create() {
-		Catalog response = (Catalog) create(entity, POST, Catalog.class);
+		Catalog response = (Catalog) create(entity, POST, cls);
+		Catalog response_2 = (Catalog) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -37,6 +40,11 @@ public class CatalogControllerIntegrationTests extends BaseControllerIntegration
     		Assertions.assertThat(catalog).isNull();
     	}
     }
+    
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {

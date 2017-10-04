@@ -14,9 +14,12 @@ import com.ra.domain.Payment;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class PaymentControllerIntegrationTests extends BaseControllerIntegrationTests{
+	
+	Class cls = Payment.class;
 	@Test
 	public void create() {
-		Payment response = (Payment) create(entity, POST, Payment.class);
+		Payment response = (Payment) create(entity, POST, cls);
+		Payment response_2 = (Payment) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -36,6 +39,11 @@ public class PaymentControllerIntegrationTests extends BaseControllerIntegration
     		Assertions.assertThat(payment).isNull();
     	}
     }
+   
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {

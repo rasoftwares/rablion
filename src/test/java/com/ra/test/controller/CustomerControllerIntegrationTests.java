@@ -15,9 +15,12 @@ import com.ra.domain.Customer;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CustomerControllerIntegrationTests extends BaseControllerIntegrationTests{
+	Class cls = Customer.class;
+	
 	@Test
 	public void create() {
-		Customer response = (Customer) create(entity, POST, Customer.class);
+		Customer response = (Customer) create(entity, POST, cls);
+		Customer response_2 = (Customer) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -37,6 +40,11 @@ public class CustomerControllerIntegrationTests extends BaseControllerIntegratio
     		Assertions.assertThat(customer).isNull();
     	}
     }
+    
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {

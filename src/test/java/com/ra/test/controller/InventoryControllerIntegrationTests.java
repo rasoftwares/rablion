@@ -15,9 +15,11 @@ import com.ra.domain.Inventory;
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class InventoryControllerIntegrationTests extends BaseControllerIntegrationTests {
 	
+	Class cls = Inventory.class;
 	@Test
 	public void create() {
-		Inventory response = (Inventory) create(entity, POST, Inventory.class);
+		Inventory response = (Inventory) create(entity, POST, cls);
+		Inventory response_2 = (Inventory) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -38,6 +40,10 @@ public class InventoryControllerIntegrationTests extends BaseControllerIntegrati
     	}
     }
     
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
 	@Before
 	public void setup() {
 		entity = "inventory";

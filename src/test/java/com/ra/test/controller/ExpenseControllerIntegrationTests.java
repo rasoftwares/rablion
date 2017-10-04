@@ -15,9 +15,11 @@ import com.ra.domain.Expense;
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ExpenseControllerIntegrationTests extends BaseControllerIntegrationTests {
 	
+	Class cls = Expense.class;
 	@Test
 	public void create() {
-		Expense response = (Expense) create(entity, POST, Expense.class);
+		Expense response = (Expense) create(entity, POST, cls);
+		Expense response_2 = (Expense) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -37,6 +39,12 @@ public class ExpenseControllerIntegrationTests extends BaseControllerIntegration
     		Assertions.assertThat(expense).isNull();
     	}
     }
+    
+    @Test
+   	public void delete() {
+   		delete(entity, DELETE, cls);
+   	}
+       
     
 	@Before
 	public void setup() {

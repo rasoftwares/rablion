@@ -13,12 +13,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ra.domain.Currency;
+import com.ra.domain.User;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CurrencyControllerIntegrationTests extends BaseControllerIntegrationTests{
+	Class cls = Currency.class;
 	@Test
 	public void create() {
-		Currency response = (Currency) create(entity, POST, Currency.class);
+		Currency response = (Currency) create(entity, POST, cls);
+		Currency response_2 = (Currency) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -38,6 +41,11 @@ public class CurrencyControllerIntegrationTests extends BaseControllerIntegratio
     		Assertions.assertThat(currency).isNull();
     	}
     }
+    
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {

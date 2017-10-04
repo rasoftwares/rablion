@@ -15,9 +15,11 @@ import com.ra.domain.Discount;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class DiscountControllerIntegrationTests extends BaseControllerIntegrationTests{
+	Class cls = Discount.class;
 	@Test
 	public void create() {
-		Discount response = (Discount) create(entity, POST, Discount.class);
+		Discount response = (Discount) create(entity, POST, cls);
+		Discount response_2 = (Discount) create(entity, POST, cls);
 		Assert.assertNotNull(response);
 	}
 	
@@ -39,6 +41,11 @@ public class DiscountControllerIntegrationTests extends BaseControllerIntegratio
     		Assertions.assertThat(discount).isNull();
     	}
     }
+    
+    @Test
+	public void delete() {
+		delete(entity, DELETE, cls);
+	}
     
 	@Before
 	public void setup() {
