@@ -1,17 +1,19 @@
 --drop table appuser--
 
+  
 CREATE TABLE appuser( 
-	id SERIAL PRIMARY KEY,
+	id SERIAL,
 	username varchar(255), 
-	usertype varchar (25),
+	usertype varchar (25) NOT NULL,
 	loginid varchar(60),
 	password varchar(60),
 	email varchar(60),
+    enabled  BOOLEAN NOT NULL DEFAULT '1',
 	createdby varchar(60),
 	createdtimestamp date,
 	modifiedby varchar(60), 
-	modifiedtimestamp date
-);
+	modifiedtimestamp date,
+    PRIMARY KEY (username));
 
 --drop table currency
 CREATE TABLE currency(
