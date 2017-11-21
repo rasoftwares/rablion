@@ -35,10 +35,12 @@ public class User extends BaseEntity{
 	 @Column(name = "email")
 	 private String email;
 	  
+	 @Column(name = "enabled")
+	 private String enabled;
 
 		
 	  public User(Long id, String username, String usertype, 
-				String loginid, String password, String email,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
+				String loginid, String password, String email,String enabled,String createdby,Date createdtimestamp,String modifiedby,Date modifiedtimestamp) {
 			super();
 			this.id = id;
 			this.username = username;
@@ -46,6 +48,7 @@ public class User extends BaseEntity{
 			this.loginid = loginid;
 			this.password = password;
 			this.email =email;
+			this.enabled=enabled;
 			createdby=createdby;
 			createdtimestamp=createdtimestamp;
 			modifiedby=modifiedby;
