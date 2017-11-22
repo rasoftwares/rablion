@@ -1,7 +1,7 @@
 package com.ra.config;
 
 import javax.sql.DataSource;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@EnableAutoConfiguration
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter 
 {
@@ -19,16 +19,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
  
 	
 	@Autowired
-	/*public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+	 public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("robin").password("password").roles("USER");
 		auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");
 		auth.inMemoryAuthentication().withUser("rablion").password("password").roles("USER");
-	}*/
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+	}
+	/* public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasource)
 		.usersByUsernameQuery("select username,password, enabled from appuser where username=?")
 		.authoritiesByUsernameQuery("select username,usertype from appuser where username=?");
-	}
+	}*/
 	
 	
 	@Override
