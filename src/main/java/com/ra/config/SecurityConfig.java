@@ -19,18 +19,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
  
 	
 	@Autowired
-	 public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("robin").password("password").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");
-		auth.inMemoryAuthentication().withUser("rablion").password("password").roles("USER");
-	}
-	/* public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+	 public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {		
+		auth.inMemoryAuthentication().withUser("admin").password("password").roles("USER");	
+		}
+	
+	@Autowired
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasource)
 		.usersByUsernameQuery("select username,password, enabled from appuser where username=?")
 		.authoritiesByUsernameQuery("select username,usertype from appuser where username=?");
-	}*/
-	
-	
+	}
+		
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
