@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasource)
-		.usersByUsernameQuery("select username,password, enabled from appuser where username=?")
+		.usersByUsernameQuery("select username,password,enabled from appuser where username=?")
 		.authoritiesByUsernameQuery("select username,usertype from appuser where username=?");
 	}
 		
@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		
-		http
+		/*http
 			.authorizeRequests()
 				.anyRequest().authenticated()
 				.and()
@@ -45,15 +45,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 					.loginPage("/login")
 					.permitAll()
 				.and()
-			.csrf().disable();
+			.csrf().disable();*/
 		
 		
-		/*http
+		http
 			.authorizeRequests()
 				.antMatchers("/", "/home").permitAll()
 				.anyRequest().authenticated().antMatchers("/rest/**").permitAll()
 				.and().formLogin().loginPage("/login").permitAll().and().logout()
-				.permitAll();*/
+				.permitAll()
+		        .and()
+		        .csrf().disable();
 				
 	
 }
