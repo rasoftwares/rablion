@@ -11,15 +11,17 @@
               
     </head>    
     <body>   
-    
+ 
    <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">     
           <h1><p class="navbar-text">Rablion Softwares</p></h1>
+          
         </div> 
   </div>  
   </nav>   
+
     
     <div class="container">
     <div class="row" style="margin-top:25px">
@@ -47,19 +49,20 @@
                                placeholder="Password" required="true"/>
                     </div>
 
-                    <div class="from-group">
+                    <div class="from-group">                                     
                          <input type="submit" class="btn btn-primary" value="Sign In"/>
-                         <input type="button" class=" btn btn-success" value="Register"/>
+                        <a class="btn btn-success" th:href="@{/register}">Register</a>  
                           <input type="button" class=" btn btn-danger" value="Forget Password"/>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
+              
                         </div>          
                 </fieldset>
             </form>
-        </div>
+           </div>                     
+          
     </div>
-
-</div>
+    </div>
 <div>
 <!-- img src="/resoures/images/LogoColorTextBelow.jpg" height="100"  width="100" /-->
 </div>
