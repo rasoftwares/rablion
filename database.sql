@@ -4,7 +4,7 @@
 CREATE TABLE appuser( 
 	id SERIAL,
 	username varchar(255), 
-	usertype varchar (25) NOT NULL,
+	usertype varchar (25) NOT NULL DEFAULT 'USER',
 	loginid varchar(60),
 	password varchar(60),
 	email varchar(60),
@@ -13,7 +13,7 @@ CREATE TABLE appuser(
 	createdtimestamp date,
 	modifiedby varchar(60), 
 	modifiedtimestamp date,
-    PRIMARY KEY (username));
+    PRIMARY KEY (email));
 
 --drop table currency
 CREATE TABLE currency(
