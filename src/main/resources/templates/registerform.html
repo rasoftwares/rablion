@@ -18,11 +18,13 @@
         </div> 
   </div>  
   </nav>  
+  	
+	  <center><h4>New User Registration</h4></center>
 	
 	<div class="container">
     <div class="row" style="margin-top:25px">
         <div class="col-xs-8 col-sm-6 col-md-4 col-sm-offset-2 col-md-offset-4">
-   
+     
          <form action="#" th:action="@{/registerform}" th:object="${register}" method="post">
           <fieldset>
                <div class="form-group">
@@ -38,6 +40,7 @@
                     <div class="from-group">                                     
                          <input type="submit" class="btn btn-primary" value="Register"/>
                          <input type="Reset" class=" btn btn-danger" value="Reset"/>
+                          <a class="btn btn-success" th:href="@{/login}">Login</a>  
                         </div>
                 </fieldset>
             </form>
