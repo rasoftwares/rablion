@@ -33,6 +33,9 @@ public class RegisterController {
     public String customerSubmit(@ModelAttribute Register register, Model model) {
     	
         model.addAttribute("register", register);
+        String info = String.format("Customer Submission: id = %d, firstname = %s, lastname = %s", 
+        								register.getId(), register.getUsername(), register.getPassword(),register.getEmail());
+        log.info(info);
         registerRepository.save(register);
                 
         return "result";
