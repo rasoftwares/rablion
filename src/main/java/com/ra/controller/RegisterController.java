@@ -1,5 +1,7 @@
 package com.ra.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +33,11 @@ public class RegisterController {
     public String customerSubmit(@ModelAttribute Register register, Model model) {
     	
         model.addAttribute("register", register);
-        String info = String.format("Customer Submission: id = %d, firstname = %s, lastname = %s", 
-        								register.getId(), register.getUsername(), register.getPassword(),register.getEmail());
-        log.info(info);
-       registerRepository.save(register);
+        registerRepository.save(register);
                 
         return "result";
     }
     
- 
+
     
 }
